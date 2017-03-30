@@ -86,6 +86,7 @@ public class Usuari {
         System.out.println("confirmacio contrasenya?");
         passwordaux2 = sc.nextLine();
 
+        // Fins que el format no es correcte segueix demanant dades
         while (comprovaDades( loginaux, correuaux, passwordaux, passwordaux2)){
 
             System.out.println("Nom Usuari?");
