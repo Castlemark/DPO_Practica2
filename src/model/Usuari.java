@@ -40,6 +40,28 @@ public class Usuari {
     }
 
     private boolean comprovaDades(String nomUsuari, String correu, String contrasenya, String confirmacioContra){
+        if(nomUsuari.isEmpty()){
+            return false;
+        }
+        if(correu.isEmpty()){
+            return false;
+        }else{
+            int j = 0;
+            for (int i = 0; i < correu.length(); i++){
+                switch(correu.charAt(i)){
+                    case ' ':
+                        return false;
+                    case '@':
+                        j = i;
+                        if(i == 0 && j != 0) return false;
+                    case '.':
+                        if(!(j < i && j != 0 && correu.length() > j)) return false;
+                }
+            }
+        }
+        if(contrasenya.isEmpty()) return false;
+        if(confirmacioContra.isEmpty()) return false;
+        if(contrasenya.equals(confirmacioContra)) return true;
         return true;
     }
 
