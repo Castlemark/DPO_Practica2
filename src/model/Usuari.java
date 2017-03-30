@@ -47,6 +47,7 @@ public class Usuari {
         }
         if(correu.isEmpty()){
             return false;
+
         }else{
             int j = 0;
             for (int i = 0; i < correu.length(); i++){
