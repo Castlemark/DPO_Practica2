@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Scanner;
+
 /**
  * Created by Propietario on 30/03/2017.
  */
@@ -39,19 +41,52 @@ public class Usuari {
         return password;
     }
 
-    private boolean comprovaDades(String nomUsuari, String correu, String contrasenya, String confirmacioContra){
+    public boolean comprovaDades(String nomUsuari, String correu, String contrasenya, String confirmacioContra){
         return true;
     }
 
-    private boolean registreUsuari(String nomUsuari, String correu, String contrasenya){
+    public boolean registreUsuari(){
+
+        Scanner sc = new Scanner(System.in);
+        String loginaux;
+        String correuaux;
+        String passwordaux;
+        String passwordaux2;
+
+
+        System.out.println("Nom Usuari?");
+        loginaux = sc.nextLine();
+        System.out.println("Mail?");
+        correuaux = sc.nextLine();
+        System.out.println("contrasenya?");
+        passwordaux = sc.nextLine();
+        System.out.println("confirmacio contrasenya?");
+        passwordaux2 = sc.nextLine();
+
+        while (!comprovaDades( loginaux, correuaux, passwordaux, passwordaux2)){
+
+            System.out.println("Nom Usuari?");
+            loginaux = sc.nextLine();
+            System.out.println("Mail?");
+            correuaux = sc.nextLine();
+            System.out.println("contrasenya?");
+            passwordaux = sc.nextLine();
+            System.out.println("confirmacio contrasenya?");
+            passwordaux2 = sc.nextLine();
+        }
+
+        login = loginaux;
+        mail = correuaux;
+        password = passwordaux;
+
         return true;
     }
 
-    private boolean iniciarSessio(String nomUsuariCorreu, String contrasenya){
+    public boolean iniciarSessio(String nomUsuariCorreu, String contrasenya){
         return true;
     }
 
-    private boolean tancarSessio(){
+    public boolean tancarSessio(){
         return true;
     }
 }
