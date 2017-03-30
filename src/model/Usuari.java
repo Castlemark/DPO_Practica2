@@ -65,7 +65,7 @@ public class Usuari {
         if(contrasenya.isEmpty()) return false;
         if(confirmacioContra.isEmpty()) return false;
         if(contrasenya.equals(confirmacioContra)) return true;
-        return true;
+        return false;
     }
 
     public boolean registreUsuari(){
@@ -86,7 +86,7 @@ public class Usuari {
         System.out.println("confirmacio contrasenya?");
         passwordaux2 = sc.nextLine();
 
-        while (!comprovaDades( loginaux, correuaux, passwordaux, passwordaux2)){
+        while (comprovaDades( loginaux, correuaux, passwordaux, passwordaux2)){
 
             System.out.println("Nom Usuari?");
             loginaux = sc.nextLine();
