@@ -41,6 +41,8 @@ public class Usuari {
         return password;
     }
 
+    //Aquesta funció comprova que les dades omplertes per l'usuari tinguin informació i un format correcte
+    //Si alguna dada no compleix les condicions, retorna fals
     public boolean comprovaDades(String nomUsuari, String correu, String contrasenya, String confirmacioContra){
         if(nomUsuari.isEmpty()){
             return false;
@@ -49,22 +51,58 @@ public class Usuari {
             return false;
 
         }else{
-            int j = 0;
+            /*comprovem el format del correu mirant lletra per lletra:
+              - ha de tenir només una arrova
+              - ha de tenir almenys un punt després de l'arrova i aquest no pot estar just després ni al final
+              - no pot tenir espais
+             */
+            int arrova = 0;
+            boolean hiHaPunt = false;
             for (int i = 0; i < correu.length(); i++){
                 switch(correu.charAt(i)){
                     case ' ':
                         return false;
                     case '@':
-                        j = i;
-                        if(i == 0 && j != 0) return false;
+                        if(i == 0 || arrova != 0 || i > correu.length() - 1) {return false;}
+                        arrova = i;
+                        break;
                     case '.':
-                        if(!(j < i && j != 0 && correu.length() > j)) return false;
+                        if(arrova != 0){
+                            hiHaPunt = true;
+                            if(arrova == i - 1 || i + 1 == correu.length()){return false;}
+                        }
+                        break;
                 }
             }
+            if (arrova == 0 || !hiHaPunt){return false;}
         }
-        if(contrasenya.isEmpty()) return false;
-        if(confirmacioContra.isEmpty()) return false;
-        if(contrasenya.equals(confirmacioContra)) return true;
+        /*comprovem el format de la contrasenya mirant lletra per lletra:
+            - ha de tenir almenys una minúsucla, una majúsucula i un número
+            - ha de tenir mínim 6 lletres
+         */
+        if(contrasenya.isEmpty()){
+            return false;
+        }else {
+            boolean hiHaMaj = false;
+            boolean hiHaMin = false;
+            boolean hiHaNum = false;
+            for(int i = 0; i < contrasenya.length(); i++){
+
+                if(contrasenya.charAt(i) >= 'a' && contrasenya.charAt(i) <= 'z'){
+                    hiHaMin = true;
+                }
+                if(contrasenya.charAt(i) >= 'A' && contrasenya.charAt(i) <= 'Z'){
+                    hiHaMaj = true;
+                }
+                if(contrasenya.charAt(i) >= '0' && contrasenya.charAt(i) <= '9'){
+                    hiHaNum = true;
+                }
+                if(!(hiHaMaj && hiHaMin && hiHaNum && contrasenya.length() >= 6)){return false;}
+            }
+        }
+        if(confirmacioContra.isEmpty()) {return false;}
+        if(contrasenya.equals(confirmacioContra)) {return true;}
+        //Si totes les dades són correctes arribem aquí i retorna cert
         return false;
     }
 
@@ -86,7 +124,8 @@ public class Usuari {
         System.out.println("confirmacio contrasenya?");
         passwordaux2 = sc.nextLine();
 
-        while (comprovaDades( loginaux, correuaux, passwordaux, passwordaux2)){
+        while (!comprovaDades( loginaux, correuaux, passwordaux, passwordaux2)){
+
 
             System.out.println("Nom Usuari?");
             loginaux = sc.nextLine();
