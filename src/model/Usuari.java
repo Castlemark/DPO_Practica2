@@ -88,17 +88,18 @@ public class Usuari {
             boolean hiHaNum = false;
             for(int i = 0; i < contrasenya.length(); i++){
 
-                if(contrasenya.charAt(i) >= 'a' && contrasenya.charAt(i) <= 'z'){
+                if(Character.isLowerCase(contrasenya.charAt(i))){
                     hiHaMin = true;
                 }
-                if(contrasenya.charAt(i) >= 'A' && contrasenya.charAt(i) <= 'Z'){
+                if(Character.isUpperCase(contrasenya.charAt(i))){
                     hiHaMaj = true;
                 }
-                if(contrasenya.charAt(i) >= '0' && contrasenya.charAt(i) <= '9'){
+                if(Character.isDigit(contrasenya.charAt(i))) {
                     hiHaNum = true;
                 }
-                if(!(hiHaMaj && hiHaMin && hiHaNum && contrasenya.length() >= 6)){return false;}
             }
+            //Mirem si s'han complert les condicions de la contrasenya
+            if(!(hiHaMaj && hiHaMin && hiHaNum && contrasenya.length() >= 6)){return false;}
         }
         if(confirmacioContra.isEmpty()) {return false;}
         if(contrasenya.equals(confirmacioContra)) {return true;}
