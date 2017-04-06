@@ -13,4 +13,8 @@ public class Partida {
     public void setSerps(Serp[] serps) {
         this.serps = serps;
     }
+
+    public boolean comprovaColisio (){
+        return true;
+    }
 }
