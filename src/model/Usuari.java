@@ -3,7 +3,9 @@ package model;
 import java.util.Scanner;
 
 /**
- * Created by Propietario on 30/03/2017.
+ * Classe de l'usuari en el model del client
+ *
+ * Created by Grup 6 on 30/03/2017.
  */
 public class Usuari {
     private String login;
@@ -41,8 +43,16 @@ public class Usuari {
         return password;
     }
 
-    //Aquesta funció comprova que les dades omplertes per l'usuari tinguin informació i un format correcte
-    //Si alguna dada no compleix les condicions, retorna fals
+    /**
+     * Aquesta funció comprova que les dades omplertes per l'usuari tinguin informació i un format correcte
+     *
+     * @param nomUsuari
+     * @param correu
+     * @param contrasenya
+     * @param confirmacioContra
+     * @return Si alguna dada no compleix les condicions, retorna fals
+     */
+
     public boolean comprovaDades(String nomUsuari, String correu, String contrasenya, String confirmacioContra){
         if(nomUsuari.isEmpty()){
             return false;
@@ -107,6 +117,10 @@ public class Usuari {
         return false;
     }
 
+    /**
+     * Aquesta funció s'ocupa de registar un nou usuari
+     * @return cert si s'ha executatambèxit
+     */
     public boolean registreUsuari(){
 
         Scanner sc = new Scanner(System.in);
@@ -145,6 +159,12 @@ public class Usuari {
         return true;
     }
 
+    /**
+     * Mètode iniciar sessio
+     * @param nomUsuariCorreu
+     * @param contrasenya
+     * @return
+     */
     public boolean iniciarSessio(String nomUsuariCorreu, String contrasenya){
         return true;
     }

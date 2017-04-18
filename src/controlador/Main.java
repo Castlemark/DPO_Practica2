@@ -3,7 +3,8 @@ package controlador;
 import model.Usuari;
 
 /**
- * Created by Marc on 15/03/2017.
+ * Main del controlador del Client del Troner
+ * Created by Grup 6 on 15/03/2017.
  */
 public class Main {
     public static void main (String[] args){
