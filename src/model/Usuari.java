@@ -169,6 +169,10 @@ public class Usuari {
         return true;
     }
 
+    /**
+     * Mètode per tancar la sessió
+     * @return
+     */
     public boolean tancarSessio(){
         return true;
     }
