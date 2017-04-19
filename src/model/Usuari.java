@@ -170,6 +170,10 @@ public class Usuari implements Serializable{
         return true;
     }
 
+    /**
+     * Mètode per tancar la sessió
+     * @return
+     */
     public boolean tancarSessio(){
         return true;
     }

@@ -1,7 +1,9 @@
 package model;
 
 /**
- * Created by Propietario on 06/04/2017.
+ * Classe que s'encarrega de guardar les posicions X i Y de la serp.
+ *
+ * Created by Grup 6 on 06/04/2017.
  */
 public class Posicio {
     private float x;
