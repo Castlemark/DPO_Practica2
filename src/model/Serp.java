@@ -1,12 +1,14 @@
 package model;
 
+import java.io.Serializable;
+
 /**
  * Classe Serp del model del client
  *
  * És la classe de les serps, guarda la seva posició...
  * Created by Grup 6 on 06/04/2017.
  */
-public class Serp {
+public class Serp implements Serializable{
     private Posicio [] posicions;
 
     /**

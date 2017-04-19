@@ -1,5 +1,6 @@
 package model;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 /**
@@ -7,7 +8,7 @@ import java.util.Scanner;
  *
  * Created by Grup 6 on 30/03/2017.
  */
-public class Usuari {
+public class Usuari implements Serializable{
     private String login;
     private String mail;
     private String password;
