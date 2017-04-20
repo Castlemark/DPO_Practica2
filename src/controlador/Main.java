@@ -1,7 +1,11 @@
 package controlador;
 
+import Vista.Configuracio;
+import Vista.Registre;
+import Vista.VistaClient;
 import model.Usuari;
 
+import javax.swing.*;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.Socket;
@@ -13,7 +17,7 @@ import java.util.Scanner;
  */
 public class Main {
     public static void main (String[] args){
-        Usuari u = new Usuari();
+       /* Usuari u = new Usuari();
         u.registreUsuari();
         try{
             Scanner sc = new Scanner(System.in);
@@ -34,6 +38,16 @@ public class Main {
             sServer.close();
         }catch (Exception e){
             e.printStackTrace();
-        }
+        }*/
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                /*VistaServidor vista = new VistaServidor();
+                vista.setVisible(true);*/
+
+                Registre vista = new Registre ();
+                vista.setVisible(true);
+            }
+        });
     }
 }
