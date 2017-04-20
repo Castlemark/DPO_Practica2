@@ -6,7 +6,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.Socket;
 import java.util.Scanner;
-
+import java.awt.event.KeyEvent;
 /**
  * Main del controlador del Client del Troner
  * Created by Grup 6 on 15/03/2017.

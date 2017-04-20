@@ -1,5 +1,7 @@
 package model;
 
+import java.io.Serializable;
+
 /**
  * Classe partida del model del Client.
  *
@@ -7,7 +9,7 @@ package model;
  *
  * Created by Grup 6 on 06/04/2017.
  */
-public class Partida {
+public class Partida implements Serializable{
     private Serp [] serps;
 
     /**

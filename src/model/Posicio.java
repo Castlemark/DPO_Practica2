@@ -1,11 +1,13 @@
 package model;
 
+import java.io.Serializable;
+
 /**
  * Classe que s'encarrega de guardar les posicions X i Y de la serp.
  *
  * Created by Grup 6 on 06/04/2017.
  */
-public class Posicio {
+public class Posicio implements Serializable {
     private float x;
     private float y;
     public Posicio(){
