@@ -20,37 +20,37 @@ public class IniciarSessio extends JFrame {
     private JButton jbIniciar;
 
     public IniciarSessio () {
-       /* this.setTitle ("Configuració");
+        this.setTitle ("Iniciar Sessió");
         this.setSize (350,350);
         this.setResizable(true);
 
-        jpConfiguracio = new JPanel();
+        jpIniciar = new JPanel();
         jpAtras = new JPanel(new BorderLayout());
-        jpPort = new JPanel(new BorderLayout());
-        jpIP = new JPanel(new BorderLayout());
+        jpID = new JPanel(new BorderLayout());
+        jpPassword = new JPanel(new BorderLayout());
 
         jbAtras = new JButton("<-");
-        jlTitle = new JLabel("            Configuració");
-        jlPort = new JLabel("Port         ");
-        jtPort = new JTextField();
-        jlIP = new JLabel("IP Servidor      ");
-        jtIP = new JTextField();
+        jlTitle = new JLabel("            Iniciar Sessió");
+        jlID = new JLabel("ID         ");
+        jtID = new JTextField();
+        jlPassword = new JLabel("Password      ");
+        jtPassword = new JTextField();
         jbIniciar = new JButton("Iniciar");
 
 
-        jpConfiguracio.setLayout(new GridLayout(4,1));
+        jpIniciar.setLayout(new GridLayout(4,1));
         jpAtras.add (jbAtras, BorderLayout.LINE_START);
         jpAtras.add (jlTitle, BorderLayout.CENTER);
-        jpIP.add(jlIP, BorderLayout.LINE_START);
-        jpIP.add(jtIP, BorderLayout.CENTER);
-        jpPort.add (jlPort, BorderLayout.LINE_START);
-        jpPort.add (jtPort, BorderLayout.CENTER);
+        jpID.add(jlID, BorderLayout.LINE_START);
+        jpID.add(jtID, BorderLayout.CENTER);
+        jpPassword.add (jlPassword, BorderLayout.LINE_START);
+        jpPassword.add (jtPassword, BorderLayout.CENTER);
 
-        jpConfiguracio.add(jpAtras, BorderLayout.CENTER);
-        jpConfiguracio.add(jpIP);
-        jpConfiguracio.add(jpPort);
-        jpConfiguracio.add(jbIniciar, BorderLayout.LINE_END);
+        jpIniciar.add(jpAtras, BorderLayout.CENTER);
+        jpIniciar.add(jpID);
+        jpIniciar.add(jpPassword);
+        jpIniciar.add(jbIniciar, BorderLayout.LINE_END);
 
-        this.getContentPane().add(jpConfiguracio,BorderLayout.PAGE_START);*/
+        this.getContentPane().add(jpIniciar,BorderLayout.PAGE_START);
     }
 }
