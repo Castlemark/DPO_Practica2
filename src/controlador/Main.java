@@ -1,6 +1,7 @@
 package controlador;
 
 import Vista.Configuracio;
+import Vista.IniciarSessio;
 import Vista.Registre;
 import Vista.VistaClient;
 import model.Usuari;
@@ -45,7 +46,7 @@ public class Main {
                 /*VistaServidor vista = new VistaServidor();
                 vista.setVisible(true);*/
 
-                Registre vista = new Registre ();
+                IniciarSessio vista = new IniciarSessio();
                 vista.setVisible(true);
             }
         });
