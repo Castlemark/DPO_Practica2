@@ -1,0 +1,35 @@
+package controlador;
+
+import model.Client;
+import model.Usuari;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+/**
+ * Created by Propietario on 24/04/2017.
+ */
+public class Controlador implements ActionListener {
+    private Vista.Registre vistaRegistre;
+    private Client model;
+
+    public Controlador(Vista.Registre vistaRegistre, Client model){
+        this.vistaRegistre = vistaRegistre;
+        this.model = model;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        switch (e.getActionCommand()) {
+            case "ENVIAR":
+                Usuari usuariAux = new Usuari();
+                if(usuariAux.comprovaDades(vistaRegistre.getLogin(), vistaRegistre.getMail(), vistaRegistre.getPassword(), vistaRegistre.getConfirmacio())){
+                    model.setUsuari(usuariAux = new Usuari(vistaRegistre.getLogin(), vistaRegistre.getMail(), vistaRegistre.getPassword()));
+                    System.out.println("OK");
+                }else{
+                    System.out.println("Error de dades");
+                }
+                break;
+        }
+    }
+}

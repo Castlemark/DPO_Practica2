@@ -4,9 +4,11 @@ import Vista.Configuracio;
 import Vista.IniciarSessio;
 import Vista.Registre;
 import Vista.VistaClient;
+import model.Client;
 import model.Usuari;
 
 import javax.swing.*;
+import javax.swing.event.CaretListener;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.Socket;
@@ -18,8 +20,7 @@ import java.awt.event.KeyEvent;
  */
 public class Main {
     public static void main (String[] args){
-       /* Usuari u = new Usuari();
-        u.registreUsuari();
+/*
         try{
             Scanner sc = new Scanner(System.in);
             Socket sServer = new Socket("localhost", 10000);
@@ -46,8 +47,18 @@ public class Main {
                 /*VistaServidor vista = new VistaServidor();
                 vista.setVisible(true);*/
 
-                IniciarSessio vista = new IniciarSessio();
-                vista.setVisible(true);
+                //Creem el model
+                Client model = new Client();
+
+                //Creem la vista
+                Registre vistaRegistre = new Registre();
+
+                // crea el controlador i estableix la relacio C->V i C->M
+                Controlador controlador = new Controlador(vistaRegistre, model);
+                // establim la relacio V--->C
+                vistaRegistre.registraControlador(controlador);
+                // fem la vista visible
+                vistaRegistre.setVisible(true);
             }
         });
     }

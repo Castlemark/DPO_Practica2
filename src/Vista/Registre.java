@@ -1,7 +1,12 @@
 package Vista;
 
+import com.sun.org.apache.xpath.internal.operations.String;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
+import java.util.*;
+import java.util.List;
 
 /**
  * Created by sullivan on 20/04/2017.
@@ -76,5 +81,23 @@ public class Registre extends JFrame {
         jpRegistre.add(jpEnviar);
 
         this.getContentPane().add(jpRegistre, BorderLayout.PAGE_START);
+    }
+
+    public java.lang.String getLogin(){
+        return jtLogin.getText();
+    }
+    public java.lang.String getMail(){
+        return jtMail.getText();
+    }
+    public java.lang.String getPassword(){
+        return jPassword.getText();
+    }
+    public java.lang.String getConfirmacio(){
+        return jConfirmacio.getText();
+    }
+
+    public void registraControlador( controlador.Controlador controlador){
+        jbEnviar.setActionCommand("ENVIAR");
+        jbEnviar.addActionListener(controlador);
     }
 }

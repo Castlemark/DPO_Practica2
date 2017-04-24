@@ -26,7 +26,7 @@ public class TancarSessio extends JFrame{
         jpButtons = new JPanel (new BorderLayout());
 
         jbAtras = new JButton ("<- ");
-        jlTitle = new JLabel("Ta")
+        jlTitle = new JLabel("Ta");
 
     }
 }
