@@ -58,9 +58,11 @@ public class Usuari implements Serializable{
 
     public boolean comprovaDades(String nomUsuari, String correu, String contrasenya, String confirmacioContra){
         if(nomUsuari.isEmpty()){
+            System.out.println("Escriu un nom d'usuari");
             return false;
         }
         if(correu.isEmpty()){
+            System.out.println("Format del correu electrònic incorrecte");
             return false;
 
         }else{
@@ -74,26 +76,35 @@ public class Usuari implements Serializable{
             for (int i = 0; i < correu.length(); i++){
                 switch(correu.charAt(i)){
                     case ' ':
+                        System.out.println("Format del correu electrònic incorrecte");
                         return false;
                     case '@':
-                        if(i == 0 || arrova != 0 || i > correu.length() - 1) {return false;}
+                        if(i == 0 || arrova != 0 || i > correu.length() - 1) {
+                            System.out.println("Format del correu electrònic incorrecte");
+                            return false;}
                         arrova = i;
                         break;
                     case '.':
                         if(arrova != 0){
                             hiHaPunt = true;
-                            if(arrova == i - 1 || i + 1 == correu.length()){return false;}
+                            if(arrova == i - 1 || i + 1 == correu.length()){
+                                System.out.println("Format del correu electrònic incorrecte");
+                                return false;}
                         }
                         break;
                 }
             }
-            if (arrova == 0 || !hiHaPunt){return false;}
+            if (arrova == 0 || !hiHaPunt){
+                System.out.println("Format del correu electrònic incorrecte");
+                return false;
+            }
         }
         /*comprovem el format de la contrasenya mirant lletra per lletra:
             - ha de tenir almenys una minúsucla, una majúsucula i un número
             - ha de tenir mínim 6 lletres
          */
         if(contrasenya.isEmpty()){
+            System.out.println("Format de la contrasenya incorrecte");
             return false;
         }else {
             boolean hiHaMaj = false;
@@ -112,9 +123,15 @@ public class Usuari implements Serializable{
                 }
             }
             //Mirem si s'han complert les condicions de la contrasenya
-            if(!(hiHaMaj && hiHaMin && hiHaNum && contrasenya.length() >= 6)){return false;}
+            if(!(hiHaMaj && hiHaMin && hiHaNum && contrasenya.length() >= 6)){
+                System.out.println("Format de la contrasenya incorrecte");
+                return false;
+            }
         }
-        if(confirmacioContra.isEmpty()) {return false;}
+        if(confirmacioContra.isEmpty()) {
+            System.out.println("Format de la contrasenya incorrecte");
+            return false;
+        }
         if(contrasenya.equals(confirmacioContra)) {return true;}
         //Si totes les dades són correctes arribem aquí i retorna cert
         return false;
