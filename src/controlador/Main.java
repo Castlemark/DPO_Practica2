@@ -17,7 +17,7 @@ import java.awt.event.KeyEvent;
  */
 public class Main {
     public static void main (String[] args){
-       /* Usuari u = new Usuari();
+       Usuari u = new Usuari();
         u.registreUsuari();
         try{
             Scanner sc = new Scanner(System.in);
@@ -38,16 +38,16 @@ public class Main {
             sServer.close();
         }catch (Exception e){
             e.printStackTrace();
-        }*/
-        SwingUtilities.invokeLater(new Runnable() {
+        }
+      /*  SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
                 /*VistaServidor vista = new VistaServidor();
-                vista.setVisible(true);*/
+                vista.setVisible(true);
 
                 Registre vista = new Registre ();
                 vista.setVisible(true);
             }
-        });
+        });*/
     }
 }
