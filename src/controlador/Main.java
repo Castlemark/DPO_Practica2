@@ -1,13 +1,11 @@
 package controlador;
 
-import Vista.Configuracio;
-import Vista.IniciarSessio;
-import Vista.Registre;
-import Vista.VistaClient;
+import Vista.*;
 import model.Client;
 import model.Usuari;
 
 import javax.swing.*;
+import java.awt.*;
 import javax.swing.event.CaretListener;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -48,7 +46,7 @@ public class Main {
                 vista.setVisible(true);*/
 
                 //Creem el model
-                Client model = new Client();
+                /*Client model = new Client();
 
                 //Creem la vista
                 Registre vistaRegistre = new Registre();
@@ -58,7 +56,12 @@ public class Main {
                 // establim la relacio V--->C
                 vistaRegistre.registraControlador(controlador);
                 // fem la vista visible
-                vistaRegistre.setVisible(true);
+                vistaRegistre.setVisible(true);*/
+
+                VistaJoc vista = new VistaJoc(10, 10, 20, 20);
+                vista.setVisible(true);
+                Graphics g;
+                vista.paintComponent(g);
             }
         });
     }
