@@ -90,10 +90,10 @@ public class Registre extends JFrame {
         return jtMail.getText();
     }
     public java.lang.String getPassword(){
-        return jPassword.getText();
+        return java.lang.String.valueOf(jPassword.getPassword());
     }
     public java.lang.String getConfirmacio(){
-        return jConfirmacio.getText();
+        return java.lang.String.valueOf(jConfirmacio.getPassword());
     }
 
     public void registraControlador( controlador.Controlador controlador){
