@@ -1,7 +1,7 @@
 package controlador;
 
 /**
- * Created by Propietario on 20/04/2017.
+ * Created by Grup6 on 20/04/2017.
  */
 public class ThreadPartida {
     /*public void keyReleased(java.awt.event.KeyEvent evt) {

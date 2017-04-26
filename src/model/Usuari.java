@@ -139,7 +139,7 @@ public class Usuari implements Serializable{
 
     /**
      * Aquesta funció s'ocupa de registar un nou usuari
-     * @return cert si s'ha executatambèxit
+     * @return cert si s'ha executat amb èxit
      */
     public boolean registreUsuari(){
 
