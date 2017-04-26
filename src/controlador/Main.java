@@ -26,7 +26,7 @@ public class Main {
             DataOutputStream doStream = new DataOutputStream(sServer.getOutputStream());
             DataInputStream diStream = new DataInputStream(sServer.getInputStream());
             doStream.writeUTF(u.getLogin());
-            System.out.println("El usuari "+u.getLogin()+" està conectat!");
+            System.out.println("L'usuari "+u.getLogin()+" està conectat!");
             ThreadEnviar threadEnviar = new ThreadEnviar(sc, doStream);
             ThreadRebre threadRebre = new ThreadRebre(diStream);
 

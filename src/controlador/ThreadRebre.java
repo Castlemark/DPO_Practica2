@@ -5,7 +5,7 @@ import java.io.EOFException;
 import java.io.IOException;
 
 /**
- * Created by Propietario on 13/04/2017.
+ * Created by Grup 6 on 13/04/2017.
  */
 public class ThreadRebre extends Thread {
     private DataInputStream diStream;

@@ -5,7 +5,7 @@ import java.io.DataOutputStream;
 import java.util.Scanner;
 
 /**
- * Created by Propietario on 13/04/2017.
+ * Created by Grup 6 on 13/04/2017.
  */
 public class ThreadEnviar extends Thread {
     private DataOutputStream doStream;
