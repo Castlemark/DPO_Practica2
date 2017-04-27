@@ -6,7 +6,7 @@ import java.awt.*;
 /**
  * Created by sullivan on 20/04/2017.
  */
-public class IniciarSessio extends JFrame {
+public class IniciarSessio extends JPanel {
     private JPanel jpIniciar;
     private JPanel jpAtras;
     private JButton jbAtras;
@@ -51,6 +51,6 @@ public class IniciarSessio extends JFrame {
         jpIniciar.add(jpPassword);
         jpIniciar.add(jbIniciar, BorderLayout.LINE_END);
 
-        this.getContentPane().add(jpIniciar,BorderLayout.PAGE_START);
+        this.add(jpIniciar,BorderLayout.PAGE_START);
     }
 }

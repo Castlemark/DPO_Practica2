@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by sullivan on 20/04/2017.
  */
-public class Registre extends JFrame {
+public class Registre extends JPanel {
     private JPanel jpRegistre;
     private JPanel jpAtras;
     private JPanel jpLogin;
@@ -34,9 +34,7 @@ public class Registre extends JFrame {
 
     public Registre () {
 
-        this.setTitle("Registrar usuaris");
         this.setSize (350, 350);
-        this.setResizable(true);
 
         jpRegistre = new JPanel();
         jpAtras = new JPanel(new BorderLayout());
@@ -80,7 +78,7 @@ public class Registre extends JFrame {
 
         jpRegistre.add(jpEnviar);
 
-        this.getContentPane().add(jpRegistre, BorderLayout.PAGE_START);
+        this.add(jpRegistre, BorderLayout.PAGE_START);
     }
 
     public java.lang.String getLogin(){

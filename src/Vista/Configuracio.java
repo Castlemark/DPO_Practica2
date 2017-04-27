@@ -6,7 +6,7 @@ import java.awt.*;
 /**
  * Created by sullivan on 20/04/2017.
  */
-public class Configuracio extends JFrame {
+public class Configuracio extends JPanel {
     private JPanel jpConfiguracio;
     private JPanel jpAtras;
     private JButton jbAtras;
@@ -21,9 +21,9 @@ public class Configuracio extends JFrame {
     private JPanel jpIniciar;
 
     public Configuracio () {
-        this.setTitle ("Configuració");
+
         this.setSize (350,350);
-        this.setResizable(true);
+
 
         jpConfiguracio = new JPanel();
         jpAtras = new JPanel(new BorderLayout());
@@ -52,6 +52,6 @@ public class Configuracio extends JFrame {
         jpConfiguracio.add(jpPort);
         jpConfiguracio.add(jbIniciar, BorderLayout.LINE_END);
 
-        this.getContentPane().add(jpConfiguracio,BorderLayout.PAGE_START);
+        this.add(jpConfiguracio,BorderLayout.PAGE_START);
     }
 }

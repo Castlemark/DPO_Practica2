@@ -6,7 +6,7 @@ import java.awt.*;
 /**
  * Created by sullivan on 19/04/2017.
  */
-public class VistaClient extends JFrame {
+public class VistaClient extends JPanel {
     private JButton jbRegistrar;
     private JButton jbConfiguracio;
     private JButton jbJugar2x;
@@ -20,9 +20,9 @@ public class VistaClient extends JFrame {
      * Constructor de la vista del menú del client. Inicialitza els elements a mostrar
      */
     public VistaClient (){
-        this.setTitle("Client Troner");
+        //this.setTitle("Client Troner");
         this.setSize (350, 350);
-        this.setResizable(true);
+        //this.setResizable(true);
 
         jpClient = new JPanel();
         jpClient.setLayout(new GridLayout(7,1));
@@ -44,8 +44,8 @@ public class VistaClient extends JFrame {
         jpClient.add(jbCampionat);
         jpClient.add(jbRanquing);
 
-        getContentPane().add(jpClient, BorderLayout.CENTER);
+        //getContentPane().add(jpClient, BorderLayout.CENTER);
 
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+       // this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 }
