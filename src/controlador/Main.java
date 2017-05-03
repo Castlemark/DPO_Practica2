@@ -42,8 +42,8 @@ public class Main {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                /*VistaServidor vista = new VistaServidor();
-                vista.setVisible(true);*/
+                VistaClient vista3 = new VistaClient();
+                vista3.setVisible(true);
 
                 //Creem el model
                 /*Client model = new Client();

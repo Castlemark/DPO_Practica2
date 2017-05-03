@@ -31,6 +31,9 @@ public class Controlador implements ActionListener {
                     System.out.println("Error de dades");
                 }
                 break;
+            case "INICI":
+
+                break;
         }
     }
 }

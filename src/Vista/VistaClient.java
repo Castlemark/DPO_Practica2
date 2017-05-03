@@ -6,25 +6,29 @@ import java.awt.*;
 /**
  * Created by sullivan on 19/04/2017.
  */
-public class VistaClient extends JPanel {
-    private JButton jbRegistrar;
+public class VistaClient extends JFrame {
+
+    /*private JButton jbRegistrar;
     private JButton jbConfiguracio;
     private JButton jbJugar2x;
     private JButton jbJugar4x;
     private JButton jbCampionat;
     private JButton jbIniciar;
     private JButton jbRanquing;
-    private JPanel jpClient;
+    private JPanel jpClient;*/
+    private Configuracio inici;
 
     /**
      * Constructor de la vista del menú del client. Inicialitza els elements a mostrar
      */
     public VistaClient (){
-        //this.setTitle("Client Troner");
-        this.setSize (350, 350);
+        inici= new Configuracio();
+        this.setTitle("LS Troner");
+        this.setSize (1200, 800);
+        this.add(inici);
         //this.setResizable(true);
 
-        jpClient = new JPanel();
+       /* jpClient = new JPanel();
         jpClient.setLayout(new GridLayout(7,1));
 
         jbRegistrar = new JButton("Registrar usuaris");
@@ -43,7 +47,8 @@ public class VistaClient extends JPanel {
         jpClient.add(jbJugar4x);
         jpClient.add(jbCampionat);
         jpClient.add(jbRanquing);
-
+        this.add(jpClient);
+*/
         //getContentPane().add(jpClient, BorderLayout.CENTER);
 
        // this.setDefaultCloseOperation(EXIT_ON_CLOSE);
