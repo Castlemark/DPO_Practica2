@@ -60,8 +60,7 @@ public class Main {
 
                 VistaJoc vista = new VistaJoc(10, 10, 20, 20);
                 vista.setVisible(true);
-                Graphics g;
-                vista.paintComponent(g);
+
             }
         });
     }

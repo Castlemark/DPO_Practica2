@@ -7,7 +7,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Created by Propietario on 24/04/2017.
+ * Controlador del client
+ * Created by Grup 6 on 24/04/2017.
  */
 public class Controlador implements ActionListener {
     private Vista.Registre vistaRegistre;
