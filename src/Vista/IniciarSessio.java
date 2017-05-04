@@ -8,6 +8,7 @@ import java.awt.*;
  */
 public class IniciarSessio extends JPanel {
     private JPanel jpIniciar;
+    private JPanel jpAtras;
     private JButton jbAtras;
     private JLabel jlTitle;
     private JLabel jlID;

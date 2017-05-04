@@ -17,7 +17,7 @@ import java.awt.event.KeyEvent;
  * Created by Grup 6 on 15/03/2017.
  */
 public class Main {
-    public static void main (String[] args){
+    public static void main(String[] args) {
 /*
         try{
             Scanner sc = new Scanner(System.in);
@@ -46,7 +46,7 @@ public class Main {
                 vista3.setVisible(true);*/
 
                 //Creem el model
-                /*Client model = new Client();
+                Client model = new Client();
 
                 //Creem la vista
                 VistaJoc vistaJoc = new VistaJoc();
@@ -63,11 +63,6 @@ public class Main {
                 vistaJoc.registraControlador(cj);
                 // fem la vista visible
                 frame.setVisible(true);
-
-                VistaJoc vista = new VistaJoc(10, 10, 20, 20);
-                vista.setVisible(true);
-                Graphics g;
-                vista.paintComponent(g);
             }
         });
     }
