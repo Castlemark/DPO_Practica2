@@ -6,7 +6,7 @@ import java.awt.*;
 /**
  * Created by sullivan on 04/05/2017.
  */
-public class RanquingProba {
+public class RanquingProba extends  JPanel {
     private JButton jbConfig;
     private JButton button2;
     private JLabel label1;
@@ -36,15 +36,15 @@ public class RanquingProba {
 
         // JFormDesigner evaluation mark
 
-    public void setBorder (new javax.swing.border.CompoundBorder (
+    this.setBorder (new javax.swing.border.CompoundBorder (
             new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(0, 0,0,0),
                         "JFormDesigner Evaluation",javax.swing.border.TitledBorder.CENTER,
     javax.swing.border.TitledBorder.BOTTOM,new java.awt.Font("Dialog",java.awt.Font.BOLD,12),
     java.awt.Color.red),
 
-    getBorder()));
+    this.getBorder()));
 
-    addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+    this.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
         public void propertyChange (java.beans.PropertyChangeEvent e){
             if ("border".equals(e.getPropertyName())) throw new RuntimeException();
         }
@@ -52,7 +52,7 @@ public class RanquingProba {
         );
 
 
-    public void setLayout(new GridBagLayout());
+    setLayout(new GridBagLayout());
         ((GridBagLayout)
 
     getLayout()).columnWidths =new int[]
@@ -91,9 +91,9 @@ public class RanquingProba {
     ;
 
     //---- button1 ----
-        button1.setText("text");
+        jbConfig.setText("text");
 
-    add(button1, new GridBagConstraints(0, 0,1,1,0.0,0.0,
+    add(jbConfig, new GridBagConstraints(0, 0,1,1,0.0,0.0,
         GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0,20,17), 0,0));
 
