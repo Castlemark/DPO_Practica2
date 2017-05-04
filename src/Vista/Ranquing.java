@@ -7,5 +7,12 @@ import javax.swing.*;
  */
 public class Ranquing extends JPanel {
     private JPanel jpRanquing;
-    private JPanel jpdsfss;
+    private JPanel jpButtons;
+    private JPanel jpTitles;
+    private JPanel jpLlistes;
+    private JPanel jpJugar;
+
+    private JButton jbTancar;
+    private JButton dsfsdfa;
+
 }

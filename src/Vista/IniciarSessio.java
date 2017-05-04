@@ -8,7 +8,6 @@ import java.awt.*;
  */
 public class IniciarSessio extends JPanel {
     private JPanel jpIniciar;
-    private JPanel jpAtras;
     private JButton jbAtras;
     private JLabel jlTitle;
     private JLabel jlID;
@@ -29,7 +28,6 @@ public class IniciarSessio extends JPanel {
         jpID = new JPanel(new BorderLayout());
         jpPassword = new JPanel(new BorderLayout());
 
-        jbAtras = new JButton("<-");
         jlTitle = new JLabel("            Iniciar Sessió");
         jlID = new JLabel("ID         ");
         jtID = new JTextField();
@@ -39,14 +37,12 @@ public class IniciarSessio extends JPanel {
 
 
         jpIniciar.setLayout(new GridLayout(4,1));
-        jpAtras.add (jbAtras, BorderLayout.LINE_START);
-        jpAtras.add (jlTitle, BorderLayout.CENTER);
         jpID.add(jlID, BorderLayout.LINE_START);
         jpID.add(jtID, BorderLayout.CENTER);
         jpPassword.add (jlPassword, BorderLayout.LINE_START);
         jpPassword.add (jtPassword, BorderLayout.CENTER);
 
-        jpIniciar.add(jpAtras, BorderLayout.CENTER);
+        jpIniciar.add(jlTitle, BorderLayout.CENTER);
         jpIniciar.add(jpID);
         jpIniciar.add(jpPassword);
         jpIniciar.add(jbIniciar, BorderLayout.LINE_END);

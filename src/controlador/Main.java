@@ -42,12 +42,11 @@ public class Main {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                /*VistaServidor vista = new VistaServidor();
-                vista.setVisible(true);*/
-
+                /*VistaClient vista3 = new VistaClient();
+                vista3.setVisible(true);*/
 
                 //Creem el model
-                Client model = new Client();
+                /*Client model = new Client();
 
                 //Creem la vista
                 VistaJoc vistaJoc = new VistaJoc();
@@ -65,8 +64,10 @@ public class Main {
                 // fem la vista visible
                 frame.setVisible(true);
 
-
-
+                VistaJoc vista = new VistaJoc(10, 10, 20, 20);
+                vista.setVisible(true);
+                Graphics g;
+                vista.paintComponent(g);
             }
         });
     }
