@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Created by sullivan on 04/05/2017.
+ * Created by Grup 6 on 04/05/2017.
  */
 public class RanquingProba extends  JPanel {
     private JButton jbConfig;
