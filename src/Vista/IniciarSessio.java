@@ -20,9 +20,9 @@ public class IniciarSessio extends JPanel {
     private JButton jbIniciar;
 
     public IniciarSessio () {
-        this.setTitle ("Iniciar Sessió");
+       // this.setTitle ("Iniciar Sessió");
         this.setSize (350,350);
-        this.setResizable(true);
+      //  this.setResizable(true);
 
         jpIniciar = new JPanel();
         jpAtras = new JPanel(new BorderLayout());

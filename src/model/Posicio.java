@@ -8,25 +8,41 @@ import java.io.Serializable;
  * Created by Grup 6 on 06/04/2017.
  */
 public class Posicio implements Serializable {
-    private float x;
-    private float y;
-    public Posicio(){
-
+    private int x;
+    private int y;
+    public Posicio(int x, int y){
+        this.x = x;
+        this.y = y;
     }
-
-    public float getX() {
+    public void mouCap(int dir){
+        switch (dir) {
+            case 1:
+                x++;
+                break;
+            case 2:
+                x--;
+                break;
+            case 3:
+                y++;
+                break;
+            case 4:
+                y--;
+                break;
+        }
+    }
+    public int getX() {
         return x;
     }
 
-    public float getY() {
+    public int getY() {
         return y;
     }
 
-    public void setX(float x) {
+    public void setX(int x) {
         this.x = x;
     }
 
-    public void setY(float y) {
+    public void setY(int y) {
         this.y = y;
     }
 }

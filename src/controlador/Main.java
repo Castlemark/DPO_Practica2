@@ -45,23 +45,28 @@ public class Main {
                 /*VistaServidor vista = new VistaServidor();
                 vista.setVisible(true);*/
 
+
                 //Creem el model
-                /*Client model = new Client();
+                Client model = new Client();
 
                 //Creem la vista
-                Registre vistaRegistre = new Registre();
+                VistaJoc vistaJoc = new VistaJoc();
+
+                JFrame frame = new JFrame("Color fading aniamtion");
+                frame.add(vistaJoc);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setSize(500, 500);
+                frame.setLocationRelativeTo(null);
 
                 // crea el controlador i estableix la relacio C->V i C->M
-                Controlador controlador = new Controlador(vistaRegistre, model);
+                ControladorJoc cj = new ControladorJoc(vistaJoc, model);
                 // establim la relacio V--->C
-                vistaRegistre.registraControlador(controlador);
+                vistaJoc.registraControlador(cj);
                 // fem la vista visible
-                vistaRegistre.setVisible(true);*/
+                frame.setVisible(true);
 
-                VistaJoc vista = new VistaJoc(10, 10, 20, 20);
-                vista.setVisible(true);
-                Graphics g;
-                vista.paintComponent(g);
+
+
             }
         });
     }
