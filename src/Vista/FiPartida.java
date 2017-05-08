@@ -67,7 +67,7 @@ public class FiPartida extends JPanel {
                 new Insets(0, 0, 41, 60), 0, 0));
 
         //---- label6 ----
-        label6.setText(posicio);
+        label6.setText("posicio");
         label6.setHorizontalAlignment(SwingConstants.CENTER);
         add(label6, new GridBagConstraints(3, 3, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
@@ -81,7 +81,7 @@ public class FiPartida extends JPanel {
                 new Insets(0, 0, 41, 60), 0, 0));
 
         //---- label7 ----
-        label7.setText(puntuacio);
+        label7.setText("puntuacio");
         label7.setHorizontalAlignment(SwingConstants.CENTER);
         add(label7, new GridBagConstraints(3, 4, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
@@ -95,7 +95,7 @@ public class FiPartida extends JPanel {
                 new Insets(0, 0, 41, 60), 0, 0));
 
         //---- label8 ----
-        label8.setText(puntsTotals);
+        label8.setText("puntsTotals");
         label8.setHorizontalAlignment(SwingConstants.CENTER);
         add(label8, new GridBagConstraints(3, 5, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
