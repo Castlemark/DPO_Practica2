@@ -22,4 +22,10 @@ public class Client {
     public void setPartida(Partida partida) {
         this.partida = partida;
     }
+
+    public void abandonaPartida(){
+        partida.setViu(false);
+        System.out.println("Has abandonat!");
+
+    }
 }
