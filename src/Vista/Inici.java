@@ -55,4 +55,6 @@ public class Inici extends JPanel {
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 53, 73), 0, 0));
     }
+
+
 }
