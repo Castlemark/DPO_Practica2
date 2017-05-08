@@ -4,74 +4,75 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
-			"$columnSpecs": "0, 0, 0, 0"
-			"$rowSpecs": "0, 0, 0, 0, 0"
-			"$hGap": 58
-			"$vGap": 44
+			"$columnSpecs": "121, 123, 72, 185, 136, 198"
+			"$rowSpecs": "106, 0, 0, 0, 0, 90, 35, 160"
+			"$hGap": 60
+			"$vGap": 41
 			"$alignLeft": true
 			"$alignTop": true
 		} ) {
 			name: "this"
 			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label5"
-				"text": " "
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) )
-			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label1"
 				"text": "You lost"
-				"horizontalAlignment": 0
-				"font": new java.awt.Font( "Akrobat ExtraBold", 0, 26 )
+				"horizontalAlignment": 2
+				"font": new java.awt.Font( "Akrobat ExtraBold", 0, 48 )
+				"foreground": new java.awt.Color( 153, 153, 255, 255 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridx": 1
+				"gridx": 3
+				"gridy": 1
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label2"
 				"text": "Posicio:"
-				"font": &Font0 new java.awt.Font( "Akrobat", 0, 20 )
+				"font": &Font0 new java.awt.Font( "Akrobat", 0, 22 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridx": 1
-				"gridy": 1
+				"gridx": 2
+				"gridy": 3
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label6"
 				"text": "posicio"
+				"horizontalAlignment": 0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridx": 2
-				"gridy": 1
+				"gridx": 3
+				"gridy": 3
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label3"
 				"text": "Puntuacio partida:"
 				"font": #Font0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridx": 1
-				"gridy": 2
+				"gridx": 2
+				"gridy": 4
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label7"
 				"text": "punt part"
+				"horizontalAlignment": 0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridx": 2
-				"gridy": 2
+				"gridx": 3
+				"gridy": 4
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label4"
 				"text": "Puntuacio total:"
 				"font": #Font0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridx": 1
-				"gridy": 4
+				"gridx": 2
+				"gridy": 5
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label8"
 				"text": "punt tot"
+				"horizontalAlignment": 0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
-				"gridx": 2
-				"gridy": 4
+				"gridx": 3
+				"gridy": 5
 			} )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 55, 55 )
-			"size": new java.awt.Dimension( 400, 300 )
+			"location": new java.awt.Point( 45, 180 )
+			"size": new java.awt.Dimension( 1200, 800 )
 		} )
 	}
 }

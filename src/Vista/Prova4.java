@@ -11,7 +11,14 @@ import javax.swing.*;
  * @author Tatiana CÃ¡ceres
  */
 public class Prova4 extends JPanel {
-    public Prova4() {
+
+    private JLabel label3;
+    private JLabel label1;
+    private JLabel label2;
+    private Registre jpRegistre;
+    private IniciarSessio jpIniciar;
+
+    public Prova4(){
         initComponents();
     }
 
@@ -21,8 +28,8 @@ public class Prova4 extends JPanel {
         label3 = new JLabel();
         label1 = new JLabel();
         label2 = new JLabel();
-        panel1 = new JPanel();
-        panel2 = new JPanel();
+        jpRegistre = new Registre();
+        jpIniciar = new IniciarSessio();
 
         //======== this ========
 
@@ -53,44 +60,24 @@ public class Prova4 extends JPanel {
             new Insets(0, 0, 25, 25), 0, 0));
 
         //---- label2 ----
-        label2.setText("Inicia Sessi\u00f3");
+        label2.setText("Inicia Sessió"); //\u00f3
         label2.setFont(new Font("Akrobat Bold", Font.PLAIN, 22));
         add(label2, new GridBagConstraints(3, 0, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 25, 25), 0, 0));
 
         //======== panel1 ========
-        {
-            panel1.setLayout(new GridBagLayout());
-            ((GridBagLayout)panel1.getLayout()).columnWidths = new int[] {0, 0, 0};
-            ((GridBagLayout)panel1.getLayout()).rowHeights = new int[] {0, 0, 0, 0};
-            ((GridBagLayout)panel1.getLayout()).columnWeights = new double[] {0.0, 0.0, 1.0E-4};
-            ((GridBagLayout)panel1.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 1.0E-4};
-        }
-        add(panel1, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0,
+
+        add(jpRegistre, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 25, 25), 0, 0));
 
         //======== panel2 ========
-        {
-            panel2.setLayout(new GridBagLayout());
-            ((GridBagLayout)panel2.getLayout()).columnWidths = new int[] {0, 0, 0};
-            ((GridBagLayout)panel2.getLayout()).rowHeights = new int[] {0, 0, 0, 0};
-            ((GridBagLayout)panel2.getLayout()).columnWeights = new double[] {0.0, 0.0, 1.0E-4};
-            ((GridBagLayout)panel2.getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 1.0E-4};
-        }
-        add(panel2, new GridBagConstraints(3, 1, 1, 1, 0.0, 0.0,
+
+        add(jpIniciar, new GridBagConstraints(3, 1, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 25, 25), 0, 0));
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
-    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Tatiana CÃ¡ceres
-    private JLabel label3;
-    private JLabel label1;
-    private JLabel label2;
-    private JPanel panel1;
-    private JPanel panel2;
-    // JFormDesigner - End of variables declaration  //GEN-END:variables
 }
