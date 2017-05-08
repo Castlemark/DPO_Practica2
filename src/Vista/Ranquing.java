@@ -6,7 +6,7 @@ import java.awt.*;
 /**
  * Created by Grup 6 on 04/05/2017.
  */
-public class RanquingProba extends  JPanel {
+public class Ranquing extends  JPanel {
     private JButton jbConfig;
     private JButton jbTancar;
     private JLabel jl2X;
@@ -19,7 +19,7 @@ public class RanquingProba extends  JPanel {
     private JButton jb4X;
     private JButton jbCamp;
 
-    public RanquingProba (){
+    public Ranquing (){
         initComponents();
     }
     private void initComponents() {
