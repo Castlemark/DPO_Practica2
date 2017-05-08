@@ -33,6 +33,10 @@ public class Controlador implements ActionListener {
                 break;
             case "INICI":
 
+
+
+
+
                 break;
         }
     }

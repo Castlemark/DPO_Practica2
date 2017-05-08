@@ -2,6 +2,7 @@ package Vista;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 /**
  * Created by sullivan on 20/04/2017.
@@ -54,4 +55,12 @@ public class Configuracio extends JPanel {
 
         this.add(jpConfiguracio,BorderLayout.PAGE_START);
     }
+
+    public void registerController(ActionListener c){
+        jbIniciar.setActionCommand("INICI");
+
+        jbIniciar.addActionListener(c);
+
+    }
+
 }
