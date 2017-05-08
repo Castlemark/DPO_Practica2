@@ -19,6 +19,9 @@ public class RanquingProba extends  JPanel {
     private JButton jb4X;
     private JButton jbCamp;
 
+    public RanquingProba (){
+        initComponents();
+    }
     private void initComponents() {
         jbConfig = new JButton();
         jbTancar = new JButton();
@@ -119,7 +122,7 @@ public class RanquingProba extends  JPanel {
         GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0,20,17), 0,0));
 
-    add(jl4X, new GridBagConstraints(2, 2,1,1,0.0,0.0,
+    add(jlist4X, new GridBagConstraints(2, 2,1,1,0.0,0.0,
         GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0,20,17), 0,0));
 
