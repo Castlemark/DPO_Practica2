@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
+ * Classe del panell de ranquing
  * Created by Grup 6 on 04/05/2017.
  */
 public class Ranquing extends  JPanel {
@@ -19,9 +20,17 @@ public class Ranquing extends  JPanel {
     private JButton jb4X;
     private JButton jbCamp;
 
+    /**
+     * Constructor de la classe
+     */
     public Ranquing (){
+
         initComponents();
     }
+
+    /**
+     * Mètode que inicialitza els elements
+     */
     private void initComponents() {
         jbConfig = new JButton();
         jbTancar = new JButton();
@@ -35,25 +44,6 @@ public class Ranquing extends  JPanel {
         jb4X = new JButton();
         jbCamp = new JButton();
 
-        //======== this ========
-
-        // JFormDesigner evaluation mark
-
-        this.setBorder (new javax.swing.border.CompoundBorder (
-                new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(0, 0,0,0),
-                        "JFormDesigner Evaluation",javax.swing.border.TitledBorder.CENTER,
-                        javax.swing.border.TitledBorder.BOTTOM,new java.awt.Font("Dialog",java.awt.Font.BOLD,12),
-                        java.awt.Color.red),
-
-                this.getBorder()));
-
-        this.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-                                           public void propertyChange (java.beans.PropertyChangeEvent e){
-                                               if ("border".equals(e.getPropertyName())) throw new RuntimeException();
-                                           }
-                                       }
-
-        );
 
 
         setLayout(new GridBagLayout());
@@ -80,21 +70,21 @@ public class Ranquing extends  JPanel {
                 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4
         };
 
-        //---- button1 ----
-        jbConfig.setText("text");
+        //---- Botó enrere ----
+        jbConfig.setText("Img enrere");
 
         add(jbConfig, new GridBagConstraints(0, 0,1,1,0.0,0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0,20,17), 0,0));
 
-        //---- button2 ----
+        //---- Botó tancar ----
         jbTancar.setText("Tancar");
 
         add(jbTancar, new GridBagConstraints(4, 0,1,1,0.0,0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0,20,0), 0,0));
 
-        //---- label1 ----
+        //---- text rànquing 2x ----
         jl2X.setText("Ranquing 2X");
         jl2X.setHorizontalAlignment(SwingConstants.CENTER);
 
@@ -102,7 +92,7 @@ public class Ranquing extends  JPanel {
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0,20,17), 0,0));
 
-        //---- label2 ----
+        //---- text ranquing 4x ----
         jl4X.setText("Raquing 4X");
         jl4X.setHorizontalAlignment(SwingConstants.CENTER);
 
@@ -110,7 +100,7 @@ public class Ranquing extends  JPanel {
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0,20,17), 0,0));
 
-        //---- label3 ----
+        //---- text ranquing campionat ----
         jlCamp.setText("Ranquing Campionat");
         jlCamp.setHorizontalAlignment(SwingConstants.CENTER);
 
@@ -130,21 +120,21 @@ public class Ranquing extends  JPanel {
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0,20,17), 0,0));
 
-        //---- button3 ----
+        //---- boto 2x ----
         jb2X.setText("2X");
 
         add(jb2X, new GridBagConstraints(1, 3,1,1,0.0,0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0,20,17), 0,0));
 
-        //---- button4 ----
+        //---- boto 4x ----
         jb4X.setText("4X");
 
         add(jb4X, new GridBagConstraints(2, 3,1,1,0.0,0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0,20,17), 0,0));
 
-        //---- button5 ----
+        //---- boto campionat ----
         jbCamp.setText("Campionat");
 
         add(jbCamp, new GridBagConstraints(3, 3,1,1,0.0,0.0,
