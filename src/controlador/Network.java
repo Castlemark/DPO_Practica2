@@ -14,35 +14,43 @@ import java.util.Scanner;
  * Created by Propietario on 10/05/2017.
  */
 public class Network extends Thread{
+    private ControladorJoc controlador;
+
     private DataOutputStream doStream;
     private ObjectOutputStream doStreamO; // = new ObjectOutputStream(sClient.getOutputStream());
-    private Scanner sc;
-    private Serp serp;
     private DataInputStream diStream;
     private ObjectInputStream diStreamO;
+
     private Partida partida;
+    private Scanner sc;
+    private Serp serp;
+
+
+
+    public Network(ControladorJoc controlador){
+        this.controlador = controlador;
+
+    }
 
     public void connect(int port){
         port = 11111;
 
 
         try{
-            Scanner sc = new Scanner(System.in);
+            sc = new Scanner(System.in);
             Socket sServer = new Socket("localhost", port);
+
             doStream = new DataOutputStream(sServer.getOutputStream());
             diStream = new DataInputStream(sServer.getInputStream());
-            doStream.writeUTF(u.getLogin());
-            System.out.println("L'usuari "+u.getLogin()+" està conectat!");
+
+            System.out.println("esta conectat");
       //      ThreadEnviar threadEnviar = new ThreadEnviar(sc, doStream);
       //      ThreadRebre threadRebre = new ThreadRebre(diStream);
 
          /*   threadEnviar.start();
             threadRebre.start();*/
 
-            threadEnviar.join();
-            threadRebre.join();
-
-            sServer.close();
+            //sServer.close();
         }catch (Exception e){
             e.printStackTrace();
         }
