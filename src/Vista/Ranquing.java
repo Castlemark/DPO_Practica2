@@ -136,7 +136,6 @@ public class Ranquing extends  JPanel {
 
         //---- boto campionat ----
         jbCamp.setText("Campionat");
-
         add(jbCamp, new GridBagConstraints(3, 3,1,1,0.0,0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0,20,17), 0,0));

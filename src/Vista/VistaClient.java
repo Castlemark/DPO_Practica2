@@ -16,7 +16,7 @@ public class VistaClient extends JFrame {
     private JButton jbIniciar;
     private JButton jbRanquing;
     private JPanel jpClient;*/
-    private FiPartida iniciar;
+    private Identificacio iniciar;
 
     private Configuracio configuracio;
     private  FiPartida fiPartida;
@@ -32,11 +32,14 @@ public class VistaClient extends JFrame {
      * Constructor de la vista del menú del client. Inicialitza els elements a mostrar
      */
     public VistaClient (){
-        iniciar = new FiPartida (true);
+        iniciar = new Identificacio ();
         this.setTitle("LS Troner");
         this.setSize (1200, 800);
+        iniciar.setLocation((1200/2)-(this.getWidth()/2), (800/2)-(this.getHeight()/2));
         this.add(iniciar);
         //this.setResizable(true);
+
+        //iniciar.setLocation((1200/2)-(this.getWidth()/2), (800/2)-(this.getHeight()/2));
 
        /* jpClient = new JPanel();
         jpClient.setLayout(new GridLayout(7,1));

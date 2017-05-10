@@ -33,7 +33,7 @@ public class IniciarSessio extends JPanel {
         jlID = new JLabel("ID         ");
         jtID = new JTextField();
         jlPassword = new JLabel("Password      ");
-        jtPassword = new JTextField();
+        jtPassword = new JTextField(30);
         jbIniciar = new JButton("Iniciar");
 
 
