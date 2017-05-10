@@ -30,4 +30,8 @@ public class Client {
         System.out.println("Has abandonat!");
 
     }
+
+    public boolean connectar(String ip,String host){
+        return true;
+    }
 }
