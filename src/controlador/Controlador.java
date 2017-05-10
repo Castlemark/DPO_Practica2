@@ -1,5 +1,7 @@
 package controlador;
 
+import Vista.Configuracio;
+import Vista.VistaClient;
 import model.Client;
 import model.Usuari;
 
@@ -13,6 +15,8 @@ import java.awt.event.ActionListener;
 public class Controlador implements ActionListener {
     private Vista.Registre vistaRegistre;
     private Client model;
+
+    private  VistaClient vista;
 
     public Controlador(Vista.Registre vistaRegistre, Client model){
         this.vistaRegistre = vistaRegistre;
@@ -33,6 +37,8 @@ public class Controlador implements ActionListener {
                 break;
             case "INICI":
 
+                if (model.connectar(vista.getIp(),vista.getPort()))
+                    System.out.println("connectant");
 
 
 

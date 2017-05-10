@@ -63,4 +63,14 @@ public class Configuracio extends JPanel {
 
     }
 
+    public String getIp(){
+        return jtIP.getText();
+    }
+
+    public String getPort(){
+        return jtPort.getText();
+    }
+
+
+
 }

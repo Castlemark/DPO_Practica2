@@ -18,6 +18,16 @@ public class VistaClient extends JFrame {
     private JPanel jpClient;*/
     private FiPartida iniciar;
 
+    private Configuracio configuracio;
+    private  FiPartida fiPartida;
+    private Inici inici;
+    private IniciarSessio iniciarSessio;
+    private  Joc joc;
+    private Ranquing ranquing;
+    private Registre registre;
+    private TancarSessio tancarSessio;
+    private VistaJoc vistaJoc;
+
     /**
      * Constructor de la vista del menú del client. Inicialitza els elements a mostrar
      */
@@ -53,4 +63,7 @@ public class VistaClient extends JFrame {
 
        // this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
+
+    public String getPort(){return configuracio.getPort();}
+    public String getIp(){return configuracio.getIp();}
 }

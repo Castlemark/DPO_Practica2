@@ -50,4 +50,6 @@ public class IniciarSessio extends JPanel {
 
         this.add(jpIniciar,BorderLayout.PAGE_START);
     }
+
+
 }
