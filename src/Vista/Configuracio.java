@@ -10,7 +10,6 @@ import java.awt.event.ActionListener;
 public class Configuracio extends JPanel {
     private JPanel jpConfiguracio;
     private JPanel jpAtras;
-    private JButton jbAtras;
     private JLabel jlTitle;
     private JLabel jlPort;
     private JPanel jpPort;
@@ -25,13 +24,11 @@ public class Configuracio extends JPanel {
 
         this.setSize (350,350);
 
-
         jpConfiguracio = new JPanel();
         jpAtras = new JPanel(new BorderLayout());
         jpPort = new JPanel(new BorderLayout());
         jpIP = new JPanel(new BorderLayout());
 
-        jbAtras = new JButton("<-");
         jlTitle = new JLabel("            Configuració");
         jlPort = new JLabel("Port         ");
         jtPort = new JTextField();
@@ -39,9 +36,7 @@ public class Configuracio extends JPanel {
         jtIP = new JTextField();
         jbIniciar = new JButton("Iniciar");
 
-
         jpConfiguracio.setLayout(new GridLayout(4,1));
-        jpAtras.add (jbAtras, BorderLayout.LINE_START);
         jpAtras.add (jlTitle, BorderLayout.CENTER);
         jpIP.add(jlIP, BorderLayout.LINE_START);
         jpIP.add(jtIP, BorderLayout.CENTER);
