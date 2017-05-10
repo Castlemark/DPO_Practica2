@@ -64,6 +64,6 @@ public class VistaClient extends JFrame {
        // this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
-    public int getPort(){return configuracio.getPort();}
-    public String getIP(){return configuracio.getIp();}
+    public String getPort(){return configuracio.getPort();}
+    public String getIp(){return configuracio.getIp();}
 }
