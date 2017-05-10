@@ -18,7 +18,6 @@ import java.awt.event.KeyEvent;
  */
 public class Main {
     public static void main(String[] args) {
-
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
@@ -31,11 +30,21 @@ public class Main {
                 //Creem la vista
                 Joc vistaJoc = new Joc();
 
+
+
+
                 JFrame frame = new JFrame("LSTroner");
                 frame.add(vistaJoc);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setSize(500, 500);
                 frame.setLocationRelativeTo(null);
+
+
+
+
+
+
+
 
                 // crea el controlador i estableix la relacio C->V i C->M
                 ControladorJoc cj = new ControladorJoc(vistaJoc.getPanel1(), model);
