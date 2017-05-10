@@ -16,7 +16,9 @@ public class VistaClient extends JFrame {
     private JButton jbIniciar;
     private JButton jbRanquing;
     private JPanel jpClient;*/
-    private Identificacio iniciar;
+    private FiPartida iniciar;
+    private  CardLayout layout;
+
 
     private Configuracio configuracio;
     private  FiPartida fiPartida;
@@ -27,19 +29,39 @@ public class VistaClient extends JFrame {
     private Registre registre;
     private TancarSessio tancarSessio;
     private VistaJoc vistaJoc;
+    private Identificacio identificacio;
 
     /**
      * Constructor de la vista del menú del client. Inicialitza els elements a mostrar
      */
     public VistaClient (){
-        iniciar = new Identificacio ();
+        iniciar = new FiPartida (true);
         this.setTitle("LS Troner");
         this.setSize (1200, 800);
-        iniciar.setLocation((1200/2)-(this.getWidth()/2), (800/2)-(this.getHeight()/2));
         this.add(iniciar);
-        //this.setResizable(true);
 
-        //iniciar.setLocation((1200/2)-(this.getWidth()/2), (800/2)-(this.getHeight()/2));
+        layout = new CardLayout();
+        this.getContentPane().setLayout(layout);
+
+        //inicialitzar panels
+        configuracio = new Configuracio();
+        fiPartida = new FiPartida(true);// de moment
+        inici = new Inici();
+        iniciarSessio = new IniciarSessio();
+        joc =new Joc();
+        ranquing = new Ranquing();
+        registre = new Registre();
+        tancarSessio = new TancarSessio();
+        identificacio = new Identificacio();
+
+
+        this.getContentPane().add("FIPARTIDA" , fiPartida);
+        this.getContentPane().add("INICI", inici);
+        this.getContentPane().add("IDENTIFICACIO", identificacio);
+
+
+
+        //this.setResizable(true);
 
        /* jpClient = new JPanel();
         jpClient.setLayout(new GridLayout(7,1));
@@ -65,6 +87,10 @@ public class VistaClient extends JFrame {
         //getContentPane().add(jpClient, BorderLayout.CENTER);
 
        // this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+    }
+
+    public void changePanel(String which){
+        layout.show(this.getContentPane(), which);
     }
 
     public String getPort(){return configuracio.getPort();}

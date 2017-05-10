@@ -37,12 +37,12 @@ public class Controlador implements ActionListener {
                 break;
             case "INICI":
 
-                if (model.connectar(vista.getIp(),vista.getPort()))
-                    System.out.println("connectant");
+                if (model.connectar(vista.getIp(),vista.getPort())) {
+                    System.out.println("connectat");
 
 
 
-
+                }
                 break;
         }
     }
