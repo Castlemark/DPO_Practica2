@@ -7,7 +7,7 @@ package Vista;
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.*;
-import com.jgoodies.forms.factories.*;
+//import com.jgoodies.forms.factories.*;
 import controlador.ControladorJoc;
 
 /**

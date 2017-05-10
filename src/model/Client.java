@@ -7,6 +7,8 @@ public class Client {
     private Usuari usuari;
     private Partida partida;
 
+
+
     public Client (){
         partida = new Partida();
     }
