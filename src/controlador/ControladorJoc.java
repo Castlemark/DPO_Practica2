@@ -17,20 +17,34 @@ public class ControladorJoc implements ActionListener, KeyListener {
     private VistaJoc vistaJoc;
     private Client model;
     private char c;
+    private int contador;
 
 
     public ControladorJoc(VistaJoc vistaJoc, Client model){
         this.vistaJoc = vistaJoc;
         this.model = model;
+        contador = 3;
     }
 
     public void actionPerformed(ActionEvent e) {
+       switch (e.getActionCommand()){
+           case "AVANÇA":
+               model.getPartida().getSerp().mouSerp();
+               if(model.getPartida().comprovaCollisio()){
+                   System.out.println("Has perdut!");
+                   model.getPartida().setViu(false);
+               }
+               break;
+           case "CONTA":
+               contador--;
+               if(contador == 0){
+                   vistaJoc.setCont(false);
+               }
+               break;
+           case "ABANDONA":
+               model.abandonaPartida();
+       }
 
-        model.getPartida().getSerp().mouSerp();
-        if(model.getPartida().comprovaCollisio()){
-           System.out.println("Has perdut!");
-            model.getPartida().setViu(false);
-        }
 
         vistaJoc.repaint();
 
@@ -47,7 +61,9 @@ public class ControladorJoc implements ActionListener, KeyListener {
     @Override
     public void keyTyped(KeyEvent e) {
         c = e.getKeyChar();
-        model.getPartida().getSerp().canviaDireccio(c);
+       if(vistaJoc.isCont() == false){
+           model.getPartida().getSerp().canviaDireccio(c);
+       }
       /*
         switch (e.getKeyCode()) {
             case KeyEvent.VK_W:
@@ -78,5 +94,9 @@ public class ControladorJoc implements ActionListener, KeyListener {
 
     public Serp getSerp(){
         return model.getPartida().getSerp();
+    }
+
+    public int getContador() {
+        return contador;
     }
 }

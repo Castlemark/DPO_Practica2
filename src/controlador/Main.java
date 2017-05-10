@@ -42,28 +42,28 @@ public class Main {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                VistaClient vista3 = new VistaClient();
-                vista3.setVisible(true);
-/*
+                /*VistaClient vista3 = new VistaClient();
+                vista3.setVisible(true);*/
+
                 //Creem el model
                 Client model = new Client();
 
                 //Creem la vista
-                VistaJoc vistaJoc = new VistaJoc();
+                Joc vistaJoc = new Joc();
 
-                JFrame frame = new JFrame("Color fading aniamtion");
+                JFrame frame = new JFrame("LSTroner");
                 frame.add(vistaJoc);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setSize(500, 500);
                 frame.setLocationRelativeTo(null);
 
                 // crea el controlador i estableix la relacio C->V i C->M
-                ControladorJoc cj = new ControladorJoc(vistaJoc, model);
+                ControladorJoc cj = new ControladorJoc(vistaJoc.getPanel1(), model);
                 // establim la relacio V--->C
                 vistaJoc.registraControlador(cj);
                 // fem la vista visible
                 frame.setVisible(true);
-*/
+        //        vistaJoc.iniciaJoc();
             }
         });
     }

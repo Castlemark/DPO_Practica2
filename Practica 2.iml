@@ -19,5 +19,6 @@
     <orderEntry type="library" name="miglayout-swing" level="project" />
     <orderEntry type="library" name="swing-layout" level="project" />
     <orderEntry type="library" name="TableLayout" level="project" />
+    <orderEntry type="library" name="JGoodies Forms" level="project" />
   </component>
 </module>
