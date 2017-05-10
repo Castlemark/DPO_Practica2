@@ -13,10 +13,7 @@ import java.util.Scanner;
  * Created by Grup 6 on 13/04/2017.
  */
 public class ThreadEnviar extends Thread {
-    private DataOutputStream doStream;
-    private ObjectOutputStream doStreamO; // = new ObjectOutputStream(sClient.getOutputStream());
-    private Scanner sc;
-    private Serp serp;
+
 
     public ThreadEnviar(Scanner sc, DataOutputStream doStream, ObjectOutputStream doStreamO, Serp serp){
         this.doStream = doStream;
