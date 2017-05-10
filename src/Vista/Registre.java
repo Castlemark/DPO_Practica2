@@ -19,7 +19,6 @@ public class Registre extends JPanel {
     private JPanel jpPassword;
     private JPanel jpConfirmacio;
     private JPanel jpEnviar;
-    private JButton jbAtras;
     private JLabel jlTitle;
     private JLabel jlLogin;
     private JLabel jlPassword;
@@ -45,9 +44,8 @@ public class Registre extends JPanel {
         jpEnviar = new JPanel(new BorderLayout());
 
 
-        jbAtras = new JButton("<-");
         jPassword = new JPasswordField();
-        jConfirmacio = new JPasswordField();
+        jConfirmacio = new JPasswordField(30);
         jlTitle = new JLabel("          Registrar usuari");
         jtMail = new JTextField();
         jbEnviar = new JButton("Enviar");
@@ -58,7 +56,6 @@ public class Registre extends JPanel {
         jtLogin = new JTextField();
 
         jpRegistre.setLayout(new GridLayout(6,1));
-        jpAtras.add(jbAtras, BorderLayout.LINE_START);
         jpAtras.add(jlTitle, BorderLayout.CENTER);
         jpEnviar.add(jbEnviar, BorderLayout.LINE_END);
         jpLogin.add(jlLogin, BorderLayout.LINE_START);
