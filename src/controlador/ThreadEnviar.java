@@ -26,7 +26,6 @@ public class ThreadEnviar extends Thread {
         try{
             while (true){
 
-                doStreamO.writeObject(serp);
             }
         }catch (Exception e) {
             e.printStackTrace();

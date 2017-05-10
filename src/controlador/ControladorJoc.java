@@ -18,12 +18,15 @@ public class ControladorJoc implements ActionListener, KeyListener {
     private Client model;
     private char c;
     private int contador;
+    private Network network;
 
 
     public ControladorJoc(VistaJoc vistaJoc, Client model){
         this.vistaJoc = vistaJoc;
         this.model = model;
         contador = 3;
+        this.network = Network(this);
+        network.connect(11111);
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -63,6 +66,8 @@ public class ControladorJoc implements ActionListener, KeyListener {
         c = e.getKeyChar();
        if(vistaJoc.isCont() == false){
            model.getPartida().getSerp().canviaDireccio(c);
+           doStreamO.writeObject(serp);
+
        }
       /*
         switch (e.getKeyCode()) {
