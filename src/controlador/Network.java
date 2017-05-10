@@ -29,6 +29,7 @@ public class Network extends Thread{
 
     public Network(ControladorJoc controlador){
         this.controlador = controlador;
+
     }
 
     public void connect(int port){
