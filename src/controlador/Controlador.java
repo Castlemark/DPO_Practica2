@@ -1,5 +1,6 @@
 package controlador;
 
+import Vista.Configuracio;
 import model.Client;
 import model.Usuari;
 
@@ -33,6 +34,8 @@ public class Controlador implements ActionListener {
                 break;
             case "INICI":
 
+                if (model.conectar(Vista.getIp(),Configuracio.getPort()))
+                    System.out.println("connectant");
 
 
 
