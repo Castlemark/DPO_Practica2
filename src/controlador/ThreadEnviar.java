@@ -12,7 +12,7 @@ import java.util.Scanner;
 /**
  * Created by Grup 6 on 13/04/2017.
  */
-public class ThreadEnviar extends Thread {
+/*public class ThreadEnviar extends Thread {
 
 
     public ThreadEnviar(Scanner sc, DataOutputStream doStream, ObjectOutputStream doStreamO, Serp serp){
@@ -33,4 +33,4 @@ public class ThreadEnviar extends Thread {
 
     }
 
-}
+}*/
