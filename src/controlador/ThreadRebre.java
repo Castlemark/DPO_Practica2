@@ -13,9 +13,9 @@ import java.net.UnknownHostException;
  * Created by Grup 6 on 13/04/2017.
  */
 public class ThreadRebre extends Thread {
-    private DataInputStream diStream;
-    private ObjectInputStream diStreamO;
-    private Partida partida;
+        private DataInputStream diStream;
+        private ObjectInputStream diStreamO;
+        private Partida partida;
 
     public ThreadRebre(DataInputStream diStream, ObjectInputStream diStreamO, Partida partida) {
 

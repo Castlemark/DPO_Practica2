@@ -55,4 +55,12 @@ public class Network extends Thread{
             e.printStackTrace();
         }
     }
+
+    public DataOutputStream getDoStream() {
+        return doStream;
+    }
+
+    public ObjectOutputStream getDoStreamO() {
+        return doStreamO;
+    }
 }

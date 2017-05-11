@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.IOException;
 
 /**
  * Created by Propietario on 03/05/2017.
@@ -25,7 +26,7 @@ public class ControladorJoc implements ActionListener, KeyListener {
         this.vistaJoc = vistaJoc;
         this.model = model;
         contador = 3;
-        this.network = Network(this);
+        this.network = new Network(this);
         network.connect(11111);
     }
 
@@ -66,7 +67,11 @@ public class ControladorJoc implements ActionListener, KeyListener {
         c = e.getKeyChar();
        if(vistaJoc.isCont() == false){
            model.getPartida().getSerp().canviaDireccio(c);
-           doStreamO.writeObject(serp);
+           try{
+               network.getDoStreamO().writeObject(model.getPartida().getSerp());
+           } catch (IOException ex) {
+               ex.printStackTrace();
+           }
 
        }
       /*
