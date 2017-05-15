@@ -40,4 +40,8 @@ public class Client {
     public boolean connectar(String ip,String host){
         return true;
     }
+
+    public Network getNetwork() {
+        return network;
+    }
 }

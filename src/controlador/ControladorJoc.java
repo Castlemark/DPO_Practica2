@@ -26,8 +26,6 @@ public class ControladorJoc implements ActionListener, KeyListener {
         this.vistaJoc = vistaJoc;
         this.model = model;
         contador = 3;
-        this.network = new Network(this);
-        network.connect(11111);
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -68,7 +66,7 @@ public class ControladorJoc implements ActionListener, KeyListener {
        if(vistaJoc.isCont() == false){
            model.getPartida().getSerp().canviaDireccio(c);
            try{
-               network.getDoStreamO().writeObject(model.getPartida().getSerp());
+               model.getNetwork().getDoStreamO().writeObject(model.getPartida().getSerp());
            } catch (IOException ex) {
                ex.printStackTrace();
            }
