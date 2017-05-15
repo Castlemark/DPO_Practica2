@@ -1,5 +1,7 @@
 package Vista;
 
+import controlador.Controlador;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -16,7 +18,7 @@ public class VistaClient extends JFrame {
     private JButton jbIniciar;
     private JButton jbRanquing;
     private JPanel jpClient;*/
-    private FiPartida iniciar;
+    private Configuracio iniciar;
     private  CardLayout layout;
 
 
@@ -24,18 +26,18 @@ public class VistaClient extends JFrame {
     private  FiPartida fiPartida;
     private Inici inici;
     private IniciarSessio iniciarSessio;
-    private  Joc joc;
+   // private  Joc joc;
     private Ranquing ranquing;
     private Registre registre;
     private TancarSessio tancarSessio;
-    private VistaJoc vistaJoc;
+  //  private VistaJoc vistaJoc;
     private Identificacio identificacio;
 
     /**
      * Constructor de la vista del menú del client. Inicialitza els elements a mostrar
      */
     public VistaClient (){
-        iniciar = new FiPartida (true);
+        iniciar = new Configuracio();
         this.setTitle("LS Troner");
         this.setSize (1200, 800);
         this.add(iniciar);
@@ -48,7 +50,7 @@ public class VistaClient extends JFrame {
         fiPartida = new FiPartida(true);// de moment
         inici = new Inici();
         iniciarSessio = new IniciarSessio();
-        joc =new Joc();
+    //    joc =new Joc();
         ranquing = new Ranquing();
         registre = new Registre();
         tancarSessio = new TancarSessio();
@@ -58,6 +60,8 @@ public class VistaClient extends JFrame {
         this.getContentPane().add("FIPARTIDA" , fiPartida);
         this.getContentPane().add("INICI", inici);
         this.getContentPane().add("IDENTIFICACIO", identificacio);
+
+
 
 
 
@@ -89,6 +93,11 @@ public class VistaClient extends JFrame {
        // this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
+    public void registerController(Controlador c) {
+
+        configuracio.registerController(c);
+
+    }
     public void changePanel(String which){
         layout.show(this.getContentPane(), which);
     }
