@@ -67,11 +67,11 @@ public class ControladorJoc implements ActionListener, KeyListener {
         c = e.getKeyChar();
        if(vistaJoc.isCont() == false){
            model.getPartida().getSerp().canviaDireccio(c);
-           try{
+           /*try{
                network.getDoStreamO().writeObject(model.getPartida().getSerp());
            } catch (IOException ex) {
                ex.printStackTrace();
-           }
+           }*/
 
        }
       /*

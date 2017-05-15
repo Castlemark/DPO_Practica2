@@ -41,9 +41,12 @@ public class Controlador implements ActionListener {
 
         /*switch (e.getActionCommand()) {
             case "ENVIAR":
+
                 Usuari usuariAux = new Usuari();
+
                 if(usuariAux.comprovaDades(vistaRegistre.getLogin(), vistaRegistre.getMail(), vistaRegistre.getPassword(), vistaRegistre.getConfirmacio())){
                     model.setUsuari(usuariAux = new Usuari(vistaRegistre.getLogin(), vistaRegistre.getMail(), vistaRegistre.getPassword()));
+
                     System.out.println("OK");
                 }else{
                     System.out.println("Error de dades");
