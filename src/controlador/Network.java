@@ -3,11 +3,9 @@ package controlador;
 import model.Client;
 import model.Partida;
 import model.Serp;
+import model.Usuari;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.net.Socket;
 import java.sql.ClientInfoStatus;
 import java.util.Scanner;
@@ -67,6 +65,12 @@ public class Network extends Thread{
 
 
         }
+    }
+
+    public void registraUsuari(Usuari usuari) throws IOException{
+
+        doStreamO.writeObject(usuari);
+
     }
 
     public DataOutputStream getDoStream() {
