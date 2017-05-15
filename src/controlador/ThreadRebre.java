@@ -31,6 +31,7 @@ public class ThreadRebre extends Thread {
             try {
                 serp = (Serp) diStreamO.readObject();
 
+
             } catch (EOFException e ){
                 break;
 
