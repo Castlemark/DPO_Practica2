@@ -5,6 +5,7 @@ import Vista.VistaClient;
 import model.Client;
 import model.Usuari;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -18,14 +19,27 @@ public class Controlador implements ActionListener {
 
     private  VistaClient vista;
 
-    public Controlador(Vista.Registre vistaRegistre, Client model){
-        this.vistaRegistre = vistaRegistre;
+    public Controlador(VistaClient vistaClient, Client model){
+        this.vista = vistaClient;
         this.model = model;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        switch (e.getActionCommand()) {
+
+        if (e.getSource() instanceof JButton) {
+            System.out.println(e.getActionCommand() + " - boto");
+            if (e.getActionCommand().equals("INICI")) {
+                System.out.println("clic");
+                if (model.connectar(vista.getIp(), vista.getPort())) {
+                    System.out.println("connectant");
+                    vista.changePanel("IDENTIFICACIO");
+
+                }
+            }
+        }
+
+        /*switch (e.getActionCommand()) {
             case "ENVIAR":
                 Usuari usuariAux = new Usuari();
                 if(usuariAux.comprovaDades(vistaRegistre.getLogin(), vistaRegistre.getMail(), vistaRegistre.getPassword(), vistaRegistre.getConfirmacio())){
@@ -35,15 +49,22 @@ public class Controlador implements ActionListener {
                     System.out.println("Error de dades");
                 }
                 break;
-            case "INICI":
 
+
+
+
+
+
+            case "INICI":
+                System.out.println("clic");
                 if (model.connectar(vista.getIp(),vista.getPort())) {
-                    System.out.println("connectat");
+                    System.out.println("connectant");
+                    vista.changePanel("IDENTIFICACIO");
 
 
 
                 }
-                break;
+                break;*/
         }
     }
-}
+
