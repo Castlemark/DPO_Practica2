@@ -1,5 +1,6 @@
 package controlador;
 
+import model.Client;
 import model.Partida;
 import model.Serp;
 
@@ -8,13 +9,14 @@ import java.io.DataOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.sql.ClientInfoStatus;
 import java.util.Scanner;
 
 /**
  * Created by Propietario on 10/05/2017.
  */
 public class Network extends Thread{
-    private ControladorJoc controlador;
+    private Client model;
 
     private DataOutputStream doStream;
     private ObjectOutputStream doStreamO; // = new ObjectOutputStream(sClient.getOutputStream());
@@ -25,10 +27,13 @@ public class Network extends Thread{
     private Scanner sc;
     private Serp serp;
 
+    private boolean running;
 
 
-    public Network(ControladorJoc controlador){
-        this.controlador = controlador;
+
+    public Network(Client model){
+        this.model = model;
+        running = true;
 
     }
 
@@ -53,6 +58,14 @@ public class Network extends Thread{
             //sServer.close();
         }catch (Exception e){
             e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void run(){
+        while (running){
+
+
         }
     }
 

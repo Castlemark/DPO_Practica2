@@ -1,5 +1,7 @@
 package model;
 
+import controlador.Network;
+
 /**
  * Created by Propietario on 24/04/2017.
  */
@@ -7,10 +9,14 @@ public class Client {
     private Usuari usuari;
     private Partida partida;
 
+    private Network network;
+
 
 
     public Client (){
         partida = new Partida();
+
+        network = new Network(this);
     }
 
     public void setUsuari(Usuari usuari) {
