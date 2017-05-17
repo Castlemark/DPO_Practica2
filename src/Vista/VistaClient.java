@@ -37,10 +37,10 @@ public class VistaClient extends JFrame {
      * Constructor de la vista del menú del client. Inicialitza els elements a mostrar
      */
     public VistaClient (){
+
         iniciar = new Configuracio();
         this.setTitle("LS Troner");
         this.setSize (1200, 800);
-        this.add(iniciar);
 
         layout = new CardLayout();
         this.getContentPane().setLayout(layout);
@@ -56,10 +56,11 @@ public class VistaClient extends JFrame {
         tancarSessio = new TancarSessio();
         identificacio = new Identificacio();
 
-        this.getContentPane().add("INICI", inici);
 
+        this.getContentPane().add("INICI", iniciar);
         this.getContentPane().add("IDENTIFICACIO", identificacio);
         this.getContentPane().add("FIPARTIDA" , fiPartida);
+
 
 
 
@@ -77,6 +78,7 @@ public class VistaClient extends JFrame {
     public void registerController(Controlador c) {
 
         iniciar.registerController(c);
+
 
     }
     public void changePanel(String which){

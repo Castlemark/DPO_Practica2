@@ -65,6 +65,7 @@ public class Controlador implements ActionListener {
                     System.out.println("clic");
                     if (model.connectar(vista.getIp(), vista.getPort())) {
                         System.out.println("connectant");
+                        model.getNetwork().connect(1111);
                         vista.changePanel("IDENTIFICACIO");
 
 

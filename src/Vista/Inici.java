@@ -53,7 +53,7 @@ public class Inici extends JPanel {
 
     public void registerController(Controlador c){
 
-       // registerController();
+        jpConfi.registerController(c);
     }
 
 
