@@ -28,7 +28,7 @@ public class Controlador implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if (e.getSource() instanceof JButton) {
+        /*if (e.getSource() instanceof JButton) {
             System.out.println(e.getActionCommand() + " - boto");
             if (e.getActionCommand().equals("INICI")) {
                 System.out.println("clic");
@@ -61,7 +61,7 @@ public class Controlador implements ActionListener {
                     break;
 
 
-                case "INICI":
+                case "INICIAR":
                     System.out.println("clic");
                     if (model.connectar(vista.getIp(), vista.getPort())) {
                         System.out.println("connectant");
