@@ -8,6 +8,7 @@ import model.Usuari;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 /**
  * Controlador del client
@@ -17,9 +18,9 @@ public class Controlador implements ActionListener {
     private Vista.Registre vistaRegistre;
     private Client model;
 
-    private  VistaClient vista;
+    private VistaClient vista;
 
-    public Controlador(VistaClient vistaClient, Client model){
+    public Controlador(VistaClient vistaClient, Client model) {
         this.vista = vistaClient;
         this.model = model;
     }
@@ -27,47 +28,53 @@ public class Controlador implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        System.out.println("hola");
-
         if (e.getSource() instanceof JButton) {
             System.out.println(e.getActionCommand() + " - boto");
-            if (e.getActionCommand().equals("INICIAR")) {
+            if (e.getActionCommand().equals("INICI")) {
+                System.out.println("clic");
                 if (model.connectar(vista.getIp(), vista.getPort())) {
+                    System.out.println("connectant");
                     vista.changePanel("IDENTIFICACIO");
 
                 }
             }
+        }*/
+
+        try {
+
+            switch (e.getActionCommand()) {
+
+
+                case "ENVIAR":
+
+                    Usuari usuariAux = new Usuari();
+
+                    if (usuariAux.comprovaDades(vistaRegistre.getLogin(), vistaRegistre.getMail(), vistaRegistre.getPassword(), vistaRegistre.getConfirmacio())) {
+                        model.setUsuari(usuariAux = new Usuari(vistaRegistre.getLogin(), vistaRegistre.getMail(), vistaRegistre.getPassword()));
+
+                        model.getNetwork().registraUsuari(usuariAux);
+
+                        System.out.println("OK");
+                    } else {
+                        System.out.println("Error de dades");
+                    }
+                    break;
+
+
+                case "INICI":
+                    System.out.println("clic");
+                    if (model.connectar(vista.getIp(), vista.getPort())) {
+                        System.out.println("connectant");
+                        vista.changePanel("IDENTIFICACIO");
+
+
+                    }
+                    break;
+            }
+        } catch (IOException ioe) {
+            ioe.getMessage();
         }
 
-        /*switch (e.getActionCommand()) {
-            case "ENVIAR":
-
-                Usuari usuariAux = new Usuari();
-
-                if(usuariAux.comprovaDades(vistaRegistre.getLogin(), vistaRegistre.getMail(), vistaRegistre.getPassword(), vistaRegistre.getConfirmacio())){
-                    model.setUsuari(usuariAux = new Usuari(vistaRegistre.getLogin(), vistaRegistre.getMail(), vistaRegistre.getPassword()));
-
-                    System.out.println("OK");
-                }else{
-                    System.out.println("Error de dades");
-                }
-                break;
-
-
-
-
-
-
-            case "INICI":
-                System.out.println("clic");
-                if (model.connectar(vista.getIp(),vista.getPort())) {
-                    System.out.println("connectant");
-                    vista.changePanel("IDENTIFICACIO");
-
-
-
-                }
-                break;*/
-        }
     }
+}
 
