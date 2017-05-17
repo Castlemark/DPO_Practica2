@@ -68,6 +68,7 @@ public class VistaClient extends JFrame {
 
 
 
+
         //getContentPane().add(jpClient, BorderLayout.CENTER);
 
        // this.setDefaultCloseOperation(EXIT_ON_CLOSE);
