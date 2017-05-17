@@ -27,12 +27,12 @@ public class Controlador implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        System.out.println("hola");
+
         if (e.getSource() instanceof JButton) {
             System.out.println(e.getActionCommand() + " - boto");
-            if (e.getActionCommand().equals("INICI")) {
-                System.out.println("clic");
+            if (e.getActionCommand().equals("INICIAR")) {
                 if (model.connectar(vista.getIp(), vista.getPort())) {
-                    System.out.println("connectant");
                     vista.changePanel("IDENTIFICACIO");
 
                 }

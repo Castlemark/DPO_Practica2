@@ -1,5 +1,7 @@
 package Vista;
 
+import controlador.Controlador;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -47,6 +49,11 @@ public class Inici extends JPanel {
         add(jpConfi, new GridBagConstraints(1, 2, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 53, 73), 0, 0));
+    }
+
+    public void registerController(Controlador c){
+
+       // registerController();
     }
 
 

@@ -56,38 +56,18 @@ public class VistaClient extends JFrame {
         tancarSessio = new TancarSessio();
         identificacio = new Identificacio();
 
-
-        this.getContentPane().add("FIPARTIDA" , fiPartida);
         this.getContentPane().add("INICI", inici);
+
         this.getContentPane().add("IDENTIFICACIO", identificacio);
+        this.getContentPane().add("FIPARTIDA" , fiPartida);
 
 
 
 
 
-        //this.setResizable(true);
 
-       /* jpClient = new JPanel();
-        jpClient.setLayout(new GridLayout(7,1));
 
-        jbRegistrar = new JButton("Registrar usuaris");
-        jbIniciar = new JButton("Iniciar/Tancar");
-        jbConfiguracio = new JButton("Configurar el sistema");
-        jbRanquing = new JButton("Visualitzar ranquing de jugadors");
-        jbJugar2x = new JButton("Jugar 2x");
-        jbJugar4x = new JButton("Jugar 4x");
-        jbCampionat = new JButton("Jugar campionat");
 
-        jpClient.add(jbConfiguracio);
-        jpClient.add(jbRegistrar);
-        jpClient.add(jbConfiguracio);
-        jpClient.add(jbIniciar);
-        jpClient.add(jbJugar2x);
-        jpClient.add(jbJugar4x);
-        jpClient.add(jbCampionat);
-        jpClient.add(jbRanquing);
-        this.add(jpClient);
-*/
         //getContentPane().add(jpClient, BorderLayout.CENTER);
 
        // this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -95,7 +75,7 @@ public class VistaClient extends JFrame {
 
     public void registerController(Controlador c) {
 
-        configuracio.registerController(c);
+        iniciar.registerController(c);
 
     }
     public void changePanel(String which){

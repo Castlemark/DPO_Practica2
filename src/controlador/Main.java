@@ -22,11 +22,11 @@ public class Main {
             @Override
             public void run() {
                 VistaClient vista3 = new VistaClient();
-                vista3.setVisible(true);
+
                 Client model = new Client();
                 Controlador c = new Controlador(vista3, model);
                 vista3.registerController(c);
-
+                vista3.setVisible(true);
                 //Creem el model
                /* Client model = new Client();
 
