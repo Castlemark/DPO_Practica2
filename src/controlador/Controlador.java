@@ -15,7 +15,6 @@ import java.io.IOException;
  * Created by Grup 6 on 24/04/2017.
  */
 public class Controlador implements ActionListener {
-    private Vista.Registre vistaRegistre;
     private Client model;
 
     private VistaClient vista;
@@ -49,8 +48,8 @@ public class Controlador implements ActionListener {
 
                     Usuari usuariAux = new Usuari();
 
-                    if (usuariAux.comprovaDades(vistaRegistre.getLogin(), vistaRegistre.getMail(), vistaRegistre.getPassword(), vistaRegistre.getConfirmacio())) {
-                        model.setUsuari(usuariAux = new Usuari(vistaRegistre.getLogin(), vistaRegistre.getMail(), vistaRegistre.getPassword()));
+                    if (usuariAux.comprovaDades(vista.getRegistre().getLogin(), vista.getRegistre().getMail(),vista.getRegistre().getPassword(),vista.getRegistre().getConfirmacio())) {
+                        model.setUsuari(usuariAux = new Usuari(vista.getRegistre().getLogin(), vista.getRegistre().getMail(),vista.getRegistre().getPassword()));
 
                         model.getNetwork().registraUsuari(usuariAux);
 
@@ -73,6 +72,7 @@ public class Controlador implements ActionListener {
                     break;
             }
         } catch (IOException ioe) {
+            System.out.println(ioe.getMessage());
             ioe.getMessage();
         }
 

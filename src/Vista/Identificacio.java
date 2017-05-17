@@ -4,6 +4,8 @@
 
 package Vista;
 
+import controlador.Controlador;
+
 import java.awt.*;
 import javax.swing.*;
 
@@ -80,6 +82,16 @@ public class Identificacio extends JPanel {
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 25, 25), 0, 0));
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
+    }
+
+    public void registerController (Controlador c){
+
+        jpRegistre.registercontroller(c);
+
+    }
+
+    public Registre getRegistre(){
+        return jpRegistre;
     }
 
 }

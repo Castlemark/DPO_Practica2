@@ -1,6 +1,7 @@
 package Vista;
 
 import com.sun.org.apache.xpath.internal.operations.String;
+import controlador.Controlador;
 
 import javax.swing.*;
 import java.awt.*;
@@ -91,8 +92,9 @@ public class Registre extends JPanel {
         return java.lang.String.valueOf(jConfirmacio.getPassword());
     }
 
-    public void registraControlador( controlador.Controlador controlador){
+    public void registercontroller(Controlador c){
         jbEnviar.setActionCommand("ENVIAR");
-        jbEnviar.addActionListener(controlador);
+
+        jbEnviar.addActionListener(c);
     }
 }

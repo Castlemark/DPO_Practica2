@@ -78,6 +78,7 @@ public class VistaClient extends JFrame {
     public void registerController(Controlador c) {
 
         iniciar.registerController(c);
+        identificacio.registerController(c);
 
 
     }
@@ -87,4 +88,8 @@ public class VistaClient extends JFrame {
 
     public String getPort(){return configuracio.getPort();}
     public String getIp(){return configuracio.getIp();}
+
+    public Registre getRegistre(){
+        return identificacio.getRegistre();
+    }
 }
