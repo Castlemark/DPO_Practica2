@@ -1,7 +1,9 @@
 package controlador;
 
-import model.Partida;
-import model.Serp;
+import Model.Partida;
+import Model.Serp;
+import Model.Partida;
+import Model.Serp;
 
 import java.io.DataInputStream;
 import java.io.EOFException;

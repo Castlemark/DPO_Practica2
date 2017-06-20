@@ -6,8 +6,6 @@ package Vista;
 
 import java.awt.*;
 import javax.swing.*;
-import org.jdesktop.beansbinding.*;
-import org.jdesktop.beansbinding.AutoBinding.UpdateStrategy;
 
 /**
  * @author Tatiana CÃ¡ceres

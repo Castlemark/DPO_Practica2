@@ -2,7 +2,7 @@ package Vista;
 
 import controlador.Controlador;
 import controlador.ControladorJoc;
-import model.Posicio;
+import Model.Posicio;
 
 import javax.swing.*;
 import java.awt.*;

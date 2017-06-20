@@ -1,9 +1,13 @@
 package controlador;
 
-import model.Client;
-import model.Partida;
-import model.Serp;
-import model.Usuari;
+import Model.Client;
+import Model.Partida;
+import Model.Serp;
+import Model.Usuari;
+import Model.Client;
+import Model.Partida;
+import Model.Serp;
+import Model.Usuari;
 
 import java.io.*;
 import java.net.Socket;
@@ -43,13 +47,10 @@ public class Network extends Thread{
             sc = new Scanner(System.in);
             Socket sServer = new Socket("localhost", port);
 
-            doStream = new DataOutputStream(sServer.getOutputStream());
+            //doStream = new DataOutputStream(sServer.getOutputStream());
             diStream = new DataInputStream(sServer.getInputStream());
-            System.out.println("abans");
             doStreamO = new ObjectOutputStream(sServer.getOutputStream());
-            System.out.println("al mig");
             //diStreamO = new ObjectInputStream(sServer.getInputStream());
-            System.out.println("despres");
 
             System.out.println("esta conectat");
       //      ThreadEnviar threadEnviar = new ThreadEnviar(sc, doStream);
@@ -74,8 +75,16 @@ public class Network extends Thread{
 
     public void registraUsuari(Usuari usuari) throws IOException{
 
+        System.out.println("registra");
         doStreamO.writeObject(usuari);
+        System.out.println("objecte enviat");
+        System.out.println(diStream.readBoolean());
 
+    }
+
+    public void avisaServer(String which) throws IOException{
+        System.out.println("avisa");
+        doStreamO.writeObject(which);
     }
 
     public DataOutputStream getDoStream() {

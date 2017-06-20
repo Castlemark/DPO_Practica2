@@ -1,8 +1,8 @@
 package controlador;
 
 import Vista.*;
-import model.Client;
-import model.Usuari;
+import Model.Client;
+import Model.Usuari;
 
 import javax.swing.*;
 import java.awt.*;

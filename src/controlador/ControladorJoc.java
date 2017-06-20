@@ -1,8 +1,9 @@
 package controlador;
 
+import Model.Client;
 import Vista.VistaJoc;
-import model.Client;
-import model.Serp;
+import Model.Client;
+import Model.Serp;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;

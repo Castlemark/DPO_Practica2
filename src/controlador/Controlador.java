@@ -2,8 +2,8 @@ package controlador;
 
 import Vista.Configuracio;
 import Vista.VistaClient;
-import model.Client;
-import model.Usuari;
+import Model.Client;
+import Model.Usuari;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -51,6 +51,7 @@ public class Controlador implements ActionListener {
                     if (usuariAux.comprovaDades(vista.getRegistre().getLogin(), vista.getRegistre().getMail(),vista.getRegistre().getPassword(),vista.getRegistre().getConfirmacio())) {
                         model.setUsuari(usuariAux = new Usuari(vista.getRegistre().getLogin(), vista.getRegistre().getMail(),vista.getRegistre().getPassword()));
 
+                        model.getNetwork().avisaServer("REGISTRAR");
                         model.getNetwork().registraUsuari(usuariAux);
 
                         System.out.println("OK");
