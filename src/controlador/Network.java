@@ -28,7 +28,7 @@ public class Network extends Thread{
 
     private boolean running;
 
-
+    
 
     public Network(Client model){
         this.model = model;

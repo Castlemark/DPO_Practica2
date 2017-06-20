@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Scanner;
 
 /**
- * Classe de l'usuari en el model del client
+ * Classe de l'usuari en el Model del client
  *
  * Created by Grup 6 on 30/03/2017.
  */

@@ -29,6 +29,7 @@ public class Controlador implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         try {
+
             switch (e.getActionCommand()) {
 
                 case "ENVIAR":
@@ -46,6 +47,7 @@ public class Controlador implements ActionListener {
                             JOptionPane.showMessageDialog(null, "Registre completat amb exit");
                         }
 
+                        System.out.println("OK");
                     } else {
                         JOptionPane.showMessageDialog(null, "No s'ha pogut completar el registre\nHi ha un error en les dades");
                     }

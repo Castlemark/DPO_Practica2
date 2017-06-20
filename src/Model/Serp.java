@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * Classe Serp del model del client
+ * Classe Serp del Model del client
  *
  * És la classe de les serps, guarda la seva posició...
  * Created by Grup 6 on 06/04/2017.

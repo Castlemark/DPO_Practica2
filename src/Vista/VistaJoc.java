@@ -45,6 +45,7 @@ public class VistaJoc extends JPanel {
         ArrayList<Posicio> serp = cj.getSerp().getPosicions();
         Posicio cap = cj.getSerp().getCap();
 
+
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
         if (cont){
