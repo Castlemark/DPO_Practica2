@@ -4,24 +4,29 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * Classe partida del model del Client.
+ * Classe partida del Model del Client.
  *
  * Gestiona les serps de la partida i comprova que no hi hagi colisions.
  *
  * Created by Grup 6 on 06/04/2017.
  */
 public class Partida implements Serializable{
-    private Serp serp;
+    private Model.Serp serp;
+    private ArrayList<Model.Serp> serps;
+
     private boolean viu;
 
-    public Partida(){
+    public Partida(ArrayList<Serp> serps){
         viu = true;
-        serp = new Serp();
+        serp = new Model.Serp();
+        this.serps = serps;
     }
+
+
 
     public boolean comprovaCollisio(){
 
-        Posicio cap = serp.getCap();
+        Model.Posicio cap = serp.getCap();
         ArrayList<Posicio> posicions = serp.getPosicions();
 
         if(cap.getX() > 350 || cap.getX() < 0 || cap.getY() > 350 || cap.getY() < 0){

@@ -31,7 +31,7 @@ public class Controlador implements ActionListener {
             System.out.println(e.getActionCommand() + " - boto");
             if (e.getActionCommand().equals("INICI")) {
                 System.out.println("clic");
-                if (model.connectar(vista.getIp(), vista.getPort())) {
+                if (Model.connectar(vista.getIp(), vista.getPort())) {
                     System.out.println("connectant");
                     vista.changePanel("IDENTIFICACIO");
 

@@ -9,15 +9,17 @@ import java.io.DataInputStream;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.net.ServerSocket;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 
 /**
  * Created by Grup 6 on 13/04/2017.
  */
 public class ThreadRebre extends Thread {
-        private DataInputStream diStream;
-        private ObjectInputStream diStreamO;
-        private Partida partida;
+    private DataInputStream diStream;
+    private ObjectInputStream diStreamO;
+    private Partida partida;
 
     public ThreadRebre(DataInputStream diStream, ObjectInputStream diStreamO, Partida partida) {
 
@@ -27,22 +29,33 @@ public class ThreadRebre extends Thread {
     }
 
     @Override
-    public void run(){
-        while(true){
-            Serp serp = null;
-            try {
-                serp = (Serp) diStreamO.readObject();
+    public void run() {
+        try {
+            while (true) {
+                int opcio;
+                Serp serp;
 
+                opcio = diStream.readInt();
 
-            } catch (EOFException e ){
-                break;
+                switch (opcio) {
+                    case 1:
+                        //començarPartida
+                        ArrayList<Serp> serps;
+                        serps = (ArrayList<Serp>) diStreamO.readObject();
+                        partida = new Partida(serps);
+                        break;
+                    case 2:
+                        //rebreSerp
+                        serp = (Serp) diStreamO.readObject();
+                        break;
+                }
 
-            } catch (IOException e) {
-                e.printStackTrace();
-
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
             }
+        }catch(IOException e){
+                e.printStackTrace();
+        }catch(ClassNotFoundException e){
+                e.printStackTrace();
         }
+
     }
 }

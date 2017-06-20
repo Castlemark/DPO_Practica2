@@ -14,7 +14,7 @@ public class Client {
 
 
     public Client (){
-        partida = new Partida();
+        partida = null;
 
         network = new Network(this);
     }
