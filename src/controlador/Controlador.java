@@ -1,5 +1,6 @@
 package controlador;
 
+import Model.Inicia;
 import Vista.Configuracio;
 import Vista.VistaClient;
 import Model.Client;
@@ -27,22 +28,8 @@ public class Controlador implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        /*if (e.getSource() instanceof JButton) {
-            System.out.println(e.getActionCommand() + " - boto");
-            if (e.getActionCommand().equals("INICI")) {
-                System.out.println("clic");
-                if (model.connectar(vista.getIp(), vista.getPort())) {
-                    System.out.println("connectant");
-                    vista.changePanel("IDENTIFICACIO");
-
-                }
-            }
-        }*/
-
         try {
-
             switch (e.getActionCommand()) {
-
 
                 case "ENVIAR":
 
@@ -52,17 +39,19 @@ public class Controlador implements ActionListener {
                         model.setUsuari(usuariAux = new Usuari(vista.getRegistre().getLogin(), vista.getRegistre().getMail(),vista.getRegistre().getPassword()));
 
                         model.getNetwork().avisaServer("REGISTRAR");
-                        model.getNetwork().registraUsuari(usuariAux);
+                        if (!model.getNetwork().registraUsuari(usuariAux)){
+                            JOptionPane.showMessageDialog(null, "No s'ha pogust completar el registre\nJa existeix aquest usuari");
+                        }
+                        else {
+                            JOptionPane.showMessageDialog(null, "Registre completat amb exit");
+                        }
 
-                        System.out.println("OK");
                     } else {
-                        System.out.println("Error de dades");
+                        JOptionPane.showMessageDialog(null, "No s'ha pogut completar el registre\nHi ha un error en les dades");
                     }
                     break;
 
-
                 case "INICIAR":
-                    System.out.println("clic");
                     if (model.connectar(vista.getIp(), vista.getPort())) {
                         System.out.println("connectant");
                         model.getNetwork().connect(1111);
@@ -71,6 +60,19 @@ public class Controlador implements ActionListener {
 
                     }
                     break;
+
+                case "INICIARSESSIO":
+
+                    Inicia iniciaAux = new Inicia(vista.getIniciarSessio().getID(), vista.getIniciarSessio().getPassword());
+
+                    model.getNetwork().avisaServer("INICIARSESSIO");
+                    if (model.getNetwork().iniciaSessio(iniciaAux)){
+                        vista.changePanel("RANQUING");
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(null, "L'usuari no existeix");
+                    }
+
             }
         } catch (IOException ioe) {
             System.out.println(ioe.getMessage());

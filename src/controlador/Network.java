@@ -1,9 +1,6 @@
 package controlador;
 
-import Model.Client;
-import Model.Partida;
-import Model.Serp;
-import Model.Usuari;
+import Model.*;
 import Model.Client;
 import Model.Partida;
 import Model.Serp;
@@ -73,13 +70,16 @@ public class Network extends Thread{
         }
     }
 
-    public void registraUsuari(Usuari usuari) throws IOException{
+    public boolean registraUsuari(Usuari usuari) throws IOException{
 
-        System.out.println("registra");
         doStreamO.writeObject(usuari);
-        System.out.println("objecte enviat");
-        System.out.println(diStream.readBoolean());
+        return diStream.readBoolean();
+    }
 
+    public boolean iniciaSessio(Inicia inicia) throws IOException{
+
+        doStreamO.writeObject(inicia);
+        return diStream.readBoolean();
     }
 
     public void avisaServer(String which) throws IOException{

@@ -87,11 +87,15 @@ public class Identificacio extends JPanel {
     public void registerController (Controlador c){
 
         jpRegistre.registercontroller(c);
-
+        jpIniciar.registerController(c);
     }
 
     public Registre getRegistre(){
         return jpRegistre;
+    }
+
+    public IniciarSessio getIniciarSessio(){
+        return jpIniciar;
     }
 
 }

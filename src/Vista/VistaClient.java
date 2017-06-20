@@ -60,6 +60,7 @@ public class VistaClient extends JFrame {
         this.getContentPane().add("INICI", iniciar);
         this.getContentPane().add("IDENTIFICACIO", identificacio);
         this.getContentPane().add("FIPARTIDA" , fiPartida);
+        this.getContentPane().add("RANQUING", ranquing);
 
 
 
@@ -91,5 +92,9 @@ public class VistaClient extends JFrame {
 
     public Registre getRegistre(){
         return identificacio.getRegistre();
+    }
+
+    public IniciarSessio getIniciarSessio(){
+        return identificacio.getIniciarSessio();
     }
 }

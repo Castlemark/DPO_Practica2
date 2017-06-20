@@ -1,5 +1,7 @@
 package Vista;
 
+import controlador.Controlador;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -51,5 +53,17 @@ public class IniciarSessio extends JPanel {
         this.add(jpIniciar,BorderLayout.PAGE_START);
     }
 
+    public String getID(){
+        return jtID.getText();
+    }
 
+    public String getPassword(){
+        return jtPassword.getText();
+    }
+
+    public void registerController(Controlador c){
+        jbIniciar.setActionCommand("INICIARSESSIO");
+
+        jbIniciar.addActionListener(c);
+    }
 }
