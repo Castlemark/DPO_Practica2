@@ -21,19 +21,14 @@ public class Main {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
+                VistaClient vista3 = new VistaClient();
 
-             /*  Controls controls= new Controls();
-                controls.setVisible(true);*/
-
-               VistaClient vista3 = new VistaClient();
-               vista3.setVisible(true);
-
-                /*Client model = new Client();
+                Client model = new Client();
                 Controlador c = new Controlador(vista3, model);
                 vista3.registerController(c);
-                vista3.setVisible(true);*/
-                //Creem el model
-               /* Client model = new Client();
+                vista3.setVisible(true);
+                //Creem el Model
+               /* Client Model = new Client();
 
                 //Creem la vista
                 Joc vistaJoc = new Joc();
@@ -55,7 +50,7 @@ public class Main {
 
 
                 // crea el controlador i estableix la relacio C->V i C->M
-                ControladorJoc cj = new ControladorJoc(vistaJoc.getPanel1(), model);
+                ControladorJoc cj = new ControladorJoc(vistaJoc.getPanel1(), Model);
                 // establim la relacio V--->C
                 vistaJoc.registraControlador(cj);
                 // fem la vista visible
