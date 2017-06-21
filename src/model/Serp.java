@@ -66,4 +66,7 @@ public class Serp implements Serializable{
     public Posicio getCap() {
         return cap;
     }
+
+
 }
+

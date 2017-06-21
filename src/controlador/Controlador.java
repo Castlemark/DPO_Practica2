@@ -71,6 +71,9 @@ public class Controlador implements ActionListener {
 
                     }
                     break;
+
+                case "GUARDAR":
+
             }
         } catch (IOException ioe) {
             System.out.println(ioe.getMessage());

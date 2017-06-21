@@ -21,7 +21,7 @@ public class VistaClient extends JFrame {
     private Configuracio iniciar;
     private  CardLayout layout;
 
-
+    private Controls controls;
     private Configuracio configuracio;
     private  FiPartida fiPartida;
     private Inici inici;
@@ -69,7 +69,6 @@ public class VistaClient extends JFrame {
 
 
 
-
         //getContentPane().add(jpClient, BorderLayout.CENTER);
 
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -79,6 +78,7 @@ public class VistaClient extends JFrame {
 
         iniciar.registerController(c);
         identificacio.registerController(c);
+        controls.regiterController(c);
 
 
     }

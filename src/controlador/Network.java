@@ -94,4 +94,15 @@ public class Network extends Thread{
     public ObjectOutputStream getDoStreamO() {
         return doStreamO;
     }
+
+    public void enviaControls (int[] controls)  {
+
+        try {
+            doStreamO.writeObject(controls);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
 }

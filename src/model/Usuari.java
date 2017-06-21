@@ -12,6 +12,10 @@ public class Usuari implements Serializable{
     private String login;
     private String mail;
     private String password;
+    private int up;
+    private int down;
+    private int left;
+    private int right;
 
     public Usuari (){
 
@@ -195,5 +199,12 @@ public class Usuari implements Serializable{
      */
     public boolean tancarSessio(){
         return true;
+    }
+
+    public void setControls (int up, int down, int left, int right) {
+        this.up = up;
+        this.down = down;
+        this.left = left;
+        this.right = right;
     }
 }
