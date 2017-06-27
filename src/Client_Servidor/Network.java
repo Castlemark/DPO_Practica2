@@ -85,6 +85,7 @@ public class Network extends Thread{
         doStreamO.writeObject(which);
     }
 
+
     public ObjectOutputStream getDoStream() {
         return doStreamO;
     }
