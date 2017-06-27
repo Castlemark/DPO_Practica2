@@ -45,8 +45,8 @@ public class Network extends Thread{
 
            System.out.println("esta conectat");
 
-            //doStreamO = new ObjectOutputStream(sServer.getOutputStream());
-            //diStreamO = new ObjectInputStream(sServer.getInputStream());
+            doStreamO = new ObjectOutputStream(sServer.getOutputStream());
+            diStreamO = new ObjectInputStream(sServer.getInputStream());
 
       //      ThreadEnviar threadEnviar = new ThreadEnviar(sc, doStream);
       //      ThreadRebre threadRebre = new ThreadRebre(diStream);
