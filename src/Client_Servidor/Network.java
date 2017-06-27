@@ -17,7 +17,7 @@ import java.util.Scanner;
 public class Network extends Thread{
     private Client model;
 
-    private ObjectOutputStream doStreamO; // = new ObjectOutputStream(sClient.getOutputStream());
+    private ObjectOutputStream doStreamO;
     private ObjectInputStream diStreamO;
 
     private Partida partida;
@@ -43,10 +43,8 @@ public class Network extends Thread{
 
             Socket sServer = new Socket("localhost", port);
 
-           System.out.println("esta conectat");
-
-            //doStreamO = new ObjectOutputStream(sServer.getOutputStream());
-            //diStreamO = new ObjectInputStream(sServer.getInputStream());
+            doStreamO = new ObjectOutputStream(sServer.getOutputStream());
+            diStreamO = new ObjectInputStream(sServer.getInputStream());
 
       //      ThreadEnviar threadEnviar = new ThreadEnviar(sc, doStream);
       //      ThreadRebre threadRebre = new ThreadRebre(diStream);
@@ -55,6 +53,9 @@ public class Network extends Thread{
             threadRebre.start();*/
 
             //sServer.close();
+
+            System.out.println("esta conectat");
+
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -68,16 +69,15 @@ public class Network extends Thread{
         }
     }
 
-    public boolean registraUsuari(Usuari usuari) throws IOException{
+    public boolean registraUsuari(Usuari usuari) throws IOException, ClassNotFoundException{
 
         doStreamO.writeObject(usuari);
-        return diStreamO.readBoolean();
-    }
+        return  (Boolean) diStreamO.readObject();    }
 
-    public boolean iniciaSessio(Inicia inicia) throws IOException{
+    public boolean iniciaSessio(Inicia inicia) throws IOException, ClassNotFoundException{
 
         doStreamO.writeObject(inicia);
-        return diStreamO.readBoolean();
+        return  (Boolean) diStreamO.readObject();
     }
 
     public void avisaServer(String which) throws IOException{

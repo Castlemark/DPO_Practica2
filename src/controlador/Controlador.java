@@ -83,6 +83,8 @@ public class Controlador implements ActionListener {
         } catch (IOException ioe) {
             System.out.println(ioe.getMessage());
             ioe.getMessage();
+        }catch (ClassNotFoundException e1){
+            e1.printStackTrace();
         }
 
     }
