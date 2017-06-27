@@ -1,17 +1,11 @@
 package controlador;
 
+import Client_Servidor.Network;
 import Vista.*;
 import Model.Client;
-import Model.Usuari;
 
 import javax.swing.*;
-import java.awt.*;
-import javax.swing.event.CaretListener;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.net.Socket;
-import java.util.Scanner;
-import java.awt.event.KeyEvent;
+
 /**
  * Main del controlador del Client del Troner
  * Created by Grup 6 on 15/03/2017.
@@ -21,12 +15,28 @@ public class Main {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                VistaClient vista3 = new VistaClient();
+//                VistaClient vista3 = new VistaClient();
 
                 Client model = new Client();
-                Controlador c = new Controlador(vista3, model);
-                vista3.registerController(c);
-                vista3.setVisible(true);
+                Network network = new Network(model);
+      //          Controlador c = new Controlador(vista3, model, network);
+      //          vista3.registerController(c);
+      //          vista3.setVisible(true);
+                VistaJoc vistaJoc = new VistaJoc();
+
+                ControladorJoc cj = new ControladorJoc(vistaJoc, model, network);
+
+                vistaJoc.registraControlador(cj);
+
+
+
+                JFrame frame = new JFrame("LSTroner");
+                frame.add(vistaJoc);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setSize(500, 500);
+                frame.setLocationRelativeTo(null);
+                frame.setVisible(true);
+
                 //Creem el Model
                /* Client Model = new Client();
 

@@ -19,6 +19,8 @@ public class VistaJoc extends JPanel {
     private Timer inici;
     private boolean cont;
 
+
+
     public VistaJoc(){
         this.setSize(350, 350);
         t = new Timer(10, null);
@@ -44,7 +46,6 @@ public class VistaJoc extends JPanel {
 
         ArrayList<Posicio> serp = cj.getSerp().getPosicions();
         Posicio cap = cj.getSerp().getCap();
-
 
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;

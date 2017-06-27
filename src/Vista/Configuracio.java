@@ -31,9 +31,9 @@ public class Configuracio extends JPanel {
 
         jlTitle = new JLabel("            Configuració");
         jlPort = new JLabel("Port         ");
-        jtPort = new JTextField();
+        jtPort = new JTextField("11111");
         jlIP = new JLabel("IP Servidor      ");
-        jtIP = new JTextField();
+        jtIP = new JTextField("localhost");
         jbIniciar = new JButton("Iniciar");
 
         jpConfiguracio.setLayout(new GridLayout(4,1));

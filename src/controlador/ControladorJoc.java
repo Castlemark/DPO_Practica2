@@ -1,11 +1,11 @@
 package controlador;
 
+import Client_Servidor.Network;
 import Model.Client;
+import Model.Partida;
 import Vista.VistaJoc;
-import Model.Client;
 import Model.Serp;
 
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -23,10 +23,11 @@ public class ControladorJoc implements ActionListener, KeyListener {
     private Network network;
 
 
-    public ControladorJoc(VistaJoc vistaJoc, Client model){
+    public ControladorJoc(VistaJoc vistaJoc, Client model, Network network){
         this.vistaJoc = vistaJoc;
         this.model = model;
         contador = 3;
+        this.network = network;
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -67,7 +68,7 @@ public class ControladorJoc implements ActionListener, KeyListener {
        if(vistaJoc.isCont() == false){
            model.getPartida().getSerp().canviaDireccio(c);
            try{
-               model.getNetwork().getDoStreamO().writeObject(model.getPartida().getSerp());
+              network.getDoStreamO().writeObject(model.getPartida().getSerp());
            } catch (IOException ex) {
                ex.printStackTrace();
            }
@@ -107,5 +108,9 @@ public class ControladorJoc implements ActionListener, KeyListener {
 
     public int getContador() {
         return contador;
+    }
+
+    public void iniciaPartida (Partida partida){
+        //avisem a la vista que comencem la partida
     }
 }

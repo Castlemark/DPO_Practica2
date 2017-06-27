@@ -2,11 +2,11 @@ package controlador;
 
 import Model.Inicia;
 import Vista.Configuracio;
+import Client_Servidor.Network;
 import Vista.VistaClient;
 import Model.Client;
 import Model.Usuari;
 
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -17,12 +17,14 @@ import java.io.IOException;
  */
 public class Controlador implements ActionListener {
     private Client model;
+    private Network network;
 
     private VistaClient vista;
 
-    public Controlador(VistaClient vistaClient, Client model) {
+    public Controlador(VistaClient vistaClient, Client model, Network network) {
         this.vista = vistaClient;
         this.model = model;
+        this.network = network;
     }
 
     @Override
@@ -31,6 +33,7 @@ public class Controlador implements ActionListener {
         try {
 
             switch (e.getActionCommand()) {
+
 
                 case "ENVIAR":
 
@@ -56,7 +59,7 @@ public class Controlador implements ActionListener {
                 case "INICIAR":
                     if (model.connectar(vista.getIp(), vista.getPort())) {
                         System.out.println("connectant");
-                        model.getNetwork().connect(1111);
+                        network.connect(1111);
                         vista.changePanel("IDENTIFICACIO");
 
 

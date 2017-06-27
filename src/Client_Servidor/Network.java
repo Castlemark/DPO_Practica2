@@ -1,4 +1,4 @@
-package controlador;
+package Client_Servidor;
 
 import Model.*;
 import Model.Client;
@@ -17,9 +17,7 @@ import java.util.Scanner;
 public class Network extends Thread{
     private Client model;
 
-    private DataOutputStream doStream;
     private ObjectOutputStream doStreamO; // = new ObjectOutputStream(sClient.getOutputStream());
-    private DataInputStream diStream;
     private ObjectInputStream diStreamO;
 
     private Partida partida;
@@ -45,7 +43,7 @@ public class Network extends Thread{
             Socket sServer = new Socket("localhost", port);
 
             //doStream = new DataOutputStream(sServer.getOutputStream());
-            diStream = new DataInputStream(sServer.getInputStream());
+            diStreamO = new ObjectInputStream(sServer.getInputStream());
             doStreamO = new ObjectOutputStream(sServer.getOutputStream());
             //diStreamO = new ObjectInputStream(sServer.getInputStream());
 
