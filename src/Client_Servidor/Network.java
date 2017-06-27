@@ -40,14 +40,14 @@ public class Network extends Thread{
 
         try{
             sc = new Scanner(System.in);
+
             Socket sServer = new Socket("localhost", port);
 
-            //doStream = new DataOutputStream(sServer.getOutputStream());
-            diStreamO = new ObjectInputStream(sServer.getInputStream());
-            doStreamO = new ObjectOutputStream(sServer.getOutputStream());
+           System.out.println("esta conectat");
+
+            //doStreamO = new ObjectOutputStream(sServer.getOutputStream());
             //diStreamO = new ObjectInputStream(sServer.getInputStream());
 
-            System.out.println("esta conectat");
       //      ThreadEnviar threadEnviar = new ThreadEnviar(sc, doStream);
       //      ThreadRebre threadRebre = new ThreadRebre(diStream);
 
