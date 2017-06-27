@@ -76,7 +76,7 @@ public class Controlador implements ActionListener {
                         vista.changePanel("RANQUING");
                     }
                     else {
-                        JOptionPane.showMessageDialog(null, "L'usuari no existeix");
+                        JOptionPane.showMessageDialog(null, "Error al iniciar sessió");
                     }
 
             }
