@@ -1,7 +1,6 @@
 package controlador;
 
-import Model.Partida;
-import Model.Serp;
+import Model.*;
 import Model.Partida;
 import Model.Serp;
 
@@ -20,6 +19,8 @@ public class ThreadRebre extends Thread {
     private DataInputStream diStream;
     private ObjectInputStream diStreamO;
     private Partida partida;
+    private Client model;
+    private ControladorJoc cj;
 
     public ThreadRebre(DataInputStream diStream, ObjectInputStream diStreamO, Partida partida) {
 
@@ -42,7 +43,8 @@ public class ThreadRebre extends Thread {
                         //començarPartida
                         ArrayList<Serp> serps;
                         serps = (ArrayList<Serp>) diStreamO.readObject();
-                        partida = new Partida(serps);
+                        model.setPartida(partida = new Partida(serps));
+
                         break;
                     case 2:
                         //rebreSerp

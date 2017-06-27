@@ -1,11 +1,10 @@
 package controlador;
 
-import Vista.Configuracio;
+import Client_Servidor.Network;
 import Vista.VistaClient;
 import Model.Client;
 import Model.Usuari;
 
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -16,12 +15,14 @@ import java.io.IOException;
  */
 public class Controlador implements ActionListener {
     private Client model;
+    private Network network;
 
     private VistaClient vista;
 
-    public Controlador(VistaClient vistaClient, Client model) {
+    public Controlador(VistaClient vistaClient, Client model, Network network) {
         this.vista = vistaClient;
         this.model = model;
+        this.network = network;
     }
 
     @Override
@@ -51,8 +52,8 @@ public class Controlador implements ActionListener {
                     if (usuariAux.comprovaDades(vista.getRegistre().getLogin(), vista.getRegistre().getMail(),vista.getRegistre().getPassword(),vista.getRegistre().getConfirmacio())) {
                         model.setUsuari(usuariAux = new Usuari(vista.getRegistre().getLogin(), vista.getRegistre().getMail(),vista.getRegistre().getPassword()));
 
-                        model.getNetwork().avisaServer("REGISTRAR");
-                        model.getNetwork().registraUsuari(usuariAux);
+                        network.avisaServer("REGISTRAR");
+                        network.registraUsuari(usuariAux);
 
                         System.out.println("OK");
                     } else {
@@ -65,7 +66,7 @@ public class Controlador implements ActionListener {
                     System.out.println("clic");
                     if (model.connectar(vista.getIp(), vista.getPort())) {
                         System.out.println("connectant");
-                        model.getNetwork().connect(1111);
+                        network.connect(1111);
                         vista.changePanel("IDENTIFICACIO");
 
 
