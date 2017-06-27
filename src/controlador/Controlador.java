@@ -36,7 +36,7 @@ public class Controlador implements ActionListener {
             switch (e.getActionCommand()) {
 
 
-                case "ENVIAR":
+                case "REGISTRE":
 
                     Usuari usuariAux = new Usuari();
 
