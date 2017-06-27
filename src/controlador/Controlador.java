@@ -7,6 +7,7 @@ import Vista.VistaClient;
 import Model.Client;
 import Model.Usuari;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -42,8 +43,8 @@ public class Controlador implements ActionListener {
                     if (usuariAux.comprovaDades(vista.getRegistre().getLogin(), vista.getRegistre().getMail(),vista.getRegistre().getPassword(),vista.getRegistre().getConfirmacio())) {
                         model.setUsuari(usuariAux = new Usuari(vista.getRegistre().getLogin(), vista.getRegistre().getMail(),vista.getRegistre().getPassword()));
 
-                        model.getNetwork().avisaServer("REGISTRAR");
-                        if (!model.getNetwork().registraUsuari(usuariAux)){
+                        network.avisaServer("REGISTRAR");
+                        if (!network.registraUsuari(usuariAux)){
                             JOptionPane.showMessageDialog(null, "No s'ha pogust completar el registre\nJa existeix aquest usuari");
                         }
                         else {
@@ -70,8 +71,8 @@ public class Controlador implements ActionListener {
 
                     Inicia iniciaAux = new Inicia(vista.getIniciarSessio().getID(), vista.getIniciarSessio().getPassword());
 
-                    model.getNetwork().avisaServer("INICIARSESSIO");
-                    if (model.getNetwork().iniciaSessio(iniciaAux)){
+                    network.avisaServer("INICIARSESSIO");
+                    if (network.iniciaSessio(iniciaAux)){
                         vista.changePanel("RANQUING");
                     }
                     else {

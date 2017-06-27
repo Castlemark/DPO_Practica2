@@ -13,7 +13,7 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 
 /**
- * Created by Grup 6 on 13/04/2017.
+ * Created by    Grup 6 on 13/04/2017.
  */
 public class ThreadRebre extends Thread {
     private DataInputStream diStream;

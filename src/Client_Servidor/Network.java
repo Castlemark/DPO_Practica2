@@ -71,13 +71,13 @@ public class Network extends Thread{
     public boolean registraUsuari(Usuari usuari) throws IOException{
 
         doStreamO.writeObject(usuari);
-        return diStream.readBoolean();
+        return diStreamO.readBoolean();
     }
 
     public boolean iniciaSessio(Inicia inicia) throws IOException{
 
         doStreamO.writeObject(inicia);
-        return diStream.readBoolean();
+        return diStreamO.readBoolean();
     }
 
     public void avisaServer(String which) throws IOException{
@@ -85,8 +85,8 @@ public class Network extends Thread{
         doStreamO.writeObject(which);
     }
 
-    public DataOutputStream getDoStream() {
-        return doStream;
+    public ObjectOutputStream getDoStream() {
+        return doStreamO;
     }
 
     public ObjectOutputStream getDoStreamO() {

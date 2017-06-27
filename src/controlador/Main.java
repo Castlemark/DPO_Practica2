@@ -15,58 +15,42 @@ public class Main {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-//                VistaClient vista3 = new VistaClient();
 
                 Client model = new Client();
                 Network network = new Network(model);
-      //          Controlador c = new Controlador(vista3, model, network);
-      //          vista3.registerController(c);
-      //          vista3.setVisible(true);
+                VistaClient vista = new VistaClient();
+
                 VistaJoc vistaJoc = new VistaJoc();
 
+                Controlador  controlador= new Controlador(vista,model,network);
                 ControladorJoc cj = new ControladorJoc(vistaJoc, model, network);
 
                 vistaJoc.registraControlador(cj);
 
 
+                vista.setVisible(true);
 
-                JFrame frame = new JFrame("LSTroner");
+                /*JFrame frame = new JFrame("LSTroner");
                 frame.add(vistaJoc);
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setSize(500, 500);
                 frame.setLocationRelativeTo(null);
-                frame.setVisible(true);
-
-                //Creem el Model
-               /* Client Model = new Client();
-
-                //Creem la vista
-                Joc vistaJoc = new Joc();
-
-
-
-
-                JFrame frame = new JFrame("LSTroner");
-                frame.add(vistaJoc);
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setSize(500, 500);
-                frame.setLocationRelativeTo(null);
+                frame.setVisible(true);*/
 
 
 
 
 
 
-
-
+/*
                 // crea el controlador i estableix la relacio C->V i C->M
                 ControladorJoc cj = new ControladorJoc(vistaJoc.getPanel1(), Model);
                 // establim la relacio V--->C
                 vistaJoc.registraControlador(cj);
                 // fem la vista visible
                 frame.setVisible(true);
-        //        vistaJoc.iniciaJoc();
-           */ }
+        //        vistaJoc.iniciaJoc();*/
+            }
         });
     }
 }
