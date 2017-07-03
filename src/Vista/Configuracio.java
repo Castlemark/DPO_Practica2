@@ -52,8 +52,6 @@ public class Configuracio extends JPanel {
     }
 
     public void registerController(ActionListener c){
-        System.out.println("hey");
-
         jbIniciar.addActionListener(c);
 
         jbIniciar.setActionCommand("INICIAR");

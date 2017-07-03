@@ -82,6 +82,7 @@ public class VistaClient extends JFrame {
         iniciar.registerController(c);
         identificacio.registerController(c);
         configuracio.registerController(c);
+        ranquing.registerController(c);
 
     }
     public void changePanel(String which){
