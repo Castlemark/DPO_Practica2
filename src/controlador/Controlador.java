@@ -33,6 +33,7 @@ public class Controlador implements ActionListener {
 
         try {
 
+
             switch (e.getActionCommand()) {
 
 
@@ -78,6 +79,25 @@ public class Controlador implements ActionListener {
                     else {
                         JOptionPane.showMessageDialog(null, "Error al iniciar sessió");
                     }
+                    break;
+
+                case  "JOC2":
+
+                    network.avisaServer("JOC2");
+                    //Escolta la resposta del servidor per saber si ha de canviar a la finestra de joc
+                    break;
+
+                case  "JOC4":
+
+                    network.avisaServer("JOC4");
+                    //Escolta la resposta del servidor per saber si ha de canviar a la finestra de joc
+                    break;
+
+                case "CAMPEONAT":
+
+                    network.avisaServer("CAMPEONAT");
+                    //Escolta la resposta del servidor per saber si ha de canviar a la finestra de joc
+                    break;
 
             }
         } catch (IOException ioe) {
