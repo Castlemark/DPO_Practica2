@@ -6,6 +6,7 @@ import Model.Partida;
 import Vista.VistaJoc;
 import Model.Serp;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -15,7 +16,7 @@ import java.io.IOException;
 /**
  * Created by Propietario on 03/05/2017.
  */
-public class ControladorJoc implements ActionListener, KeyListener {
+public class ControladorJoc extends AbstractAction implements ActionListener, KeyListener {
     private VistaJoc vistaJoc;
     private Client model;
     private char c;
@@ -26,12 +27,16 @@ public class ControladorJoc implements ActionListener, KeyListener {
     public ControladorJoc(VistaJoc vistaJoc, Client model, Network network){
         this.vistaJoc = vistaJoc;
         this.model = model;
-        contador = 3;
+        contador = 4;
         this.network = network;
     }
 
+    @Override
     public void actionPerformed(ActionEvent e) {
-       switch (e.getActionCommand()){
+
+        if(!(e.getActionCommand().equals("TIMER"))){System.out.println(e.getActionCommand());}
+
+        switch (e.getActionCommand()){
            case "AVANÇA":
                model.getPartida().getSerp().mouSerp();
                if(model.getPartida().comprovaCollisio()){
@@ -40,15 +45,35 @@ public class ControladorJoc implements ActionListener, KeyListener {
                }
                break;
            case "CONTA":
-               contador--;
+               System.out.println(contador);
+       //        contador--;
                if(contador == 0){
                    vistaJoc.setCont(false);
                }
                break;
            case "ABANDONA":
                model.abandonaPartida();
-       }
+               break;
+           case "TIMER":
+               if(vistaJoc.isCont()){
+                   contador--;
+                   System.out.println(contador);
 
+                   if(contador <= 0){
+                       vistaJoc.setCont(false);
+                   }
+               }else{
+
+                   model.getPartida().getSerp().mouSerp();
+                   if(model.getPartida().comprovaCollisio()){
+                       System.out.println("Has perdut!");
+                       model.getPartida().setViu(false);
+                   }
+               }
+               break;
+           case "down":
+
+       }
 
         vistaJoc.repaint();
 
@@ -56,14 +81,20 @@ public class ControladorJoc implements ActionListener, KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+        System.out.println("teclaaa");
 
     }
     @Override
     public void keyReleased(KeyEvent e) {
+        System.out.println("teclaaa");
+
     }
 
     @Override
     public void keyTyped(KeyEvent e) {
+
+        System.out.println("teclaaa");
+
         c = e.getKeyChar();
        if(vistaJoc.isCont() == false){
            model.getPartida().getSerp().canviaDireccio(c);
@@ -113,4 +144,15 @@ public class ControladorJoc implements ActionListener, KeyListener {
     public void iniciaPartida (Partida partida){
         //avisem a la vista que comencem la partida
     }
+
+    public void setContador(int contador) {
+        this.contador = contador;
+    }
+
+    public void moureSerp(int d){
+        System.out.println("works");
+
+    }
+
+
 }

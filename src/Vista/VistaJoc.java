@@ -18,23 +18,21 @@ public class VistaJoc extends JPanel {
     private Timer t;
     private Timer inici;
     private boolean cont;
+    private int temps;
 
 
 
     public VistaJoc(){
         this.setSize(350, 350);
-        t = new Timer(10, null);
-        inici = new Timer(1000, null);
+        t = new Timer(1000, null);
         cont = true;
+        temps = 3;
     }
 
     public void iniciar(){
-        cont = true;
-        while (cont){
-            inici.start();
-        }
-        inici.stop();
+        cj.setContador(3);
         t.start();
+        cont = true;
     }
 
     public void addNotify() {
@@ -50,8 +48,12 @@ public class VistaJoc extends JPanel {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
         if (cont){
-            g2d.drawString(cj.getContador()+"", 150, 150);
-            inici.start();
+            if(cj.getContador() == 4){
+                g2d.drawString("Esperant als altres jugadors...", 70, 150);
+
+            }else {
+                g2d.drawString(cj.getContador()+"", 150, 150);
+            }
         }else{
             g2d.setPaint(Color.RED);
             g2d.drawLine(serp.get(serp.size()-1).getX(), serp.get(serp.size()-1).getY(), cap.getX(), cap.getY());
@@ -71,14 +73,17 @@ public class VistaJoc extends JPanel {
 
     public void registraControlador (ControladorJoc cj){
         this.cj = cj;
-        inici.addActionListener(cj);
-        inici.setActionCommand("CONTA");
         t.addActionListener(cj);
-        t.setActionCommand("AVANÇA");
+        t.setActionCommand("TIMER");
         addKeyListener(cj);
     }
 
     public void setCont(boolean cont) {
+        if(cont){
+           t.setDelay(1000);
+        }else {
+            t.setDelay(10);
+        }
         this.cont = cont;
     }
 

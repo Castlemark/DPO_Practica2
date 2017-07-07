@@ -79,11 +79,15 @@ public class Controlador implements ActionListener {
                     else {
                         JOptionPane.showMessageDialog(null, "Error al iniciar sessió");
                     }
+                    network.iniciaRebre();
                     break;
 
                 case  "JOC2":
 
                     network.avisaServer("JOC2");
+                    vista.changePanel("JOC");
+                    System.out.println("ok");
+
                     //Escolta la resposta del servidor per saber si ha de canviar a la finestra de joc
                     break;
 

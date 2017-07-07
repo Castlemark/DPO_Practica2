@@ -1,6 +1,7 @@
 package Vista;
 
 import controlador.Controlador;
+import controlador.ControladorJoc;
 
 import javax.swing.*;
 import java.awt.*;
@@ -62,6 +63,7 @@ public class VistaClient extends JFrame {
         this.getContentPane().add("IDENTIFICACIO", identificacio);
         this.getContentPane().add("FIPARTIDA" , fiPartida);
         this.getContentPane().add("RANQUING", ranquing);
+        this.getContentPane().add("JOC", joc);
 
 
 
@@ -77,13 +79,13 @@ public class VistaClient extends JFrame {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
-    public void registerController(Controlador c) {
+    public void registerController(Controlador c, ControladorJoc cj) {
 
         iniciar.registerController(c);
         identificacio.registerController(c);
         configuracio.registerController(c);
         ranquing.registerController(c);
-
+        joc.registraControlador(cj);
     }
     public void changePanel(String which){
         layout.show(this.getContentPane(), which);
@@ -98,5 +100,13 @@ public class VistaClient extends JFrame {
 
     public IniciarSessio getIniciarSessio(){
         return identificacio.getIniciarSessio();
+    }
+
+    public void iniciaPartida(){
+        joc.iniciaJoc();
+    }
+
+    public VistaJoc getJoc() {
+        return joc.getPanel1();
     }
 }

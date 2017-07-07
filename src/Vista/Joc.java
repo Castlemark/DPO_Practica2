@@ -9,6 +9,7 @@ import javax.swing.*;
 import javax.swing.border.*;
 //import com.jgoodies.forms.factories.*;
 import controlador.ControladorJoc;
+import controlador.Move;
 
 /**
  * @author unknown
@@ -63,7 +64,7 @@ public class Joc extends JPanel {
 
         //======== panel1 ========
         {
-            panel1.setBackground(new Color(20, 111, 125));
+            panel1.setBackground(new Color(255, 255, 255));
             panel1.setBorder(LineBorder.createBlackLineBorder());
             panel1.setLayout(new BorderLayout());
         }
@@ -77,6 +78,10 @@ public class Joc extends JPanel {
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 0, 0), 0, 0));
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
+
+
+
+
 
     }
 
@@ -94,6 +99,10 @@ public class Joc extends JPanel {
         panel1.registraControlador(cj);
         button1.addActionListener(cj);
         button1.setActionCommand("ABANDONA");
+
+        panel1.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("UP"), "up");
+        panel1.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("DOWN"), "down");
+        panel1.getActionMap().put("down", new Move(2));
     }
 
     public VistaJoc getPanel1() {
@@ -103,4 +112,5 @@ public class Joc extends JPanel {
     public void iniciaJoc(){
         panel1.iniciar();
     }
+
 }

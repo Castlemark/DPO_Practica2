@@ -3,6 +3,7 @@ package controlador;
 import Model.*;
 import Model.Partida;
 import Model.Serp;
+import Vista.VistaClient;
 
 import java.io.DataInputStream;
 import java.io.EOFException;
@@ -16,37 +17,38 @@ import java.util.ArrayList;
  * Created by    Grup 6 on 13/04/2017.
  */
 public class ThreadRebre extends Thread {
-    private DataInputStream diStream;
     private ObjectInputStream diStreamO;
     private Partida partida;
     private Client model;
     private ControladorJoc cj;
+    String opcio = "";
+    private VistaClient vista;
 
-    public ThreadRebre(DataInputStream diStream, ObjectInputStream diStreamO, Partida partida) {
 
-        this.diStream = diStream;
+    public ThreadRebre(ObjectInputStream diStreamO, Client model, VistaClient vista) {
+
         this.diStreamO = diStreamO;
-        this.partida = partida;
+        this.model = model;
+        this.vista = vista;
     }
 
     @Override
     public void run() {
         try {
             while (true) {
-                int opcio;
                 Serp serp;
+                System.out.println("dale");
 
-                opcio = diStream.readInt();
+                opcio = (String) diStreamO.readObject();
 
                 switch (opcio) {
-                    case 1:
+                    case "COMENÇA":
+
                         //començarPartida
-                        ArrayList<Serp> serps;
-                        serps = (ArrayList<Serp>) diStreamO.readObject();
-                        model.setPartida(partida = new Partida(serps));
+                        vista.iniciaPartida();
 
                         break;
-                    case 2:
+                    case "MOU":
                         //rebreSerp
                         serp = (Serp) diStreamO.readObject();
                         break;

@@ -5,6 +5,9 @@ import Model.Client;
 import Model.Partida;
 import Model.Serp;
 import Model.Usuari;
+import Vista.VistaClient;
+import Vista.VistaJoc;
+import controlador.ThreadRebre;
 
 import java.io.*;
 import java.net.Socket;
@@ -20,7 +23,10 @@ public class Network extends Thread{
     private ObjectOutputStream doStreamO;
     private ObjectInputStream diStreamO;
 
+    private ThreadRebre tr;
+
     private Partida partida;
+    private VistaClient vista;
     private Scanner sc;
     private Serp serp;
 
@@ -28,8 +34,9 @@ public class Network extends Thread{
 
     
 
-    public Network(Client model){
+    public Network(Client model, VistaClient vista){
         this.model = model;
+        this.vista = vista;
         running = true;
 
     }
@@ -87,5 +94,14 @@ public class Network extends Thread{
 
     public ObjectOutputStream getDoStreamO() {
         return doStreamO;
+    }
+
+    public ObjectInputStream getDiStreamO() {
+        return diStreamO;
+    }
+
+    public void iniciaRebre(){
+        tr = new ThreadRebre(diStreamO, model, vista);
+        tr.start();
     }
 }
