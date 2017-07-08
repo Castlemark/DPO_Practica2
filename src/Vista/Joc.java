@@ -39,25 +39,25 @@ public class Joc extends JPanel {
         ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 1.0E-4};
 
         //---- label1 ----
-        label1.setText("Jugador 1");
+        label1.setText("");
         add(label1, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
 
         //---- label2 ----
-        label2.setText("Jugador 2");
+        label2.setText("");
         add(label2, new GridBagConstraints(2, 1, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
 
         //---- label3 ----
-        label3.setText("Jugador 3");
+        label3.setText("");
         add(label3, new GridBagConstraints(3, 1, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
 
         //---- label4 ----
-        label4.setText("Jugador 4");
+        label4.setText("");
         add(label4, new GridBagConstraints(4, 1, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 0), 0, 0));
@@ -111,6 +111,23 @@ public class Joc extends JPanel {
 
     public void iniciaJoc(){
         panel1.iniciar();
+    }
+
+    public void insereixJugador(String j, int i){
+        switch (i){
+            case 0:
+                label1.setText(j);
+                break;
+            case 1:
+                label2.setText(j);
+                break;
+            case 2:
+                label3.setText(j);
+                break;
+            case 3:
+                label4.setText(j);
+                break;
+        }
     }
 
 }

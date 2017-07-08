@@ -101,7 +101,7 @@ public class Network extends Thread{
     }
 
     public void iniciaRebre(){
-        tr = new ThreadRebre(/*diStreamO, */model, vista, this);
+        tr = new ThreadRebre(diStreamO, model, vista, this);
         tr.start();
     }
 

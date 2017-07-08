@@ -18,7 +18,7 @@ import java.util.ArrayList;
  * Created by    Grup 6 on 13/04/2017.
  */
 public class ThreadRebre extends Thread {
- //   private ObjectInputStream diStreamO;
+    private ObjectInputStream diStreamO;
     private Partida partida;
     private Client model;
     private ControladorJoc cj;
@@ -27,9 +27,9 @@ public class ThreadRebre extends Thread {
     private Network network;
 
 
-    public ThreadRebre(/*ObjectInputStream diStreamO, */Client model, VistaClient vista, Network network) {
+    public ThreadRebre(ObjectInputStream diStreamO, Client model, VistaClient vista, Network network) {
 
-    //    this.diStreamO = diStreamO;
+        this.diStreamO = diStreamO;
         this.model = model;
         this.vista = vista;
         this.network = network;
@@ -42,7 +42,7 @@ public class ThreadRebre extends Thread {
                 Serp serp;
                 System.out.println("dale");
 
-                opcio = network.getMessage();
+                opcio = (String) diStreamO.readObject();
 
                 switch (opcio) {
                     case "COMENÇA":
@@ -54,6 +54,10 @@ public class ThreadRebre extends Thread {
                     case "MOU":
                         //rebreSerp
                     //    serp = (Serp) diStreamO.readObject();
+                        break;
+
+                    case "JUGADOR":
+
                         break;
                 }
 
