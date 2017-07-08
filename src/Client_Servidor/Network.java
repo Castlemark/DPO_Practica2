@@ -101,7 +101,11 @@ public class Network extends Thread{
     }
 
     public void iniciaRebre(){
-        tr = new ThreadRebre(diStreamO, model, vista);
+        tr = new ThreadRebre(/*diStreamO, */model, vista, this);
         tr.start();
+    }
+
+    public String getMessage() throws IOException, ClassNotFoundException{
+       return (String) diStreamO.readObject();
     }
 }

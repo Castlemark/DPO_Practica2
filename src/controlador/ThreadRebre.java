@@ -1,5 +1,6 @@
 package controlador;
 
+import Client_Servidor.Network;
 import Model.*;
 import Model.Partida;
 import Model.Serp;
@@ -17,19 +18,21 @@ import java.util.ArrayList;
  * Created by    Grup 6 on 13/04/2017.
  */
 public class ThreadRebre extends Thread {
-    private ObjectInputStream diStreamO;
+ //   private ObjectInputStream diStreamO;
     private Partida partida;
     private Client model;
     private ControladorJoc cj;
     String opcio = "";
     private VistaClient vista;
+    private Network network;
 
 
-    public ThreadRebre(ObjectInputStream diStreamO, Client model, VistaClient vista) {
+    public ThreadRebre(/*ObjectInputStream diStreamO, */Client model, VistaClient vista, Network network) {
 
-        this.diStreamO = diStreamO;
+    //    this.diStreamO = diStreamO;
         this.model = model;
         this.vista = vista;
+        this.network = network;
     }
 
     @Override
@@ -39,7 +42,7 @@ public class ThreadRebre extends Thread {
                 Serp serp;
                 System.out.println("dale");
 
-                opcio = (String) diStreamO.readObject();
+                opcio = network.getMessage();
 
                 switch (opcio) {
                     case "COMENÇA":
@@ -50,13 +53,14 @@ public class ThreadRebre extends Thread {
                         break;
                     case "MOU":
                         //rebreSerp
-                        serp = (Serp) diStreamO.readObject();
+                    //    serp = (Serp) diStreamO.readObject();
                         break;
                 }
 
             }
         }catch(IOException e){
                 e.printStackTrace();
+                System.out.println(e.getMessage());
         }catch(ClassNotFoundException e){
                 e.printStackTrace();
         }
