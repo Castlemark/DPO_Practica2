@@ -113,20 +113,24 @@ public class Joc extends JPanel {
         panel1.iniciar();
     }
 
-    public void insereixJugador(String j, int i){
-        switch (i){
-            case 0:
-                label1.setText(j);
-                break;
-            case 1:
-                label2.setText(j);
-                break;
+    public void insereixJugador(String[] logins){
+        switch (logins.length){
             case 2:
-                label3.setText(j);
+                label1.setText(logins[0]);
+                label4.setText(logins[1]);
                 break;
             case 3:
-                label4.setText(j);
+                label1.setText(logins[0]);
+                label2.setText(logins[1]);
+                label3.setText(logins[2]);
                 break;
+            case 4:
+                label1.setText(logins[0]);
+                label2.setText(logins[1]);
+                label3.setText(logins[2]);
+                label4.setText(logins[3]);
+                break;
+
         }
     }
 

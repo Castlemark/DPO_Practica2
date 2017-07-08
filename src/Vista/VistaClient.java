@@ -110,7 +110,7 @@ public class VistaClient extends JFrame {
         return joc.getPanel1();
     }
 
-    public void insereixJugador(String j, int i){
-        joc.insereixJugador(j, i);
+    public void insereixJugador(String[] logins){
+        joc.insereixJugador(logins);
     }
 }
