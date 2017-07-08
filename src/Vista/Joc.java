@@ -102,7 +102,13 @@ public class Joc extends JPanel {
 
         panel1.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("UP"), "up");
         panel1.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("DOWN"), "down");
-        panel1.getActionMap().put("down", new Move(2));
+        panel1.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("LEFT"), "left");
+        panel1.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("RIGHT"), "right");
+        panel1.getActionMap().put("up", new Move(1, cj));
+        panel1.getActionMap().put("down", new Move(2, cj));
+        panel1.getActionMap().put("left", new Move(3, cj));
+        panel1.getActionMap().put("right", new Move(4, cj));
+
     }
 
     public VistaJoc getPanel1() {

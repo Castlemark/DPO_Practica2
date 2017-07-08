@@ -25,20 +25,20 @@ public class Serp implements Serializable{
     }
     public void mouSerp(){cap.mouCap(dir);}
 
-    public void canviaDireccio (char c){
-        if(c == 's' && dir != 3 && dir != 4){
+    public void canviaDireccio (int c){
+        if(c == 2 && dir != 3 && dir != 4){
             dir = 3;
             posicions.add(new Posicio(cap.getX(), cap.getY()));
         }
-        if(c == 'a' && dir != 2 && dir != 1){
+        if(c == 3 && dir != 2 && dir != 1){
             dir = 2;
             posicions.add(new Posicio(cap.getX(), cap.getY()));
         }
-        if(c == 'd' && dir != 1 && dir != 2){
+        if(c == 4 && dir != 1 && dir != 2){
             dir = 1;
             posicions.add(new Posicio(cap.getX(), cap.getY()));
         }
-        if(c == 'w' && dir != 4 && dir != 3){
+        if(c == 1 && dir != 4 && dir != 3){
             dir = 4;
             posicions.add(new Posicio(cap.getX(), cap.getY()));
         }

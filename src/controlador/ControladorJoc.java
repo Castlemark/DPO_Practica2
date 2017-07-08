@@ -150,7 +150,17 @@ public class ControladorJoc extends AbstractAction implements ActionListener, Ke
     }
 
     public void moureSerp(int d){
-        System.out.println("works");
+        System.out.println("teclaaa");
+
+        if(vistaJoc.isCont() == false) {
+            model.getPartida().getSerp().canviaDireccio(d);
+            /*try{
+                network.getDoStreamO().writeObject(model.getPartida().getSerp());
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }*/
+
+        }
 
     }
 
