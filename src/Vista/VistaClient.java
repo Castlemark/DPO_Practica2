@@ -19,7 +19,6 @@ public class VistaClient extends JFrame {
     private JButton jbIniciar;
     private JButton jbRanquing;
     private JPanel jpClient;*/
-    private Configuracio iniciar;
     private  CardLayout layout;
 
 
@@ -39,7 +38,6 @@ public class VistaClient extends JFrame {
      */
     public VistaClient (){
 
-        iniciar = new Configuracio();
         this.setTitle("LS Troner");
         this.setSize (1200, 800);
 
@@ -59,29 +57,18 @@ public class VistaClient extends JFrame {
 
 
       //  this.getContentPane().add("JOC", joc);
-        this.getContentPane().add("INICI", iniciar);
+        this.getContentPane().add("INICI", configuracio);
         this.getContentPane().add("IDENTIFICACIO", identificacio);
         this.getContentPane().add("FIPARTIDA" , fiPartida);
         this.getContentPane().add("RANQUING", ranquing);
         this.getContentPane().add("JOC", joc);
 
 
-
-
-
-
-
-
-
-
-        //getContentPane().add(jpClient, BorderLayout.CENTER);
-
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
     public void registerController(Controlador c, ControladorJoc cj) {
 
-        iniciar.registerController(c);
         identificacio.registerController(c);
         configuracio.registerController(c);
         ranquing.registerController(c);
@@ -91,7 +78,7 @@ public class VistaClient extends JFrame {
         layout.show(this.getContentPane(), which);
     }
 
-    public String getPort(){return configuracio.getPort();}
+    public int getPort(){return configuracio.getPort();}
     public String getIp(){return configuracio.getIp();}
 
     public Registre getRegistre(){

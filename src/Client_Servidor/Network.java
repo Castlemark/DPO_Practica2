@@ -41,25 +41,17 @@ public class Network extends Thread{
 
     }
 
-    public void connect(int port){
+    public void connect(int port, String IP){
         port = 11111;
 
 
         try{
             sc = new Scanner(System.in);
 
-            Socket sServer = new Socket("localhost", port);
+            Socket sServer = new Socket(IP, port);
 
             doStreamO = new ObjectOutputStream(sServer.getOutputStream());
             diStreamO = new ObjectInputStream(sServer.getInputStream());
-
-      //      ThreadEnviar threadEnviar = new ThreadEnviar(sc, doStream);
-      //      ThreadRebre threadRebre = new ThreadRebre(diStream);
-
-         /*   threadEnviar.start();
-            threadRebre.start();*/
-
-            //sServer.close();
 
             System.out.println("esta conectat");
 
@@ -106,6 +98,7 @@ public class Network extends Thread{
     }
 
     public String getMessage() throws IOException, ClassNotFoundException{
-       return (String) diStreamO.readObject();
+
+        return (String) diStreamO.readObject();
     }
 }
