@@ -11,27 +11,29 @@ import java.util.ArrayList;
  * Created by Grup 6 on 06/04/2017.
  */
 public class Partida implements Serializable{
-    private Model.Serp serp;
-    private ArrayList<Model.Serp> serps;
+    private ArrayList<Model.Serp> serps = new ArrayList<>();
+    private int serp;
 
     private boolean viu;
 
-    public Partida(ArrayList<Serp> serps){
+    public Partida(int s){
         viu = true;
-        serp = new Model.Serp();
-        this.serps = serps;
+        for(int i = 0; i < s; i++){
+            serps.add(new Serp(i));
+        }
     }
 
 
 
     public boolean comprovaCollisio(){
 
-        Model.Posicio cap = serp.getCap();
-        ArrayList<Posicio> posicions = serp.getPosicions();
-
+        Model.Posicio cap = serps.get(serp).getCap();
+        //Comprova que no surti dels limits de la partida
         if(cap.getX() > 350 || cap.getX() < 0 || cap.getY() > 350 || cap.getY() < 0){
             return true;
         }
+        //Comprova que no xoqui amb ella mateixa
+        ArrayList<Posicio> posicions = serps.get(serp).getPosicions();
         for(int i = 0; i < posicions.size() - 1; i++){
             if(posicions.get(i).getX() > posicions.get(i+1).getX() && cap.getX() <= posicions.get(i).getX() && cap.getX() >= posicions.get(i + 1).getX() && cap.getY() == posicions.get(i).getY()){
                 return true;
@@ -46,6 +48,16 @@ public class Partida implements Serializable{
                 return true;
             }
         }
+
+        //Comprova que no xoqui amb altres serps
+        for(int i = 0; i < serps.size(); i++){
+            ArrayList<Posicio> pos = serps.get(i).getPosicions();
+            Posicio c = serps.get(i).getCap();
+            if(i != serp){
+                //OLLA MAXIMA
+            }
+        }
+
         return false;
     }
 
@@ -53,9 +65,9 @@ public class Partida implements Serializable{
      * Getter de serps
      * @return Objecte serp
      */
-    public Serp getSerp() {
-        return serp;
-    }
+  /*  public Serp getSerp() {
+        return serps.get(serp);
+    }/*
 
     /**
      * Setter de serps
@@ -79,5 +91,17 @@ public class Partida implements Serializable{
 
     public void setViu(boolean viu) {
         this.viu = viu;
+    }
+
+    public ArrayList<Serp> getSerps() {
+        return serps;
+    }
+
+    public void setSerp(int serp) {
+        this.serp = serp;
+    }
+
+    public int getSerp() {
+        return serp;
     }
 }

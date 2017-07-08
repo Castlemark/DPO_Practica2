@@ -1,5 +1,6 @@
 package Vista;
 
+import Model.Serp;
 import controlador.Controlador;
 import controlador.ControladorJoc;
 import Model.Posicio;
@@ -42,8 +43,13 @@ public class VistaJoc extends JPanel {
 
     public void paintComponent(Graphics g) {
 
-        ArrayList<Posicio> serp = cj.getSerp().getPosicions();
-        Posicio cap = cj.getSerp().getCap();
+        ArrayList<Serp> serps = cj.getSerps();
+        ArrayList<ArrayList<Posicio>> posicions = new ArrayList<>();
+        ArrayList<Posicio> caps = new ArrayList<>();
+        for(int i = 0; i < serps.size(); i++){
+            posicions.add(serps.get(i).getPosicions());
+            caps.add(serps.get(i).getCap());
+        }
 
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
@@ -55,18 +61,37 @@ public class VistaJoc extends JPanel {
                 g2d.drawString(cj.getContador()+"", 150, 150);
             }
         }else{
-            g2d.setPaint(Color.RED);
-            g2d.drawLine(serp.get(serp.size()-1).getX(), serp.get(serp.size()-1).getY(), cap.getX(), cap.getY());
+            for(int j = 0; j < serps.size(); j++){
+                ArrayList<Posicio> serp = posicions.get(j);
+                Posicio cap = caps.get(j);
+                switch (j){
+                    case 0:
+                        g2d.setPaint(Color.RED);
+                        break;
+                    case 1:
+                        g2d.setPaint(Color.BLUE);
+                        break;
+                    case 2:
+                        g2d.setPaint(Color.GREEN);
+                        break;
+                    case 3:
+                        g2d.setPaint(Color.YELLOW);
+                        break;
+                }
+                g2d.drawLine(serp.get(serp.size()-1).getX(), serp.get(serp.size()-1).getY(), cap.getX(), cap.getY());
 
-            for(int i = 0; i < serp.size() -1; i++){
+                for(int i = 0; i < serp.size() -1; i++){
 
-                g2d.drawLine(serp.get(i).getX(), serp.get(i).getY(), serp.get(i + 1).getX(), serp.get(i + 1).getY());
+                    g2d.drawLine(serp.get(i).getX(), serp.get(i).getY(), serp.get(i + 1).getX(), serp.get(i + 1).getY());
+                }
+                if(cj.getModel().getPartida().isViu()) {
+                    t.start();
+                }else {
+                    t.stop();
+                }
             }
-            if(cj.getModel().getPartida().isViu()) {
-                t.start();
-            }else {
-                t.stop();
-            }
+
+
         }
 
     }
@@ -75,7 +100,7 @@ public class VistaJoc extends JPanel {
         this.cj = cj;
         t.addActionListener(cj);
         t.setActionCommand("TIMER");
-        addKeyListener(cj);
+      //  addKeyListener(cj);
     }
 
     public void setCont(boolean cont) {

@@ -10,7 +10,6 @@ public class Client {
   //  private Network network;
 
     public Client (){
-        partida = new Partida(null);
 
      //   network = new Network(this);
     }

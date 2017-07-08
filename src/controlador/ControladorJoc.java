@@ -12,11 +12,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Created by Propietario on 03/05/2017.
  */
-public class ControladorJoc extends AbstractAction implements ActionListener, KeyListener {
+public class ControladorJoc implements ActionListener {
     private VistaJoc vistaJoc;
     private Client model;
     private char c;
@@ -38,7 +39,7 @@ public class ControladorJoc extends AbstractAction implements ActionListener, Ke
 
         switch (e.getActionCommand()){
            case "AVANÇA":
-               model.getPartida().getSerp().mouSerp();
+             //  model.getPartida().getSerp().mouSerp();
                if(model.getPartida().comprovaCollisio()){
                    System.out.println("Has perdut!");
                    model.getPartida().setViu(false);
@@ -64,7 +65,9 @@ public class ControladorJoc extends AbstractAction implements ActionListener, Ke
                    }
                }else{
 
-                   model.getPartida().getSerp().mouSerp();
+                   for(int i = 0; i< model.getPartida().getSerps().size(); i++) {
+                        model.getPartida().getSerps().get(i).mouSerp();
+                   }
                    if(model.getPartida().comprovaCollisio()){
                        System.out.println("Has perdut!");
                        model.getPartida().setViu(false);
@@ -78,7 +81,7 @@ public class ControladorJoc extends AbstractAction implements ActionListener, Ke
         vistaJoc.repaint();
 
     }
-
+/*
     @Override
     public void keyPressed(KeyEvent e) {
         System.out.println("teclaaa");
@@ -88,10 +91,10 @@ public class ControladorJoc extends AbstractAction implements ActionListener, Ke
     public void keyReleased(KeyEvent e) {
         System.out.println("teclaaa");
 
-    }
+    }*/
 
-    @Override
-    public void keyTyped(KeyEvent e) {
+  //  @Override
+ /*   public void keyTyped(KeyEvent e) {
 
         System.out.println("teclaaa");
 
@@ -104,7 +107,7 @@ public class ControladorJoc extends AbstractAction implements ActionListener, Ke
                ex.printStackTrace();
            }
 
-       }
+       }*/
       /*
         switch (e.getKeyCode()) {
             case KeyEvent.VK_W:
@@ -120,10 +123,10 @@ public class ControladorJoc extends AbstractAction implements ActionListener, Ke
             case KeyEvent.VK_D:
                 dir = 1;
                 break;
-        }*/
+        }
 
 
-    }
+    }*/
 
     public Client getModel() {
         return model;
@@ -133,12 +136,16 @@ public class ControladorJoc extends AbstractAction implements ActionListener, Ke
         this.model = model;
     }
 
-    public Serp getSerp(){
+/*    public Serp getSerp(){
         return model.getPartida().getSerp();
-    }
+    }*/
 
     public int getContador() {
         return contador;
+    }
+
+    public ArrayList<Serp> getSerps(){
+        return model.getPartida().getSerps();
     }
 
     public void iniciaPartida (Partida partida){
@@ -153,7 +160,7 @@ public class ControladorJoc extends AbstractAction implements ActionListener, Ke
         System.out.println("teclaaa");
 
         if(vistaJoc.isCont() == false) {
-            model.getPartida().getSerp().canviaDireccio(d);
+            model.getPartida().getSerps().get(model.getPartida().getSerp()).canviaDireccio(d);
             /*try{
                 network.getDoStreamO().writeObject(model.getPartida().getSerp());
             } catch (IOException ex) {

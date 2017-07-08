@@ -1,6 +1,7 @@
 package controlador;
 
 import Model.Inicia;
+import Model.Partida;
 import Vista.Configuracio;
 import Client_Servidor.Network;
 import Vista.VistaClient;
@@ -85,8 +86,7 @@ public class Controlador implements ActionListener {
 
                     network.avisaServer("JOC2");
                     vista.changePanel("JOC");
-                    System.out.println("ok");
-
+                    model.setPartida(new Partida(2));
                     //Escolta la resposta del servidor per saber si ha de canviar a la finestra de joc
                     break;
 
