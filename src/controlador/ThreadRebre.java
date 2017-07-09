@@ -39,21 +39,24 @@ public class ThreadRebre extends Thread {
     public void run() {
         try {
             while (true) {
-                Serp serp;
                 System.out.println("dale");
 
                 opcio = (String) diStreamO.readObject();
 
                 switch (opcio) {
                     case "COMENÇA":
-
+                        System.out.println("comença partida");
                         //començarPartida
                         vista.iniciaPartida();
 
                         break;
                     case "MOU":
                         //rebreSerp
-                    //    serp = (Serp) diStreamO.readObject();
+                        int jug = (int)diStreamO.readObject();
+                        int dir = (int) diStreamO.readObject();
+                        model.getPartida().mouSerp(dir, jug);
+                        System.out.println("serp rebuda");
+
                         break;
 
                     case "JUGADOR":

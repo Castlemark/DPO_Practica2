@@ -32,6 +32,7 @@ public class ControladorJoc implements ActionListener {
         this.network = network;
     }
 
+
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -161,11 +162,14 @@ public class ControladorJoc implements ActionListener {
 
         if(vistaJoc.isCont() == false) {
             model.getPartida().getSerps().get(model.getPartida().getSerp()).canviaDireccio(d);
-            /*try{
-                network.getDoStreamO().writeObject(model.getPartida().getSerp());
+            try{
+                network.avisaServer("MOVIMENT");
+                network.getDoStreamO().writeObject(d);
+                System.out.println("agafa serp");
+
             } catch (IOException ex) {
                 ex.printStackTrace();
-            }*/
+            }
 
         }
 

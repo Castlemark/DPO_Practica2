@@ -62,6 +62,7 @@ public class Serp implements Serializable{
             dir = 4;
             posicions.add(new Posicio(cap.getX(), cap.getY()));
         }
+        System.out.println("canvia direccio");
     }
     /**
      * Getter de la posició

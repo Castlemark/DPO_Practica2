@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * Created by Grup 6 on 06/04/2017.
  */
 public class Partida implements Serializable{
-    private ArrayList<Model.Serp> serps = new ArrayList<>();
+    private ArrayList<Serp> serps = new ArrayList<>();
     private int serp;
 
     private boolean viu;
@@ -55,6 +55,25 @@ public class Partida implements Serializable{
             Posicio c = serps.get(i).getCap();
             if(i != serp){
                 //OLLA MAXIMA
+
+                if(c.getX() > pos.get(pos.size() - 1).getX() && cap.getX() <= c.getX() && cap.getX() >= pos.get(pos.size() - 1).getX() && cap.getY() == c.getY()){
+                    return true;
+                }
+                for(int j = 0; j < pos.size() - 1; j++){
+                    if(pos.get(j).getX() > pos.get(j+1).getX() && cap.getX() <= pos.get(j).getX() && cap.getX() >= pos.get(j + 1).getX() && cap.getY() == pos.get(j).getY()){
+                        return true;
+                    }
+                    if(pos.get(j).getX() < pos.get(j+1).getX() && cap.getX() >= pos.get(j).getX() && cap.getX() <= pos.get(j + 1).getX() && cap.getY() == pos.get(j).getY()){
+                        return true;
+                    }
+                    if(pos.get(j).getY() > pos.get(j+1).getY() && cap.getY() <= pos.get(j).getY() && cap.getY() >= pos.get(j + 1).getY() && cap.getX() == pos.get(j).getX()){
+                        return true;
+                    }
+                    if(pos.get(j).getY() < pos.get(j+1).getY() && cap.getY() >= pos.get(j).getY() && cap.getY() <= pos.get(j + 1).getY() && cap.getX() == pos.get(i).getX()){
+                        return true;
+                    }
+                }
+
             }
         }
 
@@ -103,5 +122,10 @@ public class Partida implements Serializable{
 
     public int getSerp() {
         return serp;
+    }
+
+    public void mouSerp(int dir, int jug){
+        serps.get(jug).canviaDireccio(dir);
+        System.out.println("serp moguda");
     }
 }
