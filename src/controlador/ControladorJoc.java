@@ -43,8 +43,12 @@ public class ControladorJoc implements ActionListener {
              //  model.getPartida().getSerp().mouSerp();
                if(model.getPartida().comprovaCollisio()){
                    System.out.println("Has perdut!");
+                   if (model.getPartida().isViu()){
+                       network.partidaPerduda();
+                   }
                    model.getPartida().setViu(false);
                }
+
                break;
            case "CONTA":
                System.out.println(contador);
@@ -72,6 +76,7 @@ public class ControladorJoc implements ActionListener {
                    if(model.getPartida().comprovaCollisio()){
                        System.out.println("Has perdut!");
                        model.getPartida().setViu(false);
+                       network.partidaPerduda();
                    }
                }
                break;

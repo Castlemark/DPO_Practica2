@@ -97,6 +97,17 @@ public class Network extends Thread{
         tr.start();
     }
 
+    public void partidaPerduda(){
+        try {
+            doStreamO.writeObject("MORT");
+            vista.changePanel("RANQUING");
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+
+    }
+
     public String getMessage() throws IOException, ClassNotFoundException{
 
         return (String) diStreamO.readObject();
