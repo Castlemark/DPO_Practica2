@@ -111,7 +111,7 @@ public class VistaJoc extends JPanel {
         if(cont){
            t.setDelay(1000);
         }else {
-            t.setDelay(10);
+            t.setDelay(25);
         }
         this.cont = cont;
     }

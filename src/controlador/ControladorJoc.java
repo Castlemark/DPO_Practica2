@@ -79,7 +79,19 @@ public class ControladorJoc implements ActionListener {
                    if(model.getPartida().comprovaCollisio()){
                        System.out.println("Has perdut!");
                        model.getPartida().setViu(false);
-                       network.partidaPerduda();
+                       vistaJoc.aturar();
+                       try{
+                           network.avisaServer("MORT");
+                       }catch(IOException ex){
+                           ex.printStackTrace();
+                       }
+
+                       for(int i = 0; i < model.getPartida().getSerps().size(); i++){
+                           System.out.println("Serp " + i);
+                           for(int z = 0; z < model.getPartida().getSerps().get(i).getPosicions().size(); z++){
+                               System.out.println("(" + model.getPartida().getSerps().get(i).getPosicions().get(z).getX() + ", " + model.getPartida().getSerps().get(i).getPosicions().get(z).getY() + ")");
+                           }
+                       }
                    }
                }
                break;
@@ -169,11 +181,13 @@ public class ControladorJoc implements ActionListener {
         System.out.println("teclaaa");
 
         if(vistaJoc.isCont() == false) {
-            model.getPartida().getSerps().get(model.getPartida().getSerp()).canviaDireccio(d);
             try{
                 network.avisaServer("MOVIMENT");
                 network.getDoStreamO().writeObject(d);
+                network.getDoStreamO().writeObject(model.getPartida().getSerps().get(model.getPartida().getSerp()).getCap());
                 System.out.println("agafa serp");
+                model.getPartida().getSerps().get(model.getPartida().getSerp()).canviaDireccio(d, model.getPartida().getSerps().get(model.getPartida().getSerp()).getCap());
+
 
             } catch (IOException ex) {
                 ex.printStackTrace();

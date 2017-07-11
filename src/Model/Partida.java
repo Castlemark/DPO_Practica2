@@ -1,5 +1,7 @@
 package Model;
 
+import javafx.geometry.Pos;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -124,8 +126,8 @@ public class Partida implements Serializable{
         return serp;
     }
 
-    public void mouSerp(int dir, int jug){
-        serps.get(jug).canviaDireccio(dir);
+    public void mouSerp(int dir, Posicio cap, int jug){
+        serps.get(jug).canviaDireccio(dir, cap);
         System.out.println("serp moguda");
     }
 

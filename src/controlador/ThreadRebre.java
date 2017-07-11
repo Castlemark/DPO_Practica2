@@ -54,7 +54,8 @@ public class ThreadRebre extends Thread {
                         //rebreSerp
                         int jug = (int)diStreamO.readObject();
                         int dir = (int) diStreamO.readObject();
-                        model.getPartida().mouSerp(dir, jug);
+                        Posicio cap = (Posicio)diStreamO.readObject();
+                        model.getPartida().mouSerp(dir, cap, jug);
                         System.out.println("serp rebuda");
 
                         break;
@@ -66,6 +67,12 @@ public class ThreadRebre extends Thread {
                         break;
                     case "MORT":
                         vista.aturaPartida();
+                        for(int i = 0; i < model.getPartida().getSerps().size(); i++){
+                            System.out.println("Serp " + i);
+                            for(int z = 0; z < model.getPartida().getSerps().get(i).getPosicions().size(); z++){
+                                System.out.println("(" + model.getPartida().getSerps().get(i).getPosicions().get(z).getX() + ", " + model.getPartida().getSerps().get(i).getPosicions().get(z).getY() + ")");
+                            }
+                        }
                         break;
                 }
 

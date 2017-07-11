@@ -45,20 +45,22 @@ public class Serp implements Serializable{
     }
     public void mouSerp(){cap.mouCap(dir);}
 
-    public void canviaDireccio (int c){
-        if(c == 2 && dir != 3 && dir != 4){
+    public void canviaDireccio (int d, Posicio c){
+        this.cap = c;
+        System.out.println(cap.getX());
+        if(d == 2 && dir != 3 && dir != 4){
             dir = 3;
             posicions.add(new Posicio(cap.getX(), cap.getY()));
         }
-        if(c == 3 && dir != 2 && dir != 1){
+        if(d == 3 && dir != 2 && dir != 1){
             dir = 2;
             posicions.add(new Posicio(cap.getX(), cap.getY()));
         }
-        if(c == 4 && dir != 1 && dir != 2){
+        if(d == 4 && dir != 1 && dir != 2){
             dir = 1;
             posicions.add(new Posicio(cap.getX(), cap.getY()));
         }
-        if(c == 1 && dir != 4 && dir != 3){
+        if(d == 1 && dir != 4 && dir != 3){
             dir = 4;
             posicions.add(new Posicio(cap.getX(), cap.getY()));
         }
