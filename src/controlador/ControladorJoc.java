@@ -43,10 +43,13 @@ public class ControladorJoc implements ActionListener {
              //  model.getPartida().getSerp().mouSerp();
                if(model.getPartida().comprovaCollisio()){
                    System.out.println("Has perdut!");
-                   if (model.getPartida().isViu()){
-                       network.partidaPerduda();
-                   }
                    model.getPartida().setViu(false);
+                   vistaJoc.aturar();
+                   try{
+                       network.avisaServer("MORT");
+                   }catch(IOException ex){
+                       ex.printStackTrace();
+                   }
                }
 
                break;

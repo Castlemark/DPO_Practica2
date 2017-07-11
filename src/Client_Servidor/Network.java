@@ -100,7 +100,7 @@ public class Network extends Thread{
     public void partidaPerduda(){
         try {
             doStreamO.writeObject("MORT");
-            vista.changePanel("RANQUING");
+           // vista.changePanel("RANQUING");
         }
         catch (IOException e){
             e.printStackTrace();

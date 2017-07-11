@@ -128,4 +128,5 @@ public class Partida implements Serializable{
         serps.get(jug).canviaDireccio(dir);
         System.out.println("serp moguda");
     }
+
 }

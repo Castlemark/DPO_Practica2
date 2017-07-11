@@ -36,6 +36,10 @@ public class VistaJoc extends JPanel {
         cont = true;
     }
 
+    public void aturar(){
+        t.stop();
+    }
+
     public void addNotify() {
         super.addNotify();
         requestFocus();

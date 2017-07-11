@@ -140,4 +140,8 @@ public class Joc extends JPanel {
         }
     }
 
+    public void aturar(){
+        panel1.aturar();
+    }
+
 }

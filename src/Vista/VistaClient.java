@@ -100,4 +100,8 @@ public class VistaClient extends JFrame {
     public void insereixJugador(String[] logins){
         joc.insereixJugador(logins);
     }
+
+    public void aturaPartida(){
+        joc.aturar();
+    }
 }
