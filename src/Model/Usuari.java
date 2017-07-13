@@ -24,6 +24,10 @@ public class Usuari implements Serializable{
         this.login = login;
         this.mail = mail;
         this.password = password;
+        this.up=87;
+        this.down=83;
+        this.left=65;
+        this.right=68;
     }
 
     public void setLogin(String login){

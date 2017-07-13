@@ -46,6 +46,7 @@ public class VistaClient extends JFrame {
         this.getContentPane().setLayout(layout);
 
         //inicialitzar panels
+        controls = new Controls();
         configuracio = new Configuracio();
         fiPartida = new FiPartida(true);// de moment
         inici = new Inici();

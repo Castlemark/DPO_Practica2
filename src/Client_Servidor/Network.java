@@ -6,6 +6,7 @@ import Model.Partida;
 import Model.Serp;
 import Model.Usuari;
 import Vista.VistaClient;
+import Vista.VistaClientProva;
 import Vista.VistaJoc;
 import controlador.ThreadRebre;
 

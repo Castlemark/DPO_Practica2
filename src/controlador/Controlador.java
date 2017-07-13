@@ -7,6 +7,7 @@ import Client_Servidor.Network;
 import Vista.VistaClient;
 import Model.Client;
 import Model.Usuari;
+import Vista.VistaClientProva;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -20,7 +21,6 @@ import java.io.IOException;
 public class Controlador implements ActionListener {
     private Client model;
     private Network network;
-
     private VistaClient vista;
 
     public Controlador(VistaClient vistaClient, Client model, Network network) {
@@ -101,6 +101,10 @@ public class Controlador implements ActionListener {
                     network.avisaServer("CAMPEONAT");
                     //Escolta la resposta del servidor per saber si ha de canviar a la finestra de joc
                     break;
+
+                case "GUARDAR":
+
+                    //passar vista.teclaup etc al server
 
             }
         } catch (IOException ioe) {

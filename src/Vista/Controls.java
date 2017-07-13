@@ -47,7 +47,7 @@ public class Controls extends JPanel {
     private JLabel jlEspai;
     private JLabel jlControls;
     private JLabel jlUp;
-    private JTextField jtUp;
+    private JTextField jtfUp;
     private JLabel jlDown;
     private JLabel jlEspai2;
     private JTextField jtfRight;
@@ -59,6 +59,11 @@ public class Controls extends JPanel {
     private JTextField jtfDown;
     private JButton jbGuardar;
     private JLabel jlEspai5;
+    private int teclaUp;
+    private int teclaDown;
+    private int teclaLeft;
+    private int teclaRight;
+
 
 
 
@@ -68,17 +73,19 @@ public class Controls extends JPanel {
      */
     public Controls() {
 
+
+
         jlEspai = new JLabel();
         jlControls = new JLabel();
-        jlUp = new JLabel();
-        jtUp = new JTextField();
-        jlDown = new JLabel();
+        jlUp = new JLabel(KeyEvent.getKeyText(teclaUp));
+        jtfUp = new JTextField();
+        jlDown = new JLabel(KeyEvent.getKeyText(teclaDown));
         jlEspai2 = new JLabel();
         jtfRight = new JTextField();
-        jlRight = new JLabel();
+        jlRight = new JLabel(KeyEvent.getKeyText(teclaRight));
         jlEspai3 = new JLabel();
         jtfLeft = new JTextField();
-        jlLeft = new JLabel();
+        jlLeft = new JLabel(KeyEvent.getKeyText(teclaLeft));
         jlEspai4 = new JLabel();
         jtfDown = new JTextField();
         jbGuardar = new JButton();
@@ -122,7 +129,7 @@ public class Controls extends JPanel {
         add(jlUp, new GridBagConstraints(3, 3, 1, 3, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 25, 25), 0, 0));
-        add(jtUp, new GridBagConstraints(4, 4, 1, 1, 0.0, 0.0,
+        add(jtfUp, new GridBagConstraints(4, 4, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 25, 25), 0, 0));
 
@@ -137,7 +144,7 @@ public class Controls extends JPanel {
         add(jlEspai2, new GridBagConstraints(4, 6, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 25, 25), 0, 0));
-        add(jtfRight, new GridBagConstraints(4, 7, 1, 1, 0.0, 0.0,
+        add(jtfDown, new GridBagConstraints(4, 7, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 25, 25), 0, 0));
 
@@ -152,7 +159,7 @@ public class Controls extends JPanel {
         add(jlEspai3, new GridBagConstraints(4, 10, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 25, 25), 0, 0));
-        add(jtfLeft, new GridBagConstraints(4, 11, 1, 1, 0.0, 0.0,
+        add(jtfRight, new GridBagConstraints(4, 11, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 25, 25), 0, 0));
 
@@ -167,7 +174,7 @@ public class Controls extends JPanel {
         add(jlEspai4, new GridBagConstraints(4, 14, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 25, 25), 0, 0));
-        add(jtfDown, new GridBagConstraints(4, 15, 1, 1, 0.0, 0.0,
+        add(jtfLeft, new GridBagConstraints(4, 15, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 25, 25), 0, 0));
 
@@ -189,29 +196,75 @@ public class Controls extends JPanel {
         contentPane.setLayout(null);
         contentPane.setFocusable(true);
 
-        //Eventos
+        //Events
 
         jtfLeft.addKeyListener(new KeyListener() {
             public void keyTyped(KeyEvent e) {
-                //Aqui no funcionara
             }
 
             public void keyPressed(KeyEvent e) {
 
-                int tecla = 0;
 
-                tecla = e.getKeyCode();
-                System.out.print(tecla);
-                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                    JOptionPane.showMessageDialog(contentPane, "Has pulsado Enter");
-                }
-                if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
-                    System.exit(0);
-                }
+
+                teclaLeft = e.getKeyCode();
+                jtfLeft.setText("");
+                jlLeft.setText( e.getKeyText(e.getKeyCode()));
+
             }
 
             public void keyReleased(KeyEvent e) {
-                //Aqui tambien puedes insertar el codigo
+            }
+        });
+
+        jtfRight.addKeyListener(new KeyListener() {
+            public void keyTyped(KeyEvent e) {
+            }
+
+            public void keyPressed(KeyEvent e) {
+
+
+                teclaRight = e.getKeyCode();
+                jtfRight.setText("");
+                jlRight.setText( e.getKeyText(e.getKeyCode()));
+
+            }
+
+            public void keyReleased(KeyEvent e) {
+            }
+        });
+
+        jtfDown.addKeyListener(new KeyListener() {
+            public void keyTyped(KeyEvent e) {
+            }
+
+            public void keyPressed(KeyEvent e) {
+
+
+                teclaDown = e.getKeyCode();
+                jtfDown.setText("");
+                jlDown.setText( e.getKeyText(e.getKeyCode()));
+
+            }
+
+            public void keyReleased(KeyEvent e) {
+            }
+        });
+
+        jtfUp.addKeyListener(new KeyListener() {
+            public void keyTyped(KeyEvent e) {
+            }
+
+            public void keyPressed(KeyEvent e) {
+
+
+
+                teclaUp = e.getKeyCode();
+                jtfUp.setText("");
+                jlUp.setText( e.getKeyText(e.getKeyCode()));
+
+            }
+
+            public void keyReleased(KeyEvent e) {
             }
         });
 
@@ -220,6 +273,14 @@ public class Controls extends JPanel {
     public void regiterController( Controlador c){
         jbGuardar.setActionCommand("GUARDAR");
         jbGuardar.addActionListener(c);
+
+    }
+
+    public void actualitzaControls(int up, int down, int left, int right){
+        teclaUp=up;
+        teclaDown=down;
+        teclaLeft=left;
+        teclaRight=right;
 
     }
 }
