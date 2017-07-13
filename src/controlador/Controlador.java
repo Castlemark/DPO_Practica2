@@ -1,6 +1,9 @@
 package controlador;
 
+import Model.Inicia;
+import Model.Partida;
 import Vista.Configuracio;
+import Client_Servidor.Network;
 import Vista.VistaClient;
 import Model.Client;
 import Model.Usuari;
@@ -16,68 +19,95 @@ import java.io.IOException;
  */
 public class Controlador implements ActionListener {
     private Client model;
+    private Network network;
 
     private VistaClient vista;
 
-    public Controlador(VistaClient vistaClient, Client model) {
+    public Controlador(VistaClient vistaClient, Client model, Network network) {
         this.vista = vistaClient;
         this.model = model;
+        this.network = network;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        /*if (e.getSource() instanceof JButton) {
-            System.out.println(e.getActionCommand() + " - boto");
-            if (e.getActionCommand().equals("INICI")) {
-                System.out.println("clic");
-                if (Model.connectar(vista.getIp(), vista.getPort())) {
-                    System.out.println("connectant");
-                    vista.changePanel("IDENTIFICACIO");
-
-                }
-            }
-        }*/
-
         try {
+
 
             switch (e.getActionCommand()) {
 
 
-                case "ENVIAR":
+                case "REGISTRE":
 
                     Usuari usuariAux = new Usuari();
 
                     if (usuariAux.comprovaDades(vista.getRegistre().getLogin(), vista.getRegistre().getMail(),vista.getRegistre().getPassword(),vista.getRegistre().getConfirmacio())) {
                         model.setUsuari(usuariAux = new Usuari(vista.getRegistre().getLogin(), vista.getRegistre().getMail(),vista.getRegistre().getPassword()));
 
-                        model.getNetwork().avisaServer("REGISTRAR");
-                        model.getNetwork().registraUsuari(usuariAux);
+                        network.avisaServer("REGISTRAR");
+                        if (!network.registraUsuari(usuariAux)){
+                            JOptionPane.showMessageDialog(null, "No s'ha pogust completar el registre\nJa existeix aquest usuari");
+                        }
+                        else {
+                            JOptionPane.showMessageDialog(null, "Registre completat amb exit");
+                        }
 
                         System.out.println("OK");
                     } else {
-                        System.out.println("Error de dades");
+                        JOptionPane.showMessageDialog(null, "No s'ha pogut completar el registre\nHi ha un error en les dades");
                     }
                     break;
-
 
                 case "INICIAR":
-                    System.out.println("clic");
-                    if (model.connectar(vista.getIp(), vista.getPort())) {
-                        System.out.println("connectant");
-                        model.getNetwork().connect(1111);
-                        vista.changePanel("IDENTIFICACIO");
+
+                    System.out.println("connectant");
+                    network.connect(vista.getPort(), vista.getIp());
+                    vista.changePanel("IDENTIFICACIO");
 
 
-                    }
                     break;
 
-                case "GUARDAR":
+                case "INICIARSESSIO":
+
+                    Inicia iniciaAux = new Inicia(vista.getIniciarSessio().getID(), vista.getIniciarSessio().getPassword());
+
+                    network.avisaServer("INICIARSESSIO");
+                    if (network.iniciaSessio(iniciaAux)){
+                        vista.changePanel("RANQUING");
+                    }
+                    else {
+                        JOptionPane.showMessageDialog(null, "Error al iniciar sessió");
+                    }
+                    network.iniciaRebre();
+                    break;
+
+                case  "JOC2":
+
+                    network.avisaServer("JOC2");
+                    vista.changePanel("JOC");
+                    model.setPartida(new Partida(2));
+                    //Escolta la resposta del servidor per saber si ha de canviar a la finestra de joc
+                    break;
+
+                case  "JOC4":
+
+                    network.avisaServer("JOC4");
+                    //Escolta la resposta del servidor per saber si ha de canviar a la finestra de joc
+                    break;
+
+                case "CAMPEONAT":
+
+                    network.avisaServer("CAMPEONAT");
+                    //Escolta la resposta del servidor per saber si ha de canviar a la finestra de joc
+                    break;
 
             }
         } catch (IOException ioe) {
             System.out.println(ioe.getMessage());
             ioe.getMessage();
+        }catch (ClassNotFoundException e1){
+            e1.printStackTrace();
         }
 
     }

@@ -2,6 +2,7 @@ package Vista;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 /**
  * Classe del panell de ranquing
@@ -139,5 +140,15 @@ public class Ranquing extends  JPanel {
         add(jbCamp, new GridBagConstraints(3, 3,1,1,0.0,0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0,20,17), 0,0));
+    }
+
+    public void registerController(ActionListener c){
+        jb2X.addActionListener(c);
+        jb4X.addActionListener(c);
+        jbCamp.addActionListener(c);
+
+        jb2X.setActionCommand("JOC2");
+        jb4X.setActionCommand("JOC4");
+        jbCamp.setActionCommand("CAMPEONAT");
     }
 }

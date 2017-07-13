@@ -1,9 +1,10 @@
 package controlador;
 
+import Client_Servidor.Network;
+import Model.*;
 import Model.Partida;
 import Model.Serp;
-import Model.Partida;
-import Model.Serp;
+import Vista.VistaClient;
 
 import java.io.DataInputStream;
 import java.io.EOFException;
@@ -14,45 +15,71 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 
 /**
- * Created by Grup 6 on 13/04/2017.
+ * Created by    Grup 6 on 13/04/2017.
  */
 public class ThreadRebre extends Thread {
-    private DataInputStream diStream;
     private ObjectInputStream diStreamO;
     private Partida partida;
+    private Client model;
+    private ControladorJoc cj;
+    String opcio = "";
+    private VistaClient vista;
+    private Network network;
 
-    public ThreadRebre(DataInputStream diStream, ObjectInputStream diStreamO, Partida partida) {
 
-        this.diStream = diStream;
+    public ThreadRebre(ObjectInputStream diStreamO, Client model, VistaClient vista, Network network) {
+
         this.diStreamO = diStreamO;
-        this.partida = partida;
+        this.model = model;
+        this.vista = vista;
+        this.network = network;
     }
 
     @Override
     public void run() {
         try {
             while (true) {
-                int opcio;
-                Serp serp;
+                System.out.println("dale");
 
-                opcio = diStream.readInt();
+                opcio = (String) diStreamO.readObject();
 
                 switch (opcio) {
-                    case 1:
+                    case "COMENÇA":
+                        System.out.println("comença partida");
                         //començarPartida
-                        ArrayList<Serp> serps;
-                        serps = (ArrayList<Serp>) diStreamO.readObject();
-                        partida = new Partida(serps);
+                        vista.iniciaPartida();
+
                         break;
-                    case 2:
+                    case "MOU":
                         //rebreSerp
-                        serp = (Serp) diStreamO.readObject();
+                        int jug = (int)diStreamO.readObject();
+                        int dir = (int) diStreamO.readObject();
+                        Posicio cap = (Posicio)diStreamO.readObject();
+                        model.getPartida().mouSerp(dir, cap, jug);
+                        System.out.println("serp rebuda");
+
+                        break;
+
+                    case "JUGADOR":
+                        String[] j = (String[])diStreamO.readObject();
+                        vista.insereixJugador(j);
+                        model.getPartida().setSerp((int)diStreamO.readObject());
+                        break;
+                    case "MORT":
+                        vista.aturaPartida();
+                        for(int i = 0; i < model.getPartida().getSerps().size(); i++){
+                            System.out.println("Serp " + i);
+                            for(int z = 0; z < model.getPartida().getSerps().get(i).getPosicions().size(); z++){
+                                System.out.println("(" + model.getPartida().getSerps().get(i).getPosicions().get(z).getX() + ", " + model.getPartida().getSerps().get(i).getPosicions().get(z).getY() + ")");
+                            }
+                        }
                         break;
                 }
 
             }
         }catch(IOException e){
                 e.printStackTrace();
+                System.out.println(e.getMessage());
         }catch(ClassNotFoundException e){
                 e.printStackTrace();
         }

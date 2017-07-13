@@ -9,6 +9,7 @@ import javax.swing.*;
 import javax.swing.border.*;
 //import com.jgoodies.forms.factories.*;
 import controlador.ControladorJoc;
+import controlador.Move;
 
 /**
  * @author unknown
@@ -38,32 +39,32 @@ public class Joc extends JPanel {
         ((GridBagLayout)getLayout()).rowWeights = new double[] {0.0, 0.0, 0.0, 0.0, 1.0E-4};
 
         //---- label1 ----
-        label1.setText("Jugador 1");
+        label1.setText("");
         add(label1, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
 
         //---- label2 ----
-        label2.setText("Jugador 2");
+        label2.setText("");
         add(label2, new GridBagConstraints(2, 1, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
 
         //---- label3 ----
-        label3.setText("Jugador 3");
+        label3.setText("");
         add(label3, new GridBagConstraints(3, 1, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 5), 0, 0));
 
         //---- label4 ----
-        label4.setText("Jugador 4");
+        label4.setText("");
         add(label4, new GridBagConstraints(4, 1, 1, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 0), 0, 0));
 
         //======== panel1 ========
         {
-            panel1.setBackground(new Color(20, 111, 125));
+            panel1.setBackground(new Color(255, 255, 255));
             panel1.setBorder(LineBorder.createBlackLineBorder());
             panel1.setLayout(new BorderLayout());
         }
@@ -77,6 +78,10 @@ public class Joc extends JPanel {
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 0, 0), 0, 0));
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
+
+
+
+
 
     }
 
@@ -94,6 +99,16 @@ public class Joc extends JPanel {
         panel1.registraControlador(cj);
         button1.addActionListener(cj);
         button1.setActionCommand("ABANDONA");
+
+        panel1.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("UP"), "up");
+        panel1.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("DOWN"), "down");
+        panel1.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("LEFT"), "left");
+        panel1.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("RIGHT"), "right");
+        panel1.getActionMap().put("up", new Move(1, cj));
+        panel1.getActionMap().put("down", new Move(2, cj));
+        panel1.getActionMap().put("left", new Move(3, cj));
+        panel1.getActionMap().put("right", new Move(4, cj));
+
     }
 
     public VistaJoc getPanel1() {
@@ -103,4 +118,30 @@ public class Joc extends JPanel {
     public void iniciaJoc(){
         panel1.iniciar();
     }
+
+    public void insereixJugador(String[] logins){
+        switch (logins.length){
+            case 2:
+                label1.setText(logins[0]);
+                label4.setText(logins[1]);
+                break;
+            case 3:
+                label1.setText(logins[0]);
+                label2.setText(logins[1]);
+                label3.setText(logins[2]);
+                break;
+            case 4:
+                label1.setText(logins[0]);
+                label2.setText(logins[1]);
+                label3.setText(logins[2]);
+                label4.setText(logins[3]);
+                break;
+
+        }
+    }
+
+    public void aturar(){
+        panel1.aturar();
+    }
+
 }

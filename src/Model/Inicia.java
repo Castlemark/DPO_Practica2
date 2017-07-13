@@ -1,11 +1,11 @@
 package Model;
 
-import java.util.PrimitiveIterator;
+import java.io.Serializable;
 
 /**
  * Created by Marc on 10/05/2017.
  */
-public class Inicia {
+public class Inicia implements Serializable{
 
     private String nom;
     private String password;

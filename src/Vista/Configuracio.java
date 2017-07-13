@@ -31,9 +31,9 @@ public class Configuracio extends JPanel {
 
         jlTitle = new JLabel("            Configuració");
         jlPort = new JLabel("Port         ");
-        jtPort = new JTextField();
+        jtPort = new JTextField("11111");
         jlIP = new JLabel("IP Servidor      ");
-        jtIP = new JTextField();
+        jtIP = new JTextField("localhost");
         jbIniciar = new JButton("Iniciar");
 
         jpConfiguracio.setLayout(new GridLayout(4,1));
@@ -52,8 +52,6 @@ public class Configuracio extends JPanel {
     }
 
     public void registerController(ActionListener c){
-        System.out.println("hey");
-
         jbIniciar.addActionListener(c);
 
         jbIniciar.setActionCommand("INICIAR");
@@ -64,8 +62,8 @@ public class Configuracio extends JPanel {
         return jtIP.getText();
     }
 
-    public String getPort(){
-        return jtPort.getText();
+    public int getPort(){
+        return Integer.parseInt(jtPort.getText()) ;
     }
 
 

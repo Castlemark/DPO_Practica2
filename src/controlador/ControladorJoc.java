@@ -1,21 +1,23 @@
 package controlador;
 
+import Client_Servidor.Network;
 import Model.Client;
+import Model.Partida;
 import Vista.VistaJoc;
-import Model.Client;
 import Model.Serp;
 
-import java.awt.*;
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Created by Propietario on 03/05/2017.
  */
-public class ControladorJoc implements ActionListener, KeyListener {
+public class ControladorJoc implements ActionListener {
     private VistaJoc vistaJoc;
     private Client model;
     private char c;
@@ -23,56 +25,110 @@ public class ControladorJoc implements ActionListener, KeyListener {
     private Network network;
 
 
-    public ControladorJoc(VistaJoc vistaJoc, Client model){
+    public ControladorJoc(VistaJoc vistaJoc, Client model, Network network){
         this.vistaJoc = vistaJoc;
         this.model = model;
-        contador = 3;
+        contador = 4;
+        this.network = network;
     }
 
+
+    @Override
     public void actionPerformed(ActionEvent e) {
-       switch (e.getActionCommand()){
+
+        if(!(e.getActionCommand().equals("TIMER"))){System.out.println(e.getActionCommand());}
+
+        switch (e.getActionCommand()){
            case "AVANÇA":
-               model.getPartida().getSerp().mouSerp();
+             //  model.getPartida().getSerp().mouSerp();
                if(model.getPartida().comprovaCollisio()){
                    System.out.println("Has perdut!");
                    model.getPartida().setViu(false);
+                   vistaJoc.aturar();
+                   try{
+                       network.avisaServer("MORT");
+                   }catch(IOException ex){
+                       ex.printStackTrace();
+                   }
                }
+
                break;
            case "CONTA":
-               contador--;
+               System.out.println(contador);
+       //        contador--;
                if(contador == 0){
                    vistaJoc.setCont(false);
                }
                break;
            case "ABANDONA":
                model.abandonaPartida();
-       }
+               break;
+           case "TIMER":
+               if(vistaJoc.isCont()){
+                   contador--;
+                   System.out.println(contador);
 
+                   if(contador <= 0){
+                       vistaJoc.setCont(false);
+                   }
+               }else{
+
+                   for(int i = 0; i< model.getPartida().getSerps().size(); i++) {
+                        model.getPartida().getSerps().get(i).mouSerp();
+                   }
+                   if(model.getPartida().comprovaCollisio()){
+                       System.out.println("Has perdut!");
+                       model.getPartida().setViu(false);
+                       vistaJoc.aturar();
+                       try{
+                           network.avisaServer("MORT");
+                       }catch(IOException ex){
+                           ex.printStackTrace();
+                       }
+
+                       for(int i = 0; i < model.getPartida().getSerps().size(); i++){
+                           System.out.println("Serp " + i);
+                           for(int z = 0; z < model.getPartida().getSerps().get(i).getPosicions().size(); z++){
+                               System.out.println("(" + model.getPartida().getSerps().get(i).getPosicions().get(z).getX() + ", " + model.getPartida().getSerps().get(i).getPosicions().get(z).getY() + ")");
+                           }
+                       }
+                   }
+               }
+               break;
+           case "down":
+
+       }
 
         vistaJoc.repaint();
 
     }
-
+/*
     @Override
     public void keyPressed(KeyEvent e) {
+        System.out.println("teclaaa");
 
     }
     @Override
     public void keyReleased(KeyEvent e) {
-    }
+        System.out.println("teclaaa");
 
-    @Override
-    public void keyTyped(KeyEvent e) {
+    }*/
+
+  //  @Override
+ /*   public void keyTyped(KeyEvent e) {
+
+        System.out.println("teclaaa");
+
         c = e.getKeyChar();
        if(vistaJoc.isCont() == false){
            model.getPartida().getSerp().canviaDireccio(c);
            try{
-               model.getNetwork().getDoStreamO().writeObject(model.getPartida().getSerp());
+              network.getDoStreamO().writeObject(model.getPartida().getSerp());
            } catch (IOException ex) {
                ex.printStackTrace();
            }
 
-       }
+       }*/
       /*
         switch (e.getKeyCode()) {
             case KeyEvent.VK_W:
@@ -88,10 +144,10 @@ public class ControladorJoc implements ActionListener, KeyListener {
             case KeyEvent.VK_D:
                 dir = 1;
                 break;
-        }*/
+        }
 
 
-    }
+    }*/
 
     public Client getModel() {
         return model;
@@ -101,11 +157,45 @@ public class ControladorJoc implements ActionListener, KeyListener {
         this.model = model;
     }
 
-    public Serp getSerp(){
+/*    public Serp getSerp(){
         return model.getPartida().getSerp();
-    }
+    }*/
 
     public int getContador() {
         return contador;
     }
+
+    public ArrayList<Serp> getSerps(){
+        return model.getPartida().getSerps();
+    }
+
+    public void iniciaPartida (Partida partida){
+        //avisem a la vista que comencem la partida
+    }
+
+    public void setContador(int contador) {
+        this.contador = contador;
+    }
+
+    public void moureSerp(int d){
+        System.out.println("teclaaa");
+
+        if(vistaJoc.isCont() == false) {
+            try{
+                network.avisaServer("MOVIMENT");
+                network.getDoStreamO().writeObject(d);
+                network.getDoStreamO().writeObject(model.getPartida().getSerps().get(model.getPartida().getSerp()).getCap());
+                System.out.println("agafa serp");
+                model.getPartida().getSerps().get(model.getPartida().getSerp()).canviaDireccio(d, model.getPartida().getSerps().get(model.getPartida().getSerp()).getCap());
+
+
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+
+        }
+
+    }
+
+
 }

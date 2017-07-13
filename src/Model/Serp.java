@@ -17,31 +17,54 @@ public class Serp implements Serializable{
     private Posicio cap;
     private int dir = 1;
 
-    public Serp(){
+    public Serp(int i){
         posicions = new ArrayList<>();
-        cap = new Posicio(10, 10);
-        posicions.add(new Posicio(10, 10));
-        dir = 1;
+        switch (i){
+            case 0:
+                cap = new Posicio(10, 10);
+               posicions.add(new Posicio(10, 10));
+               dir = 1;
+               break;
+            case 1:
+                cap = new Posicio(300, 10);
+                posicions.add(new Posicio(300, 10));
+                dir = 3;
+                break;
+            case 2:
+                cap = new Posicio(340, 340);
+                posicions.add(new Posicio(340, 340));
+                dir = 2;
+                break;
+            case 3:
+                cap = new Posicio(10, 340);
+                posicions.add(new Posicio(340, 340));
+                dir = 4;
+                break;
+        }
+
     }
     public void mouSerp(){cap.mouCap(dir);}
 
-    public void canviaDireccio (char c){
-        if(c == 's' && dir != 3 && dir != 4){
+    public void canviaDireccio (int d, Posicio c){
+        this.cap = c;
+        System.out.println(cap.getX());
+        if(d == 2 && dir != 3 && dir != 4){
             dir = 3;
             posicions.add(new Posicio(cap.getX(), cap.getY()));
         }
-        if(c == 'a' && dir != 2 && dir != 1){
+        if(d == 3 && dir != 2 && dir != 1){
             dir = 2;
             posicions.add(new Posicio(cap.getX(), cap.getY()));
         }
-        if(c == 'd' && dir != 1 && dir != 2){
+        if(d == 4 && dir != 1 && dir != 2){
             dir = 1;
             posicions.add(new Posicio(cap.getX(), cap.getY()));
         }
-        if(c == 'w' && dir != 4 && dir != 3){
+        if(d == 1 && dir != 4 && dir != 3){
             dir = 4;
             posicions.add(new Posicio(cap.getX(), cap.getY()));
         }
+        System.out.println("canvia direccio");
     }
     /**
      * Getter de la posició

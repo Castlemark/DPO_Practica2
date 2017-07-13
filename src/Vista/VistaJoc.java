@@ -1,5 +1,6 @@
 package Vista;
 
+import Model.Serp;
 import controlador.Controlador;
 import controlador.ControladorJoc;
 import Model.Posicio;
@@ -18,21 +19,25 @@ public class VistaJoc extends JPanel {
     private Timer t;
     private Timer inici;
     private boolean cont;
+    private int temps;
+
+
 
     public VistaJoc(){
         this.setSize(350, 350);
-        t = new Timer(10, null);
-        inici = new Timer(1000, null);
+        t = new Timer(1000, null);
         cont = true;
+        temps = 3;
     }
 
     public void iniciar(){
-        cont = true;
-        while (cont){
-            inici.start();
-        }
-        inici.stop();
+        cj.setContador(3);
         t.start();
+        cont = true;
+    }
+
+    public void aturar(){
+        t.stop();
     }
 
     public void addNotify() {
@@ -42,42 +47,72 @@ public class VistaJoc extends JPanel {
 
     public void paintComponent(Graphics g) {
 
-        ArrayList<Posicio> serp = cj.getSerp().getPosicions();
-        Posicio cap = cj.getSerp().getCap();
-
+        ArrayList<Serp> serps = cj.getSerps();
+        ArrayList<ArrayList<Posicio>> posicions = new ArrayList<>();
+        ArrayList<Posicio> caps = new ArrayList<>();
+        for(int i = 0; i < serps.size(); i++){
+            posicions.add(serps.get(i).getPosicions());
+            caps.add(serps.get(i).getCap());
+        }
 
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
         if (cont){
-            g2d.drawString(cj.getContador()+"", 150, 150);
-            inici.start();
-        }else{
-            g2d.setPaint(Color.RED);
-            g2d.drawLine(serp.get(serp.size()-1).getX(), serp.get(serp.size()-1).getY(), cap.getX(), cap.getY());
+            if(cj.getContador() == 4){
+                g2d.drawString("Esperant als altres jugadors...", 70, 150);
 
-            for(int i = 0; i < serp.size() -1; i++){
-
-                g2d.drawLine(serp.get(i).getX(), serp.get(i).getY(), serp.get(i + 1).getX(), serp.get(i + 1).getY());
-            }
-            if(cj.getModel().getPartida().isViu()) {
-                t.start();
             }else {
-                t.stop();
+                g2d.drawString(cj.getContador()+"", 150, 150);
             }
+        }else{
+            for(int j = 0; j < serps.size(); j++){
+                ArrayList<Posicio> serp = posicions.get(j);
+                Posicio cap = caps.get(j);
+                switch (j){
+                    case 0:
+                        g2d.setPaint(Color.RED);
+                        break;
+                    case 1:
+                        g2d.setPaint(Color.BLUE);
+                        break;
+                    case 2:
+                        g2d.setPaint(Color.GREEN);
+                        break;
+                    case 3:
+                        g2d.setPaint(Color.YELLOW);
+                        break;
+                }
+                g2d.drawLine(serp.get(serp.size()-1).getX(), serp.get(serp.size()-1).getY(), cap.getX(), cap.getY());
+
+                for(int i = 0; i < serp.size() -1; i++){
+
+                    g2d.drawLine(serp.get(i).getX(), serp.get(i).getY(), serp.get(i + 1).getX(), serp.get(i + 1).getY());
+                }
+                if(cj.getModel().getPartida().isViu()) {
+                    t.start();
+                }else {
+                    t.stop();
+                }
+            }
+
+
         }
 
     }
 
     public void registraControlador (ControladorJoc cj){
         this.cj = cj;
-        inici.addActionListener(cj);
-        inici.setActionCommand("CONTA");
         t.addActionListener(cj);
-        t.setActionCommand("AVANÇA");
-        addKeyListener(cj);
+        t.setActionCommand("TIMER");
+      //  addKeyListener(cj);
     }
 
     public void setCont(boolean cont) {
+        if(cont){
+           t.setDelay(1000);
+        }else {
+            t.setDelay(25);
+        }
         this.cont = cont;
     }
 

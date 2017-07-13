@@ -93,7 +93,7 @@ public class Registre extends JPanel {
     }
 
     public void registercontroller(Controlador c){
-        jbEnviar.setActionCommand("ENVIAR");
+        jbEnviar.setActionCommand("REGISTRE");
 
         jbEnviar.addActionListener(c);
     }

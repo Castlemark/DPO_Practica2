@@ -1,4 +1,4 @@
-/*package controlador;
+package controlador;/*package controlador;
 
 import model.Partida;
 import model.Serp;
