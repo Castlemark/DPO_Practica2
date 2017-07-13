@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
+ *
  * Created by sullivan on 19/04/2017.
  */
 public class VistaClient extends JFrame {
