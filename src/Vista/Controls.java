@@ -259,7 +259,7 @@ public class Controls extends JPanel {
 
     }
 
-    public void regiterController( Controlador c){
+    public void registerController( Controlador c){
         jbGuardar.setActionCommand("GUARDAR");
         jbGuardar.addActionListener(c);
 

@@ -76,7 +76,7 @@ public class VistaClient extends JFrame {
         configuracio.registerController(c);
         ranquing.registerController(c);
         joc.registraControlador(cj);
-        controls.regiterController(c);
+        controls.regisiterController(c);
 
 
     }
