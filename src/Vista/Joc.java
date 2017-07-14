@@ -1,6 +1,3 @@
-/*
- * Created by JFormDesigner on Mon May 08 17:24:59 CEST 2017
- */
 
 package Vista;
 

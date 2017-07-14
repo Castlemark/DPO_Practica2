@@ -27,11 +27,11 @@ public class VistaClient extends JFrame {
     private  FiPartida fiPartida;
     private Inici inici;
     private IniciarSessio iniciarSessio;
-    private  Joc joc;
+   private  Joc joc;
     private Ranquing ranquing;
     private Registre registre;
     private TancarSessio tancarSessio;
-  //  private VistaJoc vistaJoc;
+    private VistaJoc vistaJoc;
     private Identificacio identificacio;
 
     /**
@@ -56,9 +56,10 @@ public class VistaClient extends JFrame {
         registre = new Registre();
         tancarSessio = new TancarSessio();
         identificacio = new Identificacio();
+        controls = new Controls();
 
 
-      //  this.getContentPane().add("JOC", joc);
+        this.getContentPane().add("JOC", joc);
         this.getContentPane().add("INICI", configuracio);
         this.getContentPane().add("IDENTIFICACIO", identificacio);
         this.getContentPane().add("FIPARTIDA" , fiPartida);
