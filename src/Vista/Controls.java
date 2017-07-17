@@ -114,7 +114,7 @@ public class Controls extends JPanel {
                 new Insets(0, 0, 25, 25), 0, 0));
 
         //---- label2 ----
-        jlUp.setIcon(new ImageIcon("C:\\Users\\sullivan\\Documents\\DPO\\Troner\\arriba.png"));
+        jlUp.setIcon(new ImageIcon("imatges\\arriba.png"));
         add(jlUp, new GridBagConstraints(3, 3, 1, 3, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 25, 25), 0, 0));
