@@ -23,6 +23,8 @@ public class ControladorJoc implements ActionListener {
     private char c;
     private int contador;
     private Network network;
+    private int fi;
+
 
 
     public ControladorJoc(VistaJoc vistaJoc, Client model, Network network){
@@ -30,43 +32,23 @@ public class ControladorJoc implements ActionListener {
         this.model = model;
         contador = 4;
         this.network = network;
+        fi = 5;
     }
 
 
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if(!(e.getActionCommand().equals("TIMER"))){System.out.println(e.getActionCommand());}
+       // if(!(e.getActionCommand().equals("TIMER"))){System.out.println(e.getActionCommand());}
 
         switch (e.getActionCommand()){
-           case "AVANÇA":
-             //  model.getPartida().getSerp().mouSerp();
-               if(model.getPartida().comprovaCollisio()){
-                   System.out.println("Has perdut!");
-                   model.getPartida().setViu(false);
-                   vistaJoc.aturar();
-                   try{
-                       network.avisaServer("MORT");
-                   }catch(IOException ex){
-                       ex.printStackTrace();
-                   }
-               }
-
-               break;
-           case "CONTA":
-               System.out.println(contador);
-       //        contador--;
-               if(contador == 0){
-                   vistaJoc.setCont(false);
-               }
-               break;
            case "ABANDONA":
                model.abandonaPartida();
                break;
            case "TIMER":
                if(vistaJoc.isCont()){
                    contador--;
-                   System.out.println(contador);
+             //      System.out.println(contador);
 
                    if(contador <= 0){
                        vistaJoc.setCont(false);
@@ -74,32 +56,45 @@ public class ControladorJoc implements ActionListener {
                }else{
 
                    for(int i = 0; i< model.getPartida().getSerps().size(); i++) {
-                        model.getPartida().getSerps().get(i).mouSerp();
-                   }
-                   if(model.getPartida().comprovaCollisio()){
-                       System.out.println("Has perdut!");
-                       model.getPartida().setViu(false);
-                       vistaJoc.aturar();
-                       try{
-                           network.avisaServer("MORT");
-                       }catch(IOException ex){
-                           ex.printStackTrace();
+                       if(model.getPartida().getSerps().get(i).isViu()){
+                           model.getPartida().getSerps().get(i).mouSerp();
                        }
+                   }
+                   if(model.getPartida().getSerps().get(model.getPartida().getSerp()).isViu()){
+                       if(model.getPartida().comprovaCollisio()){
+                           System.out.println("Has perdut!");
+                           model.getPartida().getSerps().get(model.getPartida().getSerp()).setViu(false);
+                           try{
+                               network.avisaServer("MORT");
+                           }catch(IOException ex){
+                               ex.printStackTrace();
+                           }
+                   }
 
-                       for(int i = 0; i < model.getPartida().getSerps().size(); i++){
+
+                     /*  for(int i = 0; i < model.getPartida().getSerps().size(); i++){
                            System.out.println("Serp " + i);
                            for(int z = 0; z < model.getPartida().getSerps().get(i).getPosicions().size(); z++){
                                System.out.println("(" + model.getPartida().getSerps().get(i).getPosicions().get(z).getX() + ", " + model.getPartida().getSerps().get(i).getPosicions().get(z).getY() + ")");
                            }
-                       }
+                       }*/
                    }
                }
+               vistaJoc.repaint();
                break;
-           case "down":
-
+            case "FI":
+                vistaJoc.repaint();
+                if(fi <= 0){
+                    vistaJoc.reinicia();
+                    model.getPartida().reinicia();
+                    fi = 5;
+                }else{
+                    fi--;
+                }
+                contador = 4;
+                break;
        }
 
-        vistaJoc.repaint();
 
     }
 /*

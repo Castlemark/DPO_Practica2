@@ -20,13 +20,52 @@ public class Joc extends JPanel {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Pau Nonell
         label1 = new JLabel();
+        rondes1 = new JLabel();
         label2 = new JLabel();
+        rondes2 = new JLabel();
         label3 = new JLabel();
+        rondes3 = new JLabel();
         label4 = new JLabel();
+        rondes4 = new JLabel();
         panel1 = new VistaJoc();
         button1 = new JButton();
 
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+
+        JPanel jpsuperior = new JPanel();
+        jpsuperior.setLayout(new GridLayout(1, 8));
+        jpsuperior.add(label1);
+        jpsuperior.add(rondes1);
+        jpsuperior.add(label2);
+        jpsuperior.add(rondes2);
+        jpsuperior.add(label3);
+        jpsuperior.add(rondes3);
+        jpsuperior.add(label4);
+        jpsuperior.add(rondes4);
+        jpsuperior.setMinimumSize(new Dimension(1000, 100));
+        jpsuperior.setMaximumSize(new Dimension(1000, 100));
+        add(jpsuperior);
+
+
+
+        panel1.setMaximumSize(new Dimension(350, 350));
+        panel1.setMinimumSize(new Dimension(350, 350));
+        panel1.setBackground(new Color(255, 255, 255));
+        panel1.setBorder(LineBorder.createBlackLineBorder());
+        add(panel1);
+
+        button1.setText("Abandonar");
+        add(button1);
+
         //======== this ========
+      /*  setLayout(new GridLayout(3, 1));
+
+        JPanel jpsuperior = new JPanel(new GridLayout(1, 4));
+        jpsuperior.add(label1);
+        jpsuperior.add(label2);
+        jpsuperior.add(label3);
+        jpsuperior.add(label4);
+
 
 
         setLayout(new GridBagLayout());
@@ -63,9 +102,10 @@ public class Joc extends JPanel {
         {
             panel1.setBackground(new Color(255, 255, 255));
             panel1.setBorder(LineBorder.createBlackLineBorder());
-            panel1.setLayout(new BorderLayout());
+          //  panel1.setLayout(new BorderLayout());
         }
-        add(panel1, new GridBagConstraints(1, 2, 4, 1, 0.0, 0.0,
+
+        /*add(panel1, new GridBagConstraints(1, 2, 4, 1, 0.0, 0.0,
             GridBagConstraints.CENTER, GridBagConstraints.BOTH,
             new Insets(0, 0, 5, 0), 0, 0));
 
@@ -79,15 +119,19 @@ public class Joc extends JPanel {
 
 
 
-
+*/
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - Pau Nonell
     private JLabel label1;
+    private JLabel rondes1;
     private JLabel label2;
+    private JLabel rondes2;
     private JLabel label3;
+    private JLabel rondes3;
     private JLabel label4;
+    private JLabel rondes4;
     private VistaJoc panel1;
     private JButton button1;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
@@ -137,6 +181,25 @@ public class Joc extends JPanel {
         }
     }
 
+    public void setRondes(int[] rondes){
+        switch (rondes.length){
+            case 2:
+                rondes1.setText(rondes[0]+"");
+                rondes4.setText(rondes[1]+"");
+                break;
+            case 3:
+                rondes1.setText(rondes[0]+"");
+                rondes2.setText(rondes[1]+"");
+                rondes3.setText(rondes[2]+"");
+                break;
+            case 4:
+                rondes1.setText(rondes[0]+"");
+                rondes2.setText(rondes[1]+"");
+                rondes3.setText(rondes[2]+"");
+                rondes4.setText(rondes[3]+"");
+                break;
+        }
+    }
     public void aturar(){
         panel1.aturar();
     }

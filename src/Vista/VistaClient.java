@@ -46,7 +46,6 @@ public class VistaClient extends JFrame {
         this.getContentPane().setLayout(layout);
 
         //inicialitzar panels
-        controls = new Controls();
         configuracio = new Configuracio();
         fiPartida = new FiPartida(true);// de moment
         inici = new Inici();
@@ -76,7 +75,7 @@ public class VistaClient extends JFrame {
         configuracio.registerController(c);
         ranquing.registerController(c);
         joc.registraControlador(cj);
-        controls.regisiterController(c);
+        controls.registerController(c);
 
 
     }
@@ -106,8 +105,18 @@ public class VistaClient extends JFrame {
     public void insereixJugador(String[] logins){
         joc.insereixJugador(logins);
     }
+    public void insereixRondes(int[] rondes){
+        joc.setRondes(rondes);
+    }
 
     public void aturaPartida(){
         joc.aturar();
+    }
+
+    public void setPunts(int p){
+        joc.getPanel1().setPunts(p);
+    }
+    public void setPos(String pos){
+        joc.getPanel1().setPosicio(pos);
     }
 }

@@ -16,8 +16,10 @@ public class Serp implements Serializable{
     private ArrayList<Posicio> posicions;
     private Posicio cap;
     private int dir = 1;
+    private boolean viu;
 
     public Serp(int i){
+        viu = true;
         posicions = new ArrayList<>();
         switch (i){
             case 0:
@@ -37,7 +39,7 @@ public class Serp implements Serializable{
                 break;
             case 3:
                 cap = new Posicio(10, 340);
-                posicions.add(new Posicio(340, 340));
+                posicions.add(new Posicio(10, 340));
                 dir = 4;
                 break;
         }
@@ -90,6 +92,12 @@ public class Serp implements Serializable{
         return cap;
     }
 
+    public boolean isViu() {
+        return viu;
+    }
 
+    public void setViu(boolean viu) {
+        this.viu = viu;
+    }
 }
 

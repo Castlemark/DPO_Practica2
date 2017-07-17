@@ -7,7 +7,7 @@ import Client_Servidor.Network;
 import Vista.VistaClient;
 import Model.Client;
 import Model.Usuari;
-import Vista.VistaClientProva;
+//import Vista.VistaClientProva;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -93,6 +93,8 @@ public class Controlador implements ActionListener {
                 case  "JOC4":
 
                     network.avisaServer("JOC4");
+                    vista.changePanel("JOC");
+                    model.setPartida(new Partida(4));
                     //Escolta la resposta del servidor per saber si ha de canviar a la finestra de joc
                     break;
 
