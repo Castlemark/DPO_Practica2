@@ -21,6 +21,7 @@ import java.util.Scanner;
 public class Network extends Thread{
     private Client model;
 
+    private Socket sServer;
     private ObjectOutputStream doStreamO;
     private ObjectInputStream diStreamO;
 
@@ -49,7 +50,7 @@ public class Network extends Thread{
         try{
             sc = new Scanner(System.in);
 
-            Socket sServer = new Socket(IP, port);
+            sServer = new Socket(IP, port);
 
             doStreamO = new ObjectOutputStream(sServer.getOutputStream());
             diStreamO = new ObjectInputStream(sServer.getInputStream());
@@ -115,7 +116,6 @@ public class Network extends Thread{
     }
 
     public void tancarSessio(){
-          tr.stop();
 
     }
 

@@ -6,6 +6,7 @@ package Model;
 public class Client {
     private Usuari usuari;
     private Partida partida;
+    private int punts;
 
   //  private Network network;
 
@@ -32,7 +33,19 @@ public class Client {
 
     }
 
-  /*  public Network getNetwork() {
+    public void setPunts(int punts) {
+        this.punts = punts;
+    }
+
+    public int getPunts() {
+        return punts;
+    }
+
+    public void sumaPunts(int p){
+        punts =+ p;
+    }
+
+    /*  public Network getNetwork() {
         return network;
     }*/
 }
