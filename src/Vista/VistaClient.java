@@ -63,6 +63,7 @@ public class VistaClient extends JFrame {
         this.getContentPane().add("FIPARTIDA" , fiPartida);
         this.getContentPane().add("RANQUING", ranquing);
         this.getContentPane().add("JOC", joc);
+        this.getContentPane().add("CONTROLS",controls);
 
 
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);

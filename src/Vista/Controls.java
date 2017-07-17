@@ -123,7 +123,7 @@ public class Controls extends JPanel {
                 new Insets(0, 0, 25, 25), 0, 0));
 
         //---- label3 ----
-        jlDown.setIcon(new ImageIcon("C:\\Users\\sullivan\\Documents\\DPO\\Troner\\abajo.png"));
+        jlDown.setIcon(new ImageIcon("imatges\\abajo.png"));
         add(jlDown, new GridBagConstraints(3, 6, 1, 3, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 25, 25), 0, 0));
@@ -138,7 +138,7 @@ public class Controls extends JPanel {
                 new Insets(0, 0, 25, 25), 0, 0));
 
         //---- jlRight ----
-        jlRight.setIcon(new ImageIcon("C:\\Users\\sullivan\\Documents\\DPO\\Troner\\derecha.png"));
+        jlRight.setIcon(new ImageIcon("imatges\\derecha.png"));
         add(jlRight, new GridBagConstraints(3, 9, 1, 4, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 25, 25), 0, 0));
@@ -153,7 +153,7 @@ public class Controls extends JPanel {
                 new Insets(0, 0, 25, 25), 0, 0));
 
         //---- jlLeft ----
-        jlLeft.setIcon(new ImageIcon("C:\\Users\\sullivan\\Documents\\DPO\\Troner\\izq.png"));
+        jlLeft.setIcon(new ImageIcon("imatges\\izq.png"));
         add(jlLeft, new GridBagConstraints(3, 13, 1, 4, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 25, 25), 0, 0));

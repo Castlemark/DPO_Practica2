@@ -72,14 +72,14 @@ public class Ranquing extends  JPanel {
         };
 
         //---- Botó enrere ----
-        jbConfig.setText("Img enrere");
+        jbConfig.setText("Controls");
 
         add(jbConfig, new GridBagConstraints(0, 0,1,1,0.0,0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0,20,17), 0,0));
 
         //---- Botó tancar ----
-        jbTancar.setText("Tancar");
+        jbTancar.setText("Tancar Sessió");
 
         add(jbTancar, new GridBagConstraints(4, 0,1,1,0.0,0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
@@ -146,7 +146,11 @@ public class Ranquing extends  JPanel {
         jb2X.addActionListener(c);
         jb4X.addActionListener(c);
         jbCamp.addActionListener(c);
+        jbConfig.addActionListener(c);
+        jbTancar.addActionListener(c);
 
+        jbTancar.setActionCommand("TANCAR");
+        jbConfig.setActionCommand("CONTROLS");
         jb2X.setActionCommand("JOC2");
         jb4X.setActionCommand("JOC4");
         jbCamp.setActionCommand("CAMPEONAT");

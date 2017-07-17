@@ -62,7 +62,7 @@ public class Controlador implements ActionListener {
                 case "INICIAR":
 
                     System.out.println("connectant");
-                    network.connect(vista.getPort(), vista.getIp());
+                   // network.connect(vista.getPort(), vista.getIp());
                     vista.changePanel("IDENTIFICACIO");
 
 
@@ -73,7 +73,7 @@ public class Controlador implements ActionListener {
                     Inicia iniciaAux = new Inicia(vista.getIniciarSessio().getID(), vista.getIniciarSessio().getPassword());
 
                     network.avisaServer("INICIARSESSIO");
-                    if (network.iniciaSessio(iniciaAux)){
+                   if (network.iniciaSessio(iniciaAux)){
                         vista.changePanel("RANQUING");
                     }
                     else {
@@ -107,6 +107,17 @@ public class Controlador implements ActionListener {
                 case "GUARDAR":
 
                     //passar vista.teclaup etc al server
+                    break;
+
+                case "CONTROLS":
+
+                    vista.changePanel("CONTROLS");
+                    break;
+
+                case "TANCAR":
+                    network.avisaServer("TANCARSESSIO");
+                    vista.changePanel("IDENTIFICACIO");
+                    break;
 
             }
         } catch (IOException ioe) {
