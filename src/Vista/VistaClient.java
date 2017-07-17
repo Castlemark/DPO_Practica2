@@ -58,7 +58,6 @@ public class VistaClient extends JFrame {
         controls = new Controls();
 
 
-        this.getContentPane().add("JOC", joc);
         this.getContentPane().add("INICI", configuracio);
         this.getContentPane().add("IDENTIFICACIO", identificacio);
         this.getContentPane().add("FIPARTIDA" , fiPartida);
