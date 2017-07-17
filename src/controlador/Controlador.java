@@ -101,6 +101,8 @@ public class Controlador implements ActionListener {
                 case "CAMPEONAT":
 
                     network.avisaServer("CAMPEONAT");
+                    vista.changePanel("JOC");
+                    model.setPartida(new Partida(4));
                     //Escolta la resposta del servidor per saber si ha de canviar a la finestra de joc
                     break;
 
