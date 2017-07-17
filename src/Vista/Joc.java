@@ -164,18 +164,27 @@ public class Joc extends JPanel {
         switch (logins.length){
             case 2:
                 label1.setText(logins[0]);
+                label1.setForeground(Color.RED);
                 label4.setText(logins[1]);
+                label4.setForeground(Color.BLUE);
                 break;
             case 3:
                 label1.setText(logins[0]);
+                label1.setForeground(Color.RED);
                 label2.setText(logins[1]);
+                label2.setForeground(Color.BLUE);
                 label3.setText(logins[2]);
+                label3.setForeground(Color.GREEN);
                 break;
             case 4:
                 label1.setText(logins[0]);
+                label1.setForeground(Color.RED);
                 label2.setText(logins[1]);
+                label2.setForeground(Color.BLUE);
                 label3.setText(logins[2]);
+                label3.setForeground(Color.GREEN);
                 label4.setText(logins[3]);
+                label4.setForeground(Color.YELLOW);
                 break;
 
         }
