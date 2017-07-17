@@ -36,7 +36,7 @@ public class Configuracio extends JPanel {
         jtIP = new JTextField("localhost");
         jbIniciar = new JButton("Iniciar");
 
-        jpConfiguracio.setLayout(new BorderLayout());
+        jpConfiguracio.setLayout(new GridLayout(4, 1));
         jpAtras.add (jlTitle, BorderLayout.CENTER);
         jpIP.add(jlIP, BorderLayout.LINE_START);
         jpIP.add(jtIP, BorderLayout.CENTER);
