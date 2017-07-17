@@ -175,15 +175,13 @@ public class ControladorJoc implements ActionListener {
     public void moureSerp(int d){
         System.out.println("teclaaa");
 
-        if(vistaJoc.isCont() == false) {
+        if(vistaJoc.isCont() == false && vistaJoc.isFi()) {
             try{
+                model.getPartida().getSerps().get(model.getPartida().getSerp()).canviaDireccio(d, model.getPartida().getSerps().get(model.getPartida().getSerp()).getCap());
                 network.avisaServer("MOVIMENT");
                 network.getDoStreamO().writeObject(d);
-                network.getDoStreamO().writeObject(model.getPartida().getSerps().get(model.getPartida().getSerp()).getCap());
+                network.getDoStreamO().writeObject(model.getPartida().getSerps().get(model.getPartida().getSerp()).getUltim());
                 System.out.println("agafa serp");
-                model.getPartida().getSerps().get(model.getPartida().getSerp()).canviaDireccio(d, model.getPartida().getSerps().get(model.getPartida().getSerp()).getCap());
-
-
             } catch (IOException ex) {
                 ex.printStackTrace();
             }

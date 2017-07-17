@@ -140,4 +140,8 @@ public class VistaJoc extends JPanel {
         cont = true;
         fi = false;
     }
+
+    public boolean isFi() {
+        return fi;
+    }
 }

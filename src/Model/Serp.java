@@ -99,5 +99,9 @@ public class Serp implements Serializable{
     public void setViu(boolean viu) {
         this.viu = viu;
     }
+
+    public Posicio getUltim(){
+        return posicions.get(posicions.size() - 1);
+    }
 }
 
