@@ -40,7 +40,6 @@ public class ThreadRebre extends Thread {
     public void run() {
         try {
             while (true) {
-                System.out.println("dale");
 
                 opcio = (String) diStreamO.readObject();
 
@@ -64,17 +63,22 @@ public class ThreadRebre extends Thread {
                     case "JUGADOR":
                         String[] j = (String[])diStreamO.readObject();
                         vista.insereixJugador(j);
-                        model.getPartida().setSerp((int)diStreamO.readObject());
+                        int k = (int)diStreamO.readObject();
+                        System.out.println(k);
+                        model.getPartida().setSerp(k);
+                        vista.insereixRondes(model.getPartida().getRondes());
                         break;
                     case "MORT":
-                        vista.aturaPartida();
-                        for(int i = 0; i < model.getPartida().getSerps().size(); i++){
-                            System.out.println("Serp " + i);
-                            for(int z = 0; z < model.getPartida().getSerps().get(i).getPosicions().size(); z++){
-                                System.out.println("(" + model.getPartida().getSerps().get(i).getPosicions().get(z).getX() + ", " + model.getPartida().getSerps().get(i).getPosicions().get(z).getY() + ")");
-                            }
-                        }
+                        model.getPartida().getSerps().get((int) diStreamO.readObject()).setViu(false);
+
                         break;
+                    case "PUNTS":
+                        vista.aturaPartida();
+                        vista.setPos((String) diStreamO.readObject());
+                        vista.setPunts((int) diStreamO.readObject());
+                        int guanyador = (int) diStreamO.readObject();
+                        model.getPartida().setRondes(guanyador);
+                        vista.insereixRondes(model.getPartida().getRondes());
                 }
 
             }

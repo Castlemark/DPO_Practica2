@@ -15,13 +15,13 @@ import java.util.ArrayList;
 public class Partida implements Serializable{
     private ArrayList<Serp> serps = new ArrayList<>();
     private int serp;
-
-    private boolean viu;
+    private int[] rondes;
 
     public Partida(int s){
-        viu = true;
+        rondes = new int[s];
         for(int i = 0; i < s; i++){
             serps.add(new Serp(i));
+            rondes[i] = 0;
         }
     }
 
@@ -32,6 +32,7 @@ public class Partida implements Serializable{
         Model.Posicio cap = serps.get(serp).getCap();
         //Comprova que no surti dels limits de la partida
         if(cap.getX() > 350 || cap.getX() < 0 || cap.getY() > 350 || cap.getY() < 0){
+            System.out.println("ha sortit");
             return true;
         }
         //Comprova que no xoqui amb ella mateixa
@@ -58,20 +59,29 @@ public class Partida implements Serializable{
             if(i != serp){
                 //OLLA MAXIMA
 
-                if(c.getX() > pos.get(pos.size() - 1).getX() && cap.getX() <= c.getX() && cap.getX() >= pos.get(pos.size() - 1).getX() && cap.getY() == c.getY()){
+                if(c.getX() > pos.get(pos.size() - 1).getX() && cap.getX() < c.getX() && cap.getX() > pos.get(pos.size() - 1).getX() && cap.getY() == c.getY()){
+                    return true;
+                }
+                if(c.getX() < pos.get(pos.size() - 1).getX() && cap.getX() > c.getX() && cap.getX() < pos.get(pos.size() - 1).getX() && cap.getY() == c.getY()){
+                    return true;
+                }
+                if(c.getY() > pos.get(pos.size() - 1).getY() && cap.getY() < c.getY() && cap.getY() > pos.get(pos.size() - 1).getY() && cap.getX() == c.getX()){
+                    return true;
+                }
+                if(c.getY() < pos.get(pos.size() - 1).getY() && cap.getY() > c.getY() && cap.getY() < pos.get(pos.size() - 1).getY() && cap.getX() == c.getX()){
                     return true;
                 }
                 for(int j = 0; j < pos.size() - 1; j++){
-                    if(pos.get(j).getX() > pos.get(j+1).getX() && cap.getX() <= pos.get(j).getX() && cap.getX() >= pos.get(j + 1).getX() && cap.getY() == pos.get(j).getY()){
+                    if(pos.get(j).getX() > pos.get(j+1).getX() && cap.getX() < pos.get(j).getX() && cap.getX() > pos.get(j + 1).getX() && cap.getY() == pos.get(j).getY()){
                         return true;
                     }
-                    if(pos.get(j).getX() < pos.get(j+1).getX() && cap.getX() >= pos.get(j).getX() && cap.getX() <= pos.get(j + 1).getX() && cap.getY() == pos.get(j).getY()){
+                    if(pos.get(j).getX() < pos.get(j+1).getX() && cap.getX() > pos.get(j).getX() && cap.getX() < pos.get(j + 1).getX() && cap.getY() == pos.get(j).getY()){
                         return true;
                     }
-                    if(pos.get(j).getY() > pos.get(j+1).getY() && cap.getY() <= pos.get(j).getY() && cap.getY() >= pos.get(j + 1).getY() && cap.getX() == pos.get(j).getX()){
+                    if(pos.get(j).getY() > pos.get(j+1).getY() && cap.getY() < pos.get(j).getY() && cap.getY() > pos.get(j + 1).getY() && cap.getX() == pos.get(j).getX()){
                         return true;
                     }
-                    if(pos.get(j).getY() < pos.get(j+1).getY() && cap.getY() >= pos.get(j).getY() && cap.getY() <= pos.get(j + 1).getY() && cap.getX() == pos.get(i).getX()){
+                    if(pos.get(j).getY() < pos.get(j+1).getY() && cap.getY() > pos.get(j).getY() && cap.getY() < pos.get(j + 1).getY() && cap.getX() == pos.get(j).getX()){
                         return true;
                     }
                 }
@@ -106,13 +116,7 @@ public class Partida implements Serializable{
         return true;
     }*/
 
-    public boolean isViu() {
-        return viu;
-    }
 
-    public void setViu(boolean viu) {
-        this.viu = viu;
-    }
 
     public ArrayList<Serp> getSerps() {
         return serps;
@@ -131,4 +135,19 @@ public class Partida implements Serializable{
         System.out.println("serp moguda");
     }
 
+    public void reinicia(){
+        int s = serps.size();
+        serps = new ArrayList<>();
+        for(int i = 0; i < s; i++){
+            serps.add(new Serp(i));
+        }
+    }
+
+    public int[] getRondes() {
+        return rondes;
+    }
+
+    public void setRondes(int i) {
+        rondes[i]++;
+    }
 }

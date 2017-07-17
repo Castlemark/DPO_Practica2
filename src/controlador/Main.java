@@ -20,10 +20,10 @@ public class Main {
                 Client model = new Client();
                 VistaClient vista = new VistaClient();
                 Network network = new Network(model, vista);
-
            //     VistaJoc vistaJoc = new VistaJoc();
 
                 Controlador  controlador= new Controlador(vista,model,network);
+
                 ControladorJoc cj = new ControladorJoc(vista.getJoc(), model, network);
                 vista.registerController(controlador, cj);
           //      vistaJoc.registraControlador(cj);

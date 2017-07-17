@@ -27,7 +27,7 @@ public class Client {
     }
 
     public void abandonaPartida(){
-        partida.setViu(false);
+        partida.getSerps().get(partida.getSerp()).setViu(false);
         System.out.println("Has abandonat!");
 
     }
