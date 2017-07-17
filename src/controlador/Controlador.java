@@ -62,7 +62,7 @@ public class Controlador implements ActionListener {
                 case "INICIAR":
 
                     System.out.println("connectant");
-                   // network.connect(vista.getPort(), vista.getIp());
+                    network.connect(vista.getPort(), vista.getIp());
                     vista.changePanel("IDENTIFICACIO");
 
 
@@ -115,6 +115,7 @@ public class Controlador implements ActionListener {
                     break;
 
                 case "TANCAR":
+                    network.tancarSessio();
                     network.avisaServer("TANCARSESSIO");
                     vista.changePanel("IDENTIFICACIO");
                     break;

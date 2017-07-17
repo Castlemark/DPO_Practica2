@@ -81,7 +81,7 @@ public class Network extends Thread{
     }
 
     public void avisaServer(String which) throws IOException{
-        System.out.println("avisa");
+        System.out.println("avisa " + which);
         doStreamO.writeObject(which);
     }
 
@@ -113,4 +113,10 @@ public class Network extends Thread{
 
         return (String) diStreamO.readObject();
     }
+
+    public void tancarSessio(){
+          tr.stop();
+
+    }
+
 }
