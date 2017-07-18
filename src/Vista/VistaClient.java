@@ -120,4 +120,8 @@ public class VistaClient extends JFrame {
     public void setPos(String pos){
         joc.getPanel1().setPosicio(pos);
     }
+
+    public void reinicia(){
+        joc.reinicia();
+    }
 }

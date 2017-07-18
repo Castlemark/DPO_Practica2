@@ -214,5 +214,17 @@ public class Joc extends JPanel {
         panel1.aturar();
     }
 
+    public void reinicia(){
+        label1.setText("");
+        label2.setText("");
+        label3.setText("");
+        label4.setText("");
+        rondes1.setText("");
+        rondes2.setText("");
+        rondes3.setText("");
+        rondes4.setText("");
+        panel1.aturar();
+        panel1.sortir();
+    }
 
 }

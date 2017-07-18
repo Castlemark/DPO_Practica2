@@ -3,6 +3,7 @@ package controlador;
 import Client_Servidor.Network;
 import Model.Client;
 import Model.Partida;
+import Vista.VistaClient;
 import Vista.VistaJoc;
 import Model.Serp;
 
@@ -24,11 +25,13 @@ public class ControladorJoc implements ActionListener {
     private int contador;
     private Network network;
     private int fi;
+    private VistaClient vista;
 
 
 
-    public ControladorJoc(VistaJoc vistaJoc, Client model, Network network){
+    public ControladorJoc(VistaClient vista, VistaJoc vistaJoc, Client model, Network network){
         this.vistaJoc = vistaJoc;
+        this.vista = vista;
         this.model = model;
         contador = 4;
         this.network = network;
@@ -41,10 +44,11 @@ public class ControladorJoc implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         try {
-
             switch (e.getActionCommand()){
                 case "ABANDONA":
                     model.abandonaPartida();
+                    vistaJoc.aturar();
+                    vista.changePanel("RANQUING");
                     network.avisaServer("ABANDONA");
                     break;
                 case "TIMER":

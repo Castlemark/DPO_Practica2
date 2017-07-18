@@ -33,7 +33,6 @@ public class Controlador implements ActionListener {
 
         try {
 
-
             switch (e.getActionCommand()) {
 
 
@@ -50,9 +49,10 @@ public class Controlador implements ActionListener {
                         }
                         else {
                             JOptionPane.showMessageDialog(null, "Registre completat amb exit");
+                            vista.changePanel("RANQUING");
+                            network.iniciaRebre();
                         }
 
-                        System.out.println("OK");
                     } else {
                         JOptionPane.showMessageDialog(null, "No s'ha pogut completar el registre\nHi ha un error en les dades");
                     }
@@ -63,8 +63,6 @@ public class Controlador implements ActionListener {
                     System.out.println("connectant");
                     network.connect(vista.getPort(), vista.getIp());
                     vista.changePanel("IDENTIFICACIO");
-
-
                     break;
 
                 case "INICIARSESSIO":
@@ -118,7 +116,7 @@ public class Controlador implements ActionListener {
                 case "TANCAR":
                     network.tancarSessio();
                     network.avisaServer("TANCARSESSIO");
-                    vista.changePanel("IDENTIFICACIO");
+                    vista.changePanel("INICI");
                     break;
 
             }

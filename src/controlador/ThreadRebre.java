@@ -27,7 +27,6 @@ public class ThreadRebre extends Thread {
     private VistaClient vista;
     private Network network;
 
-
     public ThreadRebre(ObjectInputStream diStreamO, Client model, VistaClient vista, Network network) {
 
         this.diStreamO = diStreamO;
@@ -96,6 +95,10 @@ public class ThreadRebre extends Thread {
                         System.out.println(" Hi han eliminats" + num);*/
                         model.elimina(eliminat);
                         System.out.println("Estas eliminat");
+                        break;
+                    case "ABANDONAT":
+                        model.getPartida().reinicia();
+                        vista.reinicia();
                         break;
                 }
 

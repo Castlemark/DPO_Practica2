@@ -34,7 +34,6 @@ public class Client {
     public void abandonaPartida(){
         partida.getSerps().get(partida.getSerp()).setViu(false);
         System.out.println("Has abandonat!");
-
     }
 
     public void setPunts(int punts) {

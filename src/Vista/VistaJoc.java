@@ -41,6 +41,10 @@ public class VistaJoc extends JPanel {
         cont = true;
     }
 
+    public void sortir(){
+        t.stop();
+    }
+
     public void aturar(){
         System.out.println("aturar");
         fi = true;

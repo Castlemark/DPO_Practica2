@@ -63,7 +63,7 @@ public class IniciarSessio extends JPanel {
 
     public void registerController(Controlador c){
         jbIniciar.setActionCommand("INICIARSESSIO");
-
         jbIniciar.addActionListener(c);
+
     }
 }
