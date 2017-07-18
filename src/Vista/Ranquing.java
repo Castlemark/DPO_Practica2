@@ -11,15 +11,16 @@ import java.awt.event.ActionListener;
 public class Ranquing extends  JPanel {
     private JButton jbConfig;
     private JButton jbTancar;
-    private JLabel jl2X;
-    private JLabel jl4X;
-    private JLabel jlCamp;
-    private JList jlist2X;
-    private JList jlist4X;
-    private JList jlistCamp;
+    private JLabel jlRanquing;
+    private JTextArea jtRanquing;
     private JButton jb2X;
     private JButton jb4X;
     private JButton jbCamp;
+    private JPanel jpButtons;
+    private JPanel jpRanquing;
+    private JPanel jpJocs;
+    private JLabel jlRight;
+    private JLabel jlLeft;
 
     /**
      * Constructor de la classe
@@ -33,114 +34,45 @@ public class Ranquing extends  JPanel {
      * Mètode que inicialitza els elements
      */
     private void initComponents() {
-        jbConfig = new JButton();
-        jbTancar = new JButton();
-        jl2X = new JLabel();
-        jl4X = new JLabel();
-        jlCamp = new JLabel();
-        jlist2X = new JList();
-        jlist4X = new JList();
-        jlistCamp = new JList();
-        jb2X = new JButton();
-        jb4X = new JButton();
-        jbCamp = new JButton();
+        jbConfig = new JButton("Ajustes");
+        jbTancar = new JButton("Tancar Sessió");
+        jlRanquing = new JLabel("Ranquing TOP 10");
+        jtRanquing = new JTextArea();
+        jb2X = new JButton("2X");
+        jb4X = new JButton("4X");
+        jbCamp = new JButton("Campeonat");
+        jpButtons = new JPanel();
+        jpRanquing = new JPanel();
+        jpJocs = new JPanel();
+        jlLeft = new JLabel("                                                            ");
+        jlRight = new JLabel("                                                           ");
+
+        jtRanquing.setEditable(false);
+        this.setLayout(new BorderLayout());
+
+        jpButtons.setLayout(new BorderLayout());
+        jpButtons.add(jbConfig, BorderLayout.LINE_START);
+        jpButtons.add(jbTancar, BorderLayout.LINE_END);
+        this.add(jpButtons, BorderLayout.NORTH);
+
+        jpRanquing.setLayout(new BorderLayout());
+        jpRanquing.add(jlRanquing, BorderLayout.NORTH);
+        jpRanquing.add(jtRanquing, BorderLayout.CENTER);
+        jpRanquing.add(jlLeft, BorderLayout.WEST);
+        jpRanquing.add(jlRight, BorderLayout.EAST);
 
 
+        this.add(jpRanquing, BorderLayout.CENTER);
 
-        setLayout(new GridBagLayout());
-        ((GridBagLayout)
+        jpJocs.setLayout(new FlowLayout());
+        jpJocs.add(jb2X);
+        jpJocs.add(jb4X);
+        jpJocs.add(jbCamp);
+        this.add(jpJocs, BorderLayout.SOUTH);
 
-                getLayout()).columnWidths = new int[] {
-                67, 96, 101, 95, 59, 0
-        }
-
-        ;
-        ((GridBagLayout)
-
-                getLayout()).rowHeights = new int[] {
-                0, 0, 93, 0, 0, 0
-        };
-        ((GridBagLayout)
-
-                getLayout()).columnWeights = new double[] {
-                0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4
-        };
-        ((GridBagLayout)
-
-                getLayout()).rowWeights = new double[] {
-                0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4
-        };
-
-        //---- Botó enrere ----
-        jbConfig.setText("Controls");
-
-        add(jbConfig, new GridBagConstraints(0, 0,1,1,0.0,0.0,
-                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 0,20,17), 0,0));
-
-        //---- Botó tancar ----
-        jbTancar.setText("Tancar Sessió");
-
-        add(jbTancar, new GridBagConstraints(4, 0,1,1,0.0,0.0,
-                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 0,20,0), 0,0));
-
-        //---- text rànquing 2x ----
-        jl2X.setText("Ranquing 2X");
-        jl2X.setHorizontalAlignment(SwingConstants.CENTER);
-
-        add(jl2X, new GridBagConstraints(1, 1,1,1,0.0,0.0,
-                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 0,20,17), 0,0));
-
-        //---- text ranquing 4x ----
-        jl4X.setText("Raquing 4X");
-        jl4X.setHorizontalAlignment(SwingConstants.CENTER);
-
-        add(jl4X, new GridBagConstraints(2, 1,1,1,0.0,0.0,
-                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 0,20,17), 0,0));
-
-        //---- text ranquing campionat ----
-        jlCamp.setText("Ranquing Campionat");
-        jlCamp.setHorizontalAlignment(SwingConstants.CENTER);
-
-        add(jlCamp, new GridBagConstraints(3, 1,1,1,0.0,0.0,
-                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 0,20,17), 0,0));
-
-        add(jlist2X, new GridBagConstraints(1, 2,1,1,0.0,0.0,
-                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 0,20,17), 0,0));
-
-        add(jlist4X, new GridBagConstraints(2, 2,1,1,0.0,0.0,
-                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 0,20,17), 0,0));
-
-        add(jlistCamp, new GridBagConstraints(3, 2,1,1,0.0,0.0,
-                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 0,20,17), 0,0));
-
-        //---- boto 2x ----
-        jb2X.setText("2X");
-
-        add(jb2X, new GridBagConstraints(1, 3,1,1,0.0,0.0,
-                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 0,20,17), 0,0));
-
-        //---- boto 4x ----
-        jb4X.setText("4X");
-
-        add(jb4X, new GridBagConstraints(2, 3,1,1,0.0,0.0,
-                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 0,20,17), 0,0));
-
-        //---- boto campionat ----
-        jbCamp.setText("Campionat");
-        add(jbCamp, new GridBagConstraints(3, 3,1,1,0.0,0.0,
-                GridBagConstraints.CENTER, GridBagConstraints.BOTH,
-                new Insets(0, 0,20,17), 0,0));
     }
+
+
 
     public void registerController(ActionListener c){
         jb2X.addActionListener(c);
