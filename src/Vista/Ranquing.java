@@ -48,6 +48,8 @@ public class Ranquing extends  JPanel {
         jlRight = new JLabel("                                                           ");
 
         jtRanquing.setEditable(false);
+        jtRanquing.setAlignmentX(CENTER_ALIGNMENT);
+        jtRanquing.setAlignmentY(CENTER_ALIGNMENT);
         this.setLayout(new BorderLayout());
 
         jpButtons.setLayout(new BorderLayout());
@@ -86,5 +88,10 @@ public class Ranquing extends  JPanel {
         jb2X.setActionCommand("JOC2");
         jb4X.setActionCommand("JOC4");
         jbCamp.setActionCommand("CAMPEONAT");
+    }
+
+    public void setRanquing(String ranquing){
+        jtRanquing.setText("");
+        jtRanquing.setText(ranquing);
     }
 }

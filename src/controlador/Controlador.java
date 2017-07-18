@@ -61,8 +61,12 @@ public class Controlador implements ActionListener {
                 case "INICIAR":
 
                     System.out.println("connectant");
-                    network.connect(vista.getPort(), vista.getIp());
-                    vista.changePanel("IDENTIFICACIO");
+
+                    if (network.connect(vista.getPort(), vista.getIp())){
+                        vista.changePanel("IDENTIFICACIO");
+                    }else {
+                        JOptionPane.showMessageDialog(null, "No s'ha pogut conectar al servidor");
+                    }
                     break;
 
                 case "INICIARSESSIO":
@@ -71,13 +75,16 @@ public class Controlador implements ActionListener {
 
                     network.avisaServer("INICIARSESSIO");
                    if (network.iniciaSessio(iniciaAux)){
-                        vista.changePanel("RANQUING");
-                    }
-                    else {
+                       vista.changePanel("RANQUING");
+                       network.iniciaRebre();
+
+                   }
+                   else {
                         JOptionPane.showMessageDialog(null, "Error al iniciar sessió");
-                    }
-                    network.iniciaRebre();
-                    break;
+                   }
+
+
+                   break;
 
                 case  "JOC2":
 

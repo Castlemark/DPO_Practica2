@@ -100,6 +100,11 @@ public class ThreadRebre extends Thread {
                         model.getPartida().reinicia();
                         vista.reinicia();
                         break;
+
+                    case "RANQUING":
+                        vista.getRanquing().setRanquing((String) diStreamO.readObject());
+                        System.out.println("ranquing rebut");
+                        break;
                 }
 
             }

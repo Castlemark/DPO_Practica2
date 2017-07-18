@@ -85,6 +85,7 @@ public class VistaClient extends JFrame {
     }
 
     public int getPort(){return configuracio.getPort();}
+
     public String getIp(){return configuracio.getIp();}
 
     public Registre getRegistre(){
@@ -103,9 +104,12 @@ public class VistaClient extends JFrame {
         return joc.getPanel1();
     }
 
+    public Ranquing getRanquing(){return ranquing;}
+
     public void insereixJugador(String[] logins){
         joc.insereixJugador(logins);
     }
+
     public void insereixRondes(int[] rondes){
         joc.setRondes(rondes);
     }
@@ -117,6 +121,7 @@ public class VistaClient extends JFrame {
     public void setPunts(int p){
         joc.getPanel1().setPunts(p);
     }
+
     public void setPos(String pos){
         joc.getPanel1().setPosicio(pos);
     }
