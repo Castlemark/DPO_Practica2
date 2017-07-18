@@ -24,10 +24,10 @@ public class Usuari implements Serializable{
         this.login = login;
         this.mail = mail;
         this.password = password;
-        this.up=87;
-        this.down=83;
-        this.left=65;
-        this.right=68;
+        this.up=87; //Tecla per defecte w
+        this.down=83; //Tecla per defecte s
+        this.left=65; //Tecla per defecte a
+        this.right=68; //Tecla per defecte d
     }
 
     public void setLogin(String login){
