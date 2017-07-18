@@ -81,10 +81,11 @@ public class ThreadRebre extends Thread {
                         if(guanyador > -1){
                             model.getPartida().setRondes(guanyador);
                         }
+                     //   model.elimina(eliminat);
                         vista.insereixRondes(model.getPartida().getRondes());
                         break;
                     case "ELIMINAT":
-                        cj.setEliminats((boolean[]) diStreamO.readObject());
+                        model.setEliminats((boolean[]) diStreamO.readObject());
                         System.out.println("Estas eliminat");
                         break;
                 }
