@@ -2,6 +2,7 @@
 package Vista;
 
 import java.awt.*;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.border.*;
 //import com.jgoodies.forms.factories.*;
@@ -212,5 +213,6 @@ public class Joc extends JPanel {
     public void aturar(){
         panel1.aturar();
     }
+
 
 }

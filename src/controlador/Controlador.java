@@ -7,7 +7,6 @@ import Client_Servidor.Network;
 import Vista.VistaClient;
 import Model.Client;
 import Model.Usuari;
-//import Vista.VistaClientProva;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

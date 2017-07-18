@@ -43,21 +43,22 @@ public class ControladorJoc implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-       // if(!(e.getActionCommand().equals("TIMER"))){System.out.println(e.getActionCommand());}
+        try {
 
-        switch (e.getActionCommand()){
-           case "ABANDONA":
-               model.abandonaPartida();
-               break;
-           case "TIMER":
-               if(vistaJoc.isCont()){
-                   contador--;
-             //      System.out.println(contador);
+            switch (e.getActionCommand()){
+                case "ABANDONA":
+                    model.abandonaPartida();
+                    network.avisaServer("ABANDONA");
+                    break;
+                case "TIMER":
+                    if(vistaJoc.isCont()){
+                        contador--;
+                        //      System.out.println(contador);
 
-                   if(contador <= 0){
-                       vistaJoc.setCont(false);
-                   }
-               }else{
+                        if(contador <= 0){
+                            vistaJoc.setCont(false);
+                        }
+                    }else{
 
                    for(int i = 0; i< model.getPartida().getSerps().size(); i++) {
                        if(model.getPartida().getSerps().get(i).isViu() && !eliminats[i]){
@@ -82,24 +83,27 @@ public class ControladorJoc implements ActionListener {
                                System.out.println("(" + model.getPartida().getSerps().get(i).getPosicions().get(z).getX() + ", " + model.getPartida().getSerps().get(i).getPosicions().get(z).getY() + ")");
                            }
                        }*/
-                   }
-               }
-               vistaJoc.repaint();
-               break;
-            case "FI":
-                vistaJoc.repaint();
-                if(fi <= 0){
-                    vistaJoc.reinicia();
-                    model.getPartida().reinicia();
-                    fi = 5;
-                }else{
-                    fi--;
-                }
-                contador = 4;
-                break;
-       }
+                        }
+                    }
+                    vistaJoc.repaint();
+                    break;
+                case "FI":
+                    vistaJoc.repaint();
+                    if(fi <= 0){
+                        vistaJoc.reinicia();
+                        model.getPartida().reinicia();
+                        fi = 5;
+                    }else{
+                        fi--;
+                    }
+                    contador = 4;
+                    break;
+            }
 
-
+        }
+        catch (IOException ioe){
+            ioe.printStackTrace();
+        }
     }
 /*
     @Override
