@@ -77,6 +77,7 @@ public class ThreadRebre extends Thread {
                         vista.aturaPartida();
                         vista.setPos((String) diStreamO.readObject());
                         vista.setPunts((int) diStreamO.readObject());
+                        vista.getJoc().setTotal((int) diStreamO.readObject());
                         int guanyador = (int) diStreamO.readObject();
                         if(guanyador > -1){
                             model.getPartida().setRondes(guanyador);
