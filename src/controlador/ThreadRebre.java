@@ -71,15 +71,22 @@ public class ThreadRebre extends Thread {
                         break;
                     case "MORT":
                         model.getPartida().getSerps().get((int) diStreamO.readObject()).setViu(false);
-
                         break;
+
                     case "PUNTS":
                         vista.aturaPartida();
                         vista.setPos((String) diStreamO.readObject());
                         vista.setPunts((int) diStreamO.readObject());
                         int guanyador = (int) diStreamO.readObject();
-                        model.getPartida().setRondes(guanyador);
+                        if(guanyador > -1){
+                            model.getPartida().setRondes(guanyador);
+                        }
                         vista.insereixRondes(model.getPartida().getRondes());
+                        break;
+                    case "ELIMINAT":
+                        cj.setEliminats((boolean[]) diStreamO.readObject());
+                        System.out.println("Estas eliminat");
+                        break;
                 }
 
             }

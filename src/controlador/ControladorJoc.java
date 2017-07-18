@@ -24,6 +24,7 @@ public class ControladorJoc implements ActionListener {
     private int contador;
     private Network network;
     private int fi;
+    private boolean[] eliminats = new boolean[4];
 
 
 
@@ -33,6 +34,9 @@ public class ControladorJoc implements ActionListener {
         contador = 4;
         this.network = network;
         fi = 5;
+        for(int i = 0; i < eliminats.length; i++){
+            eliminats[i] = false;
+        }
     }
 
 
@@ -56,11 +60,11 @@ public class ControladorJoc implements ActionListener {
                }else{
 
                    for(int i = 0; i< model.getPartida().getSerps().size(); i++) {
-                       if(model.getPartida().getSerps().get(i).isViu()){
+                       if(model.getPartida().getSerps().get(i).isViu() && !eliminats[i]){
                            model.getPartida().getSerps().get(i).mouSerp();
                        }
                    }
-                   if(model.getPartida().getSerps().get(model.getPartida().getSerp()).isViu()){
+                   if(model.getPartida().getSerps().get(model.getPartida().getSerp()).isViu() && !eliminats[model.getPartida().getSerp()]){
                        if(model.getPartida().comprovaCollisio()){
                            System.out.println("Has perdut!");
                            model.getPartida().getSerps().get(model.getPartida().getSerp()).setViu(false);
@@ -190,5 +194,22 @@ public class ControladorJoc implements ActionListener {
 
     }
 
+    public void elimina(int e){
+        eliminats[e] = true;
+        int num = 0;
+        for(int i = 0; i < eliminats.length; i++){
+            if(eliminats[i]){
+                num++;
+            }
+        }
+        if(num == 3){
+            for(int i = 0; i < eliminats.length; i++){
+                eliminats[i] = false;
+            }
+        }
+    }
 
+    public void setEliminats(boolean[] eliminats) {
+        this.eliminats = eliminats;
+    }
 }

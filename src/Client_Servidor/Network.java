@@ -116,11 +116,7 @@ public class Network extends Thread{
     }
 
     public void tancarSessio(){
-        try {
-            sServer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
     }
 
 }

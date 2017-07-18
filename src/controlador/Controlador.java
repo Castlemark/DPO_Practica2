@@ -23,12 +23,6 @@ public class Controlador implements ActionListener {
     private Network network;
     private VistaClient vista;
 
-    /**
-     * Constructor del client
-     * @param vistaClient
-     * @param model
-     * @param network
-     */
     public Controlador(VistaClient vistaClient, Client model, Network network) {
         this.vista = vistaClient;
         this.model = model;
@@ -53,7 +47,7 @@ public class Controlador implements ActionListener {
 
                         network.avisaServer("REGISTRAR");
                         if (!network.registraUsuari(usuariAux)){
-                            JOptionPane.showMessageDialog(null, "No s'ha pogut completar el registre\nJa existeix aquest usuari");
+                            JOptionPane.showMessageDialog(null, "No s'ha pogust completar el registre\nJa existeix aquest usuari");
                         }
                         else {
                             JOptionPane.showMessageDialog(null, "Registre completat amb exit");
@@ -65,7 +59,7 @@ public class Controlador implements ActionListener {
                     }
                     break;
 
-                case "INICIAR"://Connectar-se amb el servidor
+                case "INICIAR":
 
                     System.out.println("connectant");
                     network.connect(vista.getPort(), vista.getIp());
@@ -74,7 +68,7 @@ public class Controlador implements ActionListener {
 
                     break;
 
-                case "INICIARSESSIO"://Iniciar sessió
+                case "INICIARSESSIO":
 
                     Inicia iniciaAux = new Inicia(vista.getIniciarSessio().getID(), vista.getIniciarSessio().getPassword());
 
@@ -88,7 +82,7 @@ public class Controlador implements ActionListener {
                     network.iniciaRebre();
                     break;
 
-                case  "JOC2"://Joc de 2 jugadors
+                case  "JOC2":
 
                     network.avisaServer("JOC2");
                     vista.changePanel("JOC");
@@ -96,7 +90,7 @@ public class Controlador implements ActionListener {
                     //Escolta la resposta del servidor per saber si ha de canviar a la finestra de joc
                     break;
 
-                case  "JOC4"://Joc de 4 jugadors
+                case  "JOC4":
 
                     network.avisaServer("JOC4");
                     vista.changePanel("JOC");
@@ -104,7 +98,7 @@ public class Controlador implements ActionListener {
                     //Escolta la resposta del servidor per saber si ha de canviar a la finestra de joc
                     break;
 
-                case "CAMPEONAT"://Mode campionat
+                case "CAMPEONAT":
 
                     network.avisaServer("CAMPEONAT");
                     vista.changePanel("JOC");
@@ -112,20 +106,20 @@ public class Controlador implements ActionListener {
                     //Escolta la resposta del servidor per saber si ha de canviar a la finestra de joc
                     break;
 
-                case "GUARDAR"://Guardarles tecles
+                case "GUARDAR":
 
                     //passar vista.teclaup etc al server
                     break;
 
-                case "CONTROLS"://Anar a la finestra de canviar els controls
+                case "CONTROLS":
 
                     vista.changePanel("CONTROLS");
                     break;
 
-                case "TANCAR"://Tancar sessió i desconnectar-se del server
+                case "TANCAR":
                     network.tancarSessio();
-                    network.avisaServer("TANCARSESSIO");//No se si es necessari
-                    vista.changePanel("CONFIGURACIO");
+                    network.avisaServer("TANCARSESSIO");
+                    vista.changePanel("IDENTIFICACIO");
                     break;
 
             }
