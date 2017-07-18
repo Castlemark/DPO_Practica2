@@ -96,6 +96,12 @@ public class VistaClient extends JFrame {
         return identificacio.getIniciarSessio();
     }
 
+    public int[] getControls(){ return  controls.getControls();}
+
+    public void  actualitzaControls(int[] control){
+        controls.actualitzaControls(control);
+    }
+
     public void iniciaPartida(){
         joc.iniciaJoc();
     }

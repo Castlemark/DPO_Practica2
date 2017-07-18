@@ -81,6 +81,35 @@ public class Network extends Thread{
         return  (Boolean) diStreamO.readObject();
     }
 
+    public void passaControls(int[] controls){
+
+        try {
+            doStreamO.writeObject(controls[0]);
+            doStreamO.writeObject(controls[1]);
+            doStreamO.writeObject(controls[2]);
+            doStreamO.writeObject(controls[3]);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public int[] rebreControls(){
+
+        int[] controls = new int[4];
+        try {
+            controls[0]= (Integer) diStreamO.readObject();
+            controls[1]= (Integer) diStreamO.readObject();
+            controls[2]= (Integer) diStreamO.readObject();
+            controls[3]= (Integer) diStreamO.readObject();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return controls;
+    }
+
     public void avisaServer(String which) throws IOException{
         System.out.println("avisa " + which);
         doStreamO.writeObject(which);

@@ -265,11 +265,22 @@ public class Controls extends JPanel {
 
     }
 
-    public void actualitzaControls(int up, int down, int left, int right){
-        teclaUp=up;
-        teclaDown=down;
-        teclaLeft=left;
-        teclaRight=right;
+    public void actualitzaControls(int[] control){
+        teclaUp = control[0];
+        teclaDown = control[1];
+        teclaLeft = control[2];
+        teclaRight = control[3];
+
+    }
+
+    public int[] getControls(){
+
+        int[] controls = new int[4];
+        controls[0] = teclaUp;
+        controls[1] = teclaDown;
+        controls[2] = teclaLeft;
+        controls[3] = teclaRight;
+        return controls;
 
     }
 }

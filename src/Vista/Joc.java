@@ -18,8 +18,6 @@ public class Joc extends JPanel {
     }
 
     private void initComponents() {
-        // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Pau Nonell
         label1 = new JLabel();
         rondes1 = new JLabel();
         label2 = new JLabel();

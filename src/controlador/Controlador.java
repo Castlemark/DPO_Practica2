@@ -76,8 +76,10 @@ public class Controlador implements ActionListener {
 
                     network.avisaServer("INICIARSESSIO");
                    if (network.iniciaSessio(iniciaAux)){
+
                        vista.changePanel("RANQUING");
                        network.iniciaRebre();
+                       network.rebreControls();
 
                    }
                    else {
@@ -114,6 +116,8 @@ public class Controlador implements ActionListener {
                 case "GUARDAR":
 
                     //passar vista.teclaup etc al server
+                    network.avisaServer("CONTROLS");
+                    network.passaControls(vista.getControls());
                     break;
 
                 case "CONTROLS":
