@@ -89,6 +89,11 @@ public class ThreadRebre extends Thread {
                         model.setEliminats((boolean[]) diStreamO.readObject());
                         System.out.println("Estas eliminat");
                         break;
+
+                    case "RANQUING":
+                        vista.getRanquing().setRanquing((String) diStreamO.readObject());
+                        System.out.println("ranquing rebut");
+                        break;
                 }
 
             }

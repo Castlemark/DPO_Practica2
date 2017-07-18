@@ -87,4 +87,9 @@ public class Ranquing extends  JPanel {
         jb4X.setActionCommand("JOC4");
         jbCamp.setActionCommand("CAMPEONAT");
     }
+
+    public void setRanquing(String ranquing){
+        jtRanquing.setText("");
+        jtRanquing.setText(ranquing);
+    }
 }

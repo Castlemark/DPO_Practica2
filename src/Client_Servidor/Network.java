@@ -118,4 +118,8 @@ public class Network extends Thread{
 
     }
 
+    public ThreadRebre getTreadRebre(){
+        return tr;
+    }
+
 }
