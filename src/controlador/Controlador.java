@@ -22,6 +22,7 @@ public class Controlador implements ActionListener {
     private Network network;
     private VistaClient vista;
 
+
     public Controlador(VistaClient vistaClient, Client model, Network network) {
         this.vista = vistaClient;
         this.model = model;
