@@ -141,6 +141,10 @@ public class VistaJoc extends JPanel {
         fi = false;
     }
 
+    public void setTotal(int total){
+        this.total = total;
+    }
+
     public boolean isFi() {
         return fi;
     }

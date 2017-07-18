@@ -27,7 +27,7 @@ public class VistaClient extends JFrame {
     private  FiPartida fiPartida;
     private Inici inici;
     private IniciarSessio iniciarSessio;
-   private  Joc joc;
+    private  Joc joc;
     private Ranquing ranquing;
     private Registre registre;
     private TancarSessio tancarSessio;
@@ -40,7 +40,7 @@ public class VistaClient extends JFrame {
     public VistaClient (){
 
         this.setTitle("LS Troner");
-        this.setSize (1200, 800);
+        this.setSize (1200, 700);
 
         layout = new CardLayout();
         this.getContentPane().setLayout(layout);
