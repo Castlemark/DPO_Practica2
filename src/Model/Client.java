@@ -61,6 +61,7 @@ public class Client {
                 num++;
             }
         }
+        System.out.println("Hi han eliminats " + num);
         if(num == 3){
             for(int i = 0; i < eliminats.length; i++){
                 eliminats[i] = false;
@@ -69,6 +70,7 @@ public class Client {
     }
 
     public void setEliminats(boolean[] eliminats) {
+
         this.eliminats = eliminats;
     }
 
