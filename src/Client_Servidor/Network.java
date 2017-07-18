@@ -42,7 +42,7 @@ public class Network extends Thread{
 
     }
 
-    public void connect(int port, String IP){
+    public boolean connect(int port, String IP){
         port = 11111;
 
 
@@ -55,9 +55,10 @@ public class Network extends Thread{
             diStreamO = new ObjectInputStream(sServer.getInputStream());
 
             System.out.println("esta conectat");
+            return true;
 
         }catch (Exception e){
-            e.printStackTrace();
+            return false;
         }
     }
 

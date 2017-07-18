@@ -48,6 +48,8 @@ public class Ranquing extends  JPanel {
         jlRight = new JLabel("                                                           ");
 
         jtRanquing.setEditable(false);
+        jtRanquing.setAlignmentX(CENTER_ALIGNMENT);
+        jtRanquing.setAlignmentY(CENTER_ALIGNMENT);
         this.setLayout(new BorderLayout());
 
         jpButtons.setLayout(new BorderLayout());
