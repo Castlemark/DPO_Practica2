@@ -140,7 +140,7 @@ public class Joc extends JPanel {
         button1.addActionListener(cj);
         button1.setActionCommand("ABANDONA");
 
-        panel1.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("UP"), "up");
+        panel1.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(87,0), "up");
         panel1.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("DOWN"), "down");
         panel1.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("LEFT"), "left");
         panel1.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("RIGHT"), "right");
@@ -224,5 +224,7 @@ public class Joc extends JPanel {
         panel1.aturar();
         panel1.sortir();
     }
+
+
 
 }
