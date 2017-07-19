@@ -121,8 +121,6 @@ public class Joc extends JPanel {
 */
     }
 
-    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Pau Nonell
     private JLabel label1;
     private JLabel rondes1;
     private JLabel label2;
@@ -133,17 +131,20 @@ public class Joc extends JPanel {
     private JLabel rondes4;
     private VistaJoc panel1;
     private JButton button1;
-    // JFormDesigner - End of variables declaration  //GEN-END:variables
+    private int teclaUp;
+    private int teclaDown;
+    private int teclaLeft;
+    private int teclaRight;
 
     public void registraControlador (ControladorJoc cj){
         panel1.registraControlador(cj);
         button1.addActionListener(cj);
         button1.setActionCommand("ABANDONA");
 
-        panel1.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(87,0), "up");
-        panel1.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("DOWN"), "down");
-        panel1.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("LEFT"), "left");
-        panel1.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("RIGHT"), "right");
+        panel1.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(teclaUp,0), "up");
+        panel1.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(teclaDown,0), "down");
+        panel1.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(teclaLeft,0), "left");
+        panel1.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(teclaRight,0), "right");
         panel1.getActionMap().put("up", new Move(1, cj));
         panel1.getActionMap().put("down", new Move(2, cj));
         panel1.getActionMap().put("left", new Move(3, cj));
@@ -223,6 +224,14 @@ public class Joc extends JPanel {
         rondes4.setText("");
         panel1.aturar();
         panel1.sortir();
+    }
+
+    public void actualitzaTecles(int[] tecla){
+
+        teclaUp = tecla[0];
+        teclaDown = tecla[1];
+        teclaLeft = tecla[2];
+        teclaRight = tecla[3];
     }
 
 

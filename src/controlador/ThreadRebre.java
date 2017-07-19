@@ -114,6 +114,7 @@ public class ThreadRebre extends Thread {
                         controls[3] = (int) diStreamO.readObject();
                         System.out.println(controls[0]);
                         vista.actualitzaControls(controls);
+                        vista.actualitzaTecles(controls);
                         break;
                 }
 

@@ -135,4 +135,7 @@ public class VistaClient extends JFrame {
     public void reinicia(){
         joc.reinicia();
     }
+
+    public void actualitzaTecles(int[] tecla) {joc.actualitzaTecles(tecla);}
+
 }
