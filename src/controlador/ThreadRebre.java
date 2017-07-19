@@ -105,6 +105,10 @@ public class ThreadRebre extends Thread {
                         vista.getRanquing().setRanquing((String) diStreamO.readObject());
                         System.out.println("ranquing rebut");
                         break;
+
+                    case "ENVIACONTROLS":
+                        //evnia controls
+                        break;
                 }
 
             }

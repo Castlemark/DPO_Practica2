@@ -22,7 +22,6 @@ public class Controlador implements ActionListener {
     private Network network;
     private VistaClient vista;
 
-
     public Controlador(VistaClient vistaClient, Client model, Network network) {
         this.vista = vistaClient;
         this.model = model;
@@ -33,6 +32,7 @@ public class Controlador implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         try {
+
 
             switch (e.getActionCommand()) {
 
@@ -54,6 +54,7 @@ public class Controlador implements ActionListener {
                             network.iniciaRebre();
                         }
 
+                        System.out.println("OK");
                     } else {
                         JOptionPane.showMessageDialog(null, "No s'ha pogut completar el registre\nHi ha un error en les dades");
                     }
@@ -78,17 +79,16 @@ public class Controlador implements ActionListener {
                    if (network.iniciaSessio(iniciaAux)){
 
                        vista.changePanel("RANQUING");
-                       network.iniciaRebre();
-                       network.avisaServer("ENVIACONTROLS");
-                       network.rebreControls();
+                       //network.iniciaRebre();
+                       //network.avisaServer("ENVIACONTROLS");
+                       //network.rebreControls();
 
                    }
                    else {
                         JOptionPane.showMessageDialog(null, "Error al iniciar sessió");
-                   }
-
-
-                   break;
+                    }
+                    network.iniciaRebre();
+                    break;
 
                 case  "JOC2":
 
@@ -115,9 +115,11 @@ public class Controlador implements ActionListener {
                     break;
 
                 case "GUARDAR":
-
                     network.avisaServer("CONTROLS");
                     network.passaControls(vista.getControls());
+                    System.out.println("hola");
+                    vista.changePanel("RANQUING");
+                    //passar vista.teclaup etc al server
                     break;
 
                 case "CONTROLS":
@@ -128,7 +130,7 @@ public class Controlador implements ActionListener {
                 case "TANCAR":
                     network.tancarSessio();
                     network.avisaServer("TANCARSESSIO");
-                    vista.changePanel("INICI");
+                    vista.changePanel("IDENTIFICACIO");
                     break;
 
             }

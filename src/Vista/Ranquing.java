@@ -36,16 +36,16 @@ public class Ranquing extends  JPanel {
     private void initComponents() {
         jbConfig = new JButton("Ajustes");
         jbTancar = new JButton("Tancar Sessió");
-        jlRanquing = new JLabel("Ranquing TOP 10");
-        jtRanquing = new JTextArea();
+        jlRanquing = new JLabel("                                                                                           Ranquing TOP 10");
+        jtRanquing = new JTextArea(50,10);
         jb2X = new JButton("2X");
         jb4X = new JButton("4X");
         jbCamp = new JButton("Campeonat");
         jpButtons = new JPanel();
         jpRanquing = new JPanel();
         jpJocs = new JPanel();
-        jlLeft = new JLabel("                                                            ");
-        jlRight = new JLabel("                                                           ");
+        jlLeft = new JLabel("                                                                                     ");
+        jlRight = new JLabel("                                                                                    ");
 
         jtRanquing.setEditable(false);
         jtRanquing.setAlignmentX(CENTER_ALIGNMENT);
