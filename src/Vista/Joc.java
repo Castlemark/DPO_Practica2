@@ -211,6 +211,7 @@ public class Joc extends JPanel {
     }
     public void aturar(){
         panel1.aturar();
+
     }
 
     public void reinicia(){
@@ -222,8 +223,9 @@ public class Joc extends JPanel {
         rondes2.setText("");
         rondes3.setText("");
         rondes4.setText("");
-        panel1.aturar();
+        panel1.setAbandona(true);
         panel1.sortir();
+        panel1.repaint();
     }
 
     public void actualitzaTecles(int[] tecla){

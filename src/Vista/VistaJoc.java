@@ -24,6 +24,7 @@ public class VistaJoc extends JPanel {
     private int punts;
     private String posicio;
     private int total;
+    private boolean abandona;
 
 
 
@@ -33,16 +34,21 @@ public class VistaJoc extends JPanel {
         cont = true;
         fi = false;
         temps = 3;
+        abandona = false;
     }
 
     public void iniciar(){
-        cj.setContador(3);
+        cj.setContador(4);
         t.start();
+        System.out.println("comença el thread " + t.getActionCommand());
         cont = true;
     }
 
     public void sortir(){
         t.stop();
+        t.setActionCommand("TIMER");
+        cont = true;
+        fi = false;
     }
 
     public void aturar(){
@@ -139,6 +145,7 @@ public class VistaJoc extends JPanel {
     public void setPosicio(String posicio) {
         this.posicio = posicio;
     }
+
     public void reinicia(){
         t.setActionCommand("TIMER");
         cont = true;
@@ -151,5 +158,13 @@ public class VistaJoc extends JPanel {
 
     public boolean isFi() {
         return fi;
+    }
+
+    public void setAbandona(boolean abandona) {
+        this.abandona = abandona;
+    }
+
+    public boolean isAbandona() {
+        return abandona;
     }
 }

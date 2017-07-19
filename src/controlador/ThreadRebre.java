@@ -45,7 +45,7 @@ public class ThreadRebre extends Thread {
 
                 switch (opcio) {
                     case "COMENÇA":
-                        System.out.println("comença partida");
+                        System.out.println("comença partida amb la serp " + model.getPartida().getSerp());
                         //començarPartida
                         vista.iniciaPartida();
 
@@ -57,7 +57,6 @@ public class ThreadRebre extends Thread {
                         Posicio cap = (Posicio)diStreamO.readObject();
                         model.getPartida().mouSerp(dir, cap, jug);
                         System.out.println("serp rebuda");
-
                         break;
 
                     case "JUGADOR":
@@ -68,11 +67,13 @@ public class ThreadRebre extends Thread {
                         model.getPartida().setSerp(k);
                         vista.insereixRondes(model.getPartida().getRondes());
                         break;
+
                     case "MORT":
                         model.getPartida().getSerps().get((int) diStreamO.readObject()).setViu(false);
                         break;
 
                     case "PUNTS":
+                        System.out.println("Rep punts");
                         vista.aturaPartida();
                         vista.setPos((String) diStreamO.readObject());
                         vista.setPunts((int) diStreamO.readObject());
@@ -97,7 +98,7 @@ public class ThreadRebre extends Thread {
                         System.out.println("Estas eliminat");
                         break;
                     case "ABANDONAT":
-                        model.getPartida().reinicia();
+                        model.abandonaPartida();
                         vista.reinicia();
                         break;
 
@@ -125,6 +126,5 @@ public class ThreadRebre extends Thread {
         }catch(ClassNotFoundException e){
                 e.printStackTrace();
         }
-
     }
 }

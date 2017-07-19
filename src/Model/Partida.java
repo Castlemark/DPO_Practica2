@@ -123,6 +123,8 @@ public class Partida implements Serializable{
     }
 
     public void setSerp(int serp) {
+
+        System.out.println("Nova serp");
         this.serp = serp;
     }
 
@@ -150,4 +152,6 @@ public class Partida implements Serializable{
     public void setRondes(int i) {
         rondes[i]++;
     }
+
+
 }

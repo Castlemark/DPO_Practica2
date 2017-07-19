@@ -80,6 +80,7 @@ public class VistaClient extends JFrame {
 
 
     }
+
     public void changePanel(String which){
         layout.show(this.getContentPane(), which);
     }

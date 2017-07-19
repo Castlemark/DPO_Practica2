@@ -36,7 +36,6 @@ public class ControladorJoc implements ActionListener {
         contador = 4;
         this.network = network;
         fi = 5;
-
     }
 
 
@@ -47,7 +46,9 @@ public class ControladorJoc implements ActionListener {
             switch (e.getActionCommand()){
                 case "ABANDONA":
                     model.abandonaPartida();
-                    vistaJoc.aturar();
+                    fi = 5;
+                    contador = 4;
+                    vista.reinicia();
                     vista.changePanel("RANQUING");
                     network.avisaServer("ABANDONA");
                     break;
@@ -89,7 +90,6 @@ public class ControladorJoc implements ActionListener {
                     vistaJoc.repaint();
                     break;
                 case "FI":
-                    vistaJoc.repaint();
                     if(fi <= 0){
                         vistaJoc.reinicia();
                         model.getPartida().reinicia();
@@ -97,7 +97,15 @@ public class ControladorJoc implements ActionListener {
                     }else{
                         fi--;
                     }
+                    if(vistaJoc.isAbandona()){
+                        vistaJoc.reinicia();
+                        vistaJoc.sortir();
+                        vistaJoc.setAbandona(false);
+                        System.out.println("Joc reiniciat");
+                    }
                     contador = 4;
+                    vistaJoc.repaint();
+                    System.out.println("Repaint amb cont " + vistaJoc.isCont());
                     break;
             }
 
