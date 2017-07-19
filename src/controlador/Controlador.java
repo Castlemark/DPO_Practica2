@@ -77,14 +77,12 @@ public class Controlador implements ActionListener {
 
                     network.avisaServer("INICIARSESSIO");
                    if (network.iniciaSessio(iniciaAux)){
-
                        vista.changePanel("RANQUING");
-
+                       network.iniciaRebre();
                    }
                    else {
                         JOptionPane.showMessageDialog(null, "Error al iniciar sessió");
                     }
-                    network.iniciaRebre();
                     break;
 
                 case  "JOC2":

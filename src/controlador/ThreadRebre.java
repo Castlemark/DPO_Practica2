@@ -63,8 +63,7 @@ public class ThreadRebre extends Thread {
                         String[] j = (String[])diStreamO.readObject();
                         vista.insereixJugador(j);
                         int k = (int)diStreamO.readObject();
-                        System.out.println(k);
-                        model.getPartida().setSerp(k);
+                        System.out.println(k);model.getPartida().setSerp(k);
                         vista.insereixRondes(model.getPartida().getRondes());
                         break;
 
