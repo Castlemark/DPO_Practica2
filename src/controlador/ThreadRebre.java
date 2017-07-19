@@ -108,10 +108,11 @@ public class ThreadRebre extends Thread {
 
                     case "ENVIACONTROLS":
                         int[] controls = new int[4];
-                        controls[0] = (Integer) diStreamO.readObject();
-                        controls[1] = (Integer) diStreamO.readObject();
-                        controls[2] = (Integer) diStreamO.readObject();
-                        controls[3] = (Integer) diStreamO.readObject();
+                        controls[0] = (int) diStreamO.readObject();
+                        controls[1] = (int) diStreamO.readObject();
+                        controls[2] = (int) diStreamO.readObject();
+                        controls[3] = (int) diStreamO.readObject();
+                        System.out.println(controls[0]);
                         vista.actualitzaControls(controls);
                         break;
                 }

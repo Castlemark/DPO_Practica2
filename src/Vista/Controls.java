@@ -270,6 +270,12 @@ public class Controls extends JPanel {
         teclaDown = control[1];
         teclaLeft = control[2];
         teclaRight = control[3];
+        jlUp.setText( KeyEvent.getKeyText(teclaUp));
+        jlDown.setText( KeyEvent.getKeyText(teclaDown));
+        jlLeft.setText( KeyEvent.getKeyText(teclaLeft));
+        jlRight.setText( KeyEvent.getKeyText(teclaRight));
+
+
 
     }
 
