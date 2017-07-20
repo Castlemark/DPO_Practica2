@@ -20,37 +20,14 @@ public class Main {
                 Client model = new Client();
                 VistaClient vista = new VistaClient();
                 Network network = new Network(model, vista);
-           //     VistaJoc vistaJoc = new VistaJoc();
 
                 Controlador  controlador= new Controlador(vista,model,network);
 
                 ControladorJoc cj = new ControladorJoc(vista, vista.getJoc(), model, network);
                 vista.registerController(controlador, cj);
                 network.setControlador(cj);
-          //      vistaJoc.registraControlador(cj);
 
                 vista.setVisible(true);
-
-                /*JFrame frame = new JFrame("LSTroner");
-                frame.add(vistaJoc);
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setSize(500, 500);
-                frame.setLocationRelativeTo(null);
-                frame.setVisible(true);*/
-
-
-
-
-
-
-/*
-                // crea el controlador i estableix la relacio C->V i C->M
-                ControladorJoc cj = new ControladorJoc(vistaJoc.getPanel1(), Model);
-                // establim la relacio V--->C
-                vistaJoc.registraControlador(cj);
-                // fem la vista visible
-                frame.setVisible(true);
-        //        vistaJoc.iniciaJoc();*/
             }
         });
     }

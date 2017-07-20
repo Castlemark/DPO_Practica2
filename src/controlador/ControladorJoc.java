@@ -114,52 +114,6 @@ public class ControladorJoc implements ActionListener {
             ioe.printStackTrace();
         }
     }
-/*
-    @Override
-    public void keyPressed(KeyEvent e) {
-        System.out.println("teclaaa");
-
-    }
-    @Override
-    public void keyReleased(KeyEvent e) {
-        System.out.println("teclaaa");
-
-    }*/
-
-  //  @Override
- /*   public void keyTyped(KeyEvent e) {
-
-        System.out.println("teclaaa");
-
-        c = e.getKeyChar();
-       if(vistaJoc.isCont() == false){
-           model.getPartida().getSerp().canviaDireccio(c);
-           try{
-              network.getDoStreamO().writeObject(model.getPartida().getSerp());
-           } catch (IOException ex) {
-               ex.printStackTrace();
-           }
-
-       }*/
-      /*
-        switch (e.getKeyCode()) {
-            case KeyEvent.VK_W:
-                dir = 3;
-                break;
-            case KeyEvent.VK_S:
-                dir = 4;
-                System.out.println("avall");
-                break;
-            case KeyEvent.VK_A:
-                dir = 2;
-                break;
-            case KeyEvent.VK_D:
-                dir = 1;
-                break;
-        }
-
-
-    }*/
 
     public Client getModel() {
         return model;
