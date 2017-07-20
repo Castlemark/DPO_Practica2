@@ -52,6 +52,7 @@ public class ControladorJoc implements ActionListener {
                     network.avisaServer("ABANDONA");
                     break;
                 case "TIMER":
+
                     if(vistaJoc.isCont()){
                         contador--;
                         //      System.out.println(contador);
