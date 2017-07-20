@@ -26,6 +26,7 @@ public class Main {
 
                 ControladorJoc cj = new ControladorJoc(vista, vista.getJoc(), model, network);
                 vista.registerController(controlador, cj);
+                network.setControlador(cj);
           //      vistaJoc.registraControlador(cj);
 
                 vista.setVisible(true);

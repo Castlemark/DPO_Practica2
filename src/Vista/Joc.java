@@ -141,10 +141,10 @@ public class Joc extends JPanel {
         button1.addActionListener(cj);
         button1.setActionCommand("ABANDONA");
 
-        panel1.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(teclaUp,0), "up");
-        panel1.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(teclaDown,0), "down");
-        panel1.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(teclaLeft,0), "left");
-        panel1.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(teclaRight,0), "right");
+        panel1.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(87,0), "up");
+        panel1.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(83,0), "down");
+        panel1.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(65,0), "left");
+        panel1.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(68,0), "right");
         panel1.getActionMap().put("up", new Move(1, cj));
         panel1.getActionMap().put("down", new Move(2, cj));
         panel1.getActionMap().put("left", new Move(3, cj));
@@ -223,17 +223,21 @@ public class Joc extends JPanel {
         rondes2.setText("");
         rondes3.setText("");
         rondes4.setText("");
-        panel1.setAbandona(true);
+     //   panel1.setAbandona(true);
         panel1.sortir();
         panel1.repaint();
     }
 
     public void actualitzaTecles(int[] tecla){
-
+        System.out.println(tecla[0]);
         teclaUp = tecla[0];
         teclaDown = tecla[1];
         teclaLeft = tecla[2];
         teclaRight = tecla[3];
+        panel1.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(teclaUp,0), "up");
+        panel1.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(teclaDown,0), "down");
+        panel1.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(teclaLeft,0), "left");
+        panel1.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(teclaRight,0), "right");
     }
 
 

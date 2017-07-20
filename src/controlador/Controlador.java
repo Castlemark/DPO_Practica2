@@ -77,8 +77,10 @@ public class Controlador implements ActionListener {
 
                     network.avisaServer("INICIARSESSIO");
                    if (network.iniciaSessio(iniciaAux)){
+
                        vista.changePanel("RANQUING");
                        network.iniciaRebre();
+
                    }
                    else {
                         JOptionPane.showMessageDialog(null, "Error al iniciar sessió");
@@ -86,10 +88,10 @@ public class Controlador implements ActionListener {
                     break;
 
                 case  "JOC2":
-
+                    model.setPartida(new Partida(2));
                     network.avisaServer("JOC2");
                     vista.changePanel("JOC");
-                    model.setPartida(new Partida(2));
+                    System.out.println("creada partida 2");
                     //Escolta la resposta del servidor per saber si ha de canviar a la finestra de joc
                     break;
 

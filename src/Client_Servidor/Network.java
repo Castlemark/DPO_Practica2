@@ -7,6 +7,8 @@ import Model.Serp;
 import Model.Usuari;
 import Vista.VistaClient;
 import Vista.VistaJoc;
+import controlador.Controlador;
+import controlador.ControladorJoc;
 import controlador.ThreadRebre;
 
 import java.io.*;
@@ -30,6 +32,8 @@ public class Network extends Thread{
     private VistaClient vista;
     private Scanner sc;
     private Serp serp;
+
+    private ControladorJoc cj;
 
     private boolean running;
 
@@ -124,7 +128,7 @@ public class Network extends Thread{
     }
 
     public void iniciaRebre(){
-        tr = new ThreadRebre(diStreamO, model, vista, this);
+        tr = new ThreadRebre(diStreamO, model, vista, this, cj);
         tr.start();
     }
 
@@ -150,6 +154,10 @@ public class Network extends Thread{
 
     public ThreadRebre getTreadRebre(){
         return tr;
+    }
+
+    public void setControlador(ControladorJoc cj){
+        this.cj = cj;
     }
 
 }

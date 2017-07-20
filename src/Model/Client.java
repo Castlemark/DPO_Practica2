@@ -32,7 +32,8 @@ public class Client {
     }
 
     public void abandonaPartida(){
-        this.partida = new Partida(partida.getSerps().size());
+        int s = partida.getSerps().size();
+        this.partida = new Partida(s);
         System.out.println("Has abandonat!");
     }
 

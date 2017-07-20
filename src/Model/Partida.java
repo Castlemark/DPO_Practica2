@@ -100,13 +100,7 @@ public class Partida implements Serializable{
         return serps.get(serp);
     }/*
 
-    /**
-     * Setter de serps
-     * @param serps
-     */
-    public void setSerp(Serp serps) {
-        this.serp = serp;
-    }
+
 
     /**
      * Comprova si hi ha colisions entre serps
