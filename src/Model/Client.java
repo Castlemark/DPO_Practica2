@@ -10,13 +10,11 @@ public class Client {
     private boolean[] eliminats = new boolean[4];
 
 
-    //  private Network network;
 
     public Client (){
         for(int i = 0; i < eliminats.length; i++){
             eliminats[i] = false;
         }
-     //   network = new Network(this);
     }
 
     public void setUsuari(Usuari usuari) {
@@ -34,7 +32,6 @@ public class Client {
     public void abandonaPartida(){
         int s = partida.getSerps().size();
         this.partida = new Partida(s);
-        System.out.println("Has abandonat!");
     }
 
     public void setPunts(int punts) {
@@ -61,7 +58,6 @@ public class Client {
                 num++;
             }
         }
-        System.out.println("Hi han eliminats " + num);
         if(num == 3){
             for(int i = 0; i < eliminats.length; i++){
                 eliminats[i] = false;

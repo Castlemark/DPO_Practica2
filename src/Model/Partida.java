@@ -32,7 +32,6 @@ public class Partida implements Serializable{
         Model.Posicio cap = serps.get(serp).getCap();
         //Comprova que no surti dels limits de la partida
         if(cap.getX() > 350 || cap.getX() < 0 || cap.getY() > 350 || cap.getY() < 0){
-            System.out.println("ha sortit");
             return true;
         }
         //Comprova que no xoqui amb ella mateixa
@@ -118,7 +117,6 @@ public class Partida implements Serializable{
 
     public void setSerp(int serp) {
 
-        System.out.println("Nova serp");
         this.serp = serp;
     }
 
@@ -128,7 +126,6 @@ public class Partida implements Serializable{
 
     public void mouSerp(int dir, Posicio cap, int jug){
         serps.get(jug).canviaDireccio(dir, cap);
-        System.out.println("serp moguda");
     }
 
     public void reinicia(){

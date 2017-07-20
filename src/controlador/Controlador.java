@@ -91,7 +91,6 @@ public class Controlador implements ActionListener {
                     model.setPartida(new Partida(2));
                     network.avisaServer("JOC2");
                     vista.changePanel("JOC");
-                    System.out.println("creada partida 2");
                     //Escolta la resposta del servidor per saber si ha de canviar a la finestra de joc
                     break;
 
@@ -115,7 +114,6 @@ public class Controlador implements ActionListener {
                     network.avisaServer("CONTROLS");
                     network.passaControls(vista.getControls());
                     vista.actualitzaTecles(vista.getControls());
-                    System.out.println("hola");
                     vista.changePanel("RANQUING");
                     break;
 
@@ -132,7 +130,6 @@ public class Controlador implements ActionListener {
 
             }
         } catch (IOException ioe) {
-            System.out.println(ioe.getMessage());
             ioe.getMessage();
         }catch (ClassNotFoundException e1){
             e1.printStackTrace();

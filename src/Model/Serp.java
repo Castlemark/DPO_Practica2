@@ -49,7 +49,6 @@ public class Serp implements Serializable{
 
     public void canviaDireccio (int d, Posicio c){
         this.cap = c;
-        System.out.println(cap.getX());
         if(d == 2 && dir != 3 && dir != 4){
             dir = 3;
             posicions.add(new Posicio(cap.getX(), cap.getY()));
@@ -66,7 +65,6 @@ public class Serp implements Serializable{
             dir = 4;
             posicions.add(new Posicio(cap.getX(), cap.getY()));
         }
-        System.out.println("canvia direccio");
     }
     /**
      * Getter de la posició
