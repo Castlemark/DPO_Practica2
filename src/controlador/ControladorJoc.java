@@ -27,8 +27,6 @@ public class ControladorJoc implements ActionListener {
     private int fi;
     private VistaClient vista;
 
-
-
     public ControladorJoc(VistaClient vista, VistaJoc vistaJoc, Client model, Network network){
         this.vistaJoc = vistaJoc;
         this.vista = vista;

@@ -39,9 +39,11 @@ public class VistaJoc extends JPanel {
 
     public void iniciar(){
         cj.setContador(4);
+        cont = true;
+        t.setDelay(1000);
+        fi = false;
         t.start();
         System.out.println("comença el thread " + t.getActionCommand());
-        cont = true;
     }
 
     public void sortir(){
@@ -115,7 +117,6 @@ public class VistaJoc extends JPanel {
             }
 
         }
-
     }
 
     public void registraControlador (ControladorJoc cj){
