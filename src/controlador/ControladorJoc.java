@@ -41,6 +41,7 @@ public class ControladorJoc implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         try {
+
             switch (e.getActionCommand()){
                 case "ABANDONA":
                     model.abandonaPartida();
