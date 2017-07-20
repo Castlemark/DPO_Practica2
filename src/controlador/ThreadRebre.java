@@ -27,12 +27,13 @@ public class ThreadRebre extends Thread {
     private VistaClient vista;
     private Network network;
 
-    public ThreadRebre(ObjectInputStream diStreamO, Client model, VistaClient vista, Network network) {
+    public ThreadRebre(ObjectInputStream diStreamO, Client model, VistaClient vista, Network network, ControladorJoc cj) {
 
         this.diStreamO = diStreamO;
         this.model = model;
         this.vista = vista;
         this.network = network;
+        this.cj = cj;
     }
 
     @Override
@@ -98,6 +99,7 @@ public class ThreadRebre extends Thread {
                         System.out.println("Estas eliminat");
                         break;
                     case "ABANDONAT":
+                        cj.reinicia();
                         model.abandonaPartida();
                         vista.reinicia();
                         break;

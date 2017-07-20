@@ -207,5 +207,8 @@ public class ControladorJoc implements ActionListener {
 
     }
 
-
+    public void reinicia(){
+        fi = 5;
+        contador = 4;
+    }
 }
