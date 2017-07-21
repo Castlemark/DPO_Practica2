@@ -15,6 +15,7 @@ public class Client {
         for(int i = 0; i < eliminats.length; i++){
             eliminats[i] = false;
         }
+        partida = new Partida();
     }
 
     public void setUsuari(Usuari usuari) {

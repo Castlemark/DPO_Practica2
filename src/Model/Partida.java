@@ -17,6 +17,10 @@ public class Partida implements Serializable{
     private int serp;
     private int[] rondes;
 
+    public Partida(){
+
+    }
+
     public Partida(int s){
         rondes = new int[s];
         for(int i = 0; i < s; i++){
