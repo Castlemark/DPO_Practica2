@@ -7,30 +7,23 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- *
- * Created by sullivan on 19/04/2017.
+ * Created by Grup 6 on 19/04/2017. VistaClient.
+ * JFrame que conté les vistes del Client.
  */
 public class VistaClient extends JFrame {
 
-    /*private JButton jbRegistrar;
-    private JButton jbConfiguracio;
-    private JButton jbJugar2x;
-    private JButton jbJugar4x;
-    private JButton jbCampionat;
-    private JButton jbIniciar;
-    private JButton jbRanquing;
-    private JPanel jpClient;*/
+    //Atributs
     private  CardLayout layout;
-
     private Controls controls;
     private Configuracio configuracio;
-    private Inici inici;
     private IniciarSessio iniciarSessio;
     private  Joc joc;
     private Ranquing ranquing;
     private Registre registre;
     private VistaJoc vistaJoc;
     private Identificacio identificacio;
+
+    //Constructors
 
     /**
      * Constructor de la vista del menú del client. Inicialitza els elements a mostrar
@@ -39,14 +32,12 @@ public class VistaClient extends JFrame {
 
         this.setTitle("LS Troner");
         this.setSize (1200, 700);
-
         layout = new CardLayout();
+
         this.getContentPane().setLayout(layout);
 
-        //inicialitzar panels
-        //controls = new Controls();
+        //Inicialització dels panells
         configuracio = new Configuracio();
-        inici = new Inici();
         iniciarSessio = new IniciarSessio();
         joc = new Joc();
         ranquing = new Ranquing();
@@ -54,17 +45,23 @@ public class VistaClient extends JFrame {
         identificacio = new Identificacio();
         controls = new Controls();
 
-
         this.getContentPane().add("INICI", configuracio);
         this.getContentPane().add("IDENTIFICACIO", identificacio);
         this.getContentPane().add("RANQUING", ranquing);
         this.getContentPane().add("JOC", joc);
         this.getContentPane().add("CONTROLS",controls);
 
-
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
+    //Metodes
+
+
+    /**
+     * Registra els controladors necessaris.
+     * @param c Controlador
+     * @param cj ControladorJoc
+     */
     public void registerController(Controlador c, ControladorJoc cj) {
 
         identificacio.registerController(c);
@@ -73,9 +70,12 @@ public class VistaClient extends JFrame {
         joc.registraControlador(cj);
         controls.registerController(c);
 
-
     }
 
+    /**
+     * Va canviant les vistes segons el which que rep.
+     * @param which indica quin es el panell necessari.
+     */
     public void changePanel(String which){
         layout.show(this.getContentPane(), which);
     }
@@ -94,10 +94,19 @@ public class VistaClient extends JFrame {
 
     public int[] getControls(){ return  controls.getControls();}
 
+
+    /**
+     * Actualitza els controls a la vista de "Controls" per tal de indicar quins eren els que l'usuari havia guardat previament.
+     * @param control son els Int associats a cada tecla guardada per l'usuari
+     */
     public void  actualitzaControls(int[] control){
         controls.actualitzaControls(control);
     }
 
+
+    /**
+     * Inicia el Joc
+     */
     public void iniciaPartida(){
         joc.iniciaJoc();
     }
@@ -108,6 +117,10 @@ public class VistaClient extends JFrame {
 
     public Ranquing getRanquing(){return ranquing;}
 
+    /**
+     * Insereix els jugadors que participaran a la partida.
+     * @param logins Array de logins que conté els logins de tots els jugadors.
+     */
     public void insereixJugador(String[] logins){
         joc.insereixJugador(logins);
     }

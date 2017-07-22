@@ -79,6 +79,7 @@ public class Identificacio extends JPanel {
 
     /**
      * Registra el controlador
+     * @param c Controlador
      * @return void
      */
 

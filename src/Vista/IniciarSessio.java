@@ -6,9 +6,13 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Created by sullivan on 20/04/2017.
+ * Created by Grup 6 on 20/04/2017. IniciarSessio.
+ * Vista que conté els formularis de Iniciar Sessio o Registre.
  */
+
 public class IniciarSessio extends JPanel {
+
+    //Atributs
     private JPanel jpIniciar;
     private JPanel jpAtras;
     private JButton jbAtras;
@@ -21,11 +25,10 @@ public class IniciarSessio extends JPanel {
     private JPanel jpPassword;
     private JButton jbIniciar;
 
+    //Constructors
     public IniciarSessio () {
-       // this.setTitle ("Iniciar Sessió");
-        this.setSize (350,350);
-      //  this.setResizable(true);
 
+        this.setSize (350,350);
         jpIniciar = new JPanel();
         jpAtras = new JPanel(new BorderLayout());
         jpID = new JPanel(new BorderLayout());
@@ -53,6 +56,7 @@ public class IniciarSessio extends JPanel {
         this.add(jpIniciar,BorderLayout.PAGE_START);
     }
 
+    //Metodes
     public String getID(){
         return jtID.getText();
     }
@@ -61,6 +65,11 @@ public class IniciarSessio extends JPanel {
         return jtPassword.getText();
     }
 
+    /**
+     * Registra el controlador
+     * @param c Controlador
+     * @return void
+     */
     public void registerController(Controlador c){
         jbIniciar.setActionCommand("INICIARSESSIO");
         jbIniciar.addActionListener(c);

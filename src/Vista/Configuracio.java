@@ -60,6 +60,7 @@ public class Configuracio extends JPanel {
 
     /**
      * Registra el controlador
+     * param c ActionListener
      * @return void
      */
 

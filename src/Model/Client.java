@@ -1,16 +1,19 @@
 package Model;
 
 /**
- * Created by Propietario on 24/04/2017.
+ * Created by Grup 6 on 24/04/17. Client.
+ * Model del Client que realitza les accions de comprovacio i gestió de la partida.
  */
+
 public class Client {
+
+    //Atributs
     private Usuari usuari;
     private Partida partida;
     private int punts;
     private boolean[] eliminats = new boolean[4];
 
-
-
+    //Constructors
     public Client (){
         for(int i = 0; i < eliminats.length; i++){
             eliminats[i] = false;
@@ -18,6 +21,7 @@ public class Client {
         partida = new Partida();
     }
 
+    //Metodes
     public void setUsuari(Usuari usuari) {
         this.usuari = usuari;
     }
@@ -30,6 +34,9 @@ public class Client {
         this.partida = partida;
     }
 
+    /**
+     * Abandona la partida
+     */
     public void abandonaPartida(){
         int s = partida.getSerps().size();
         this.partida = new Partida(s);
@@ -47,10 +54,10 @@ public class Client {
         punts =+ p;
     }
 
-    /*  public Network getNetwork() {
-        return network;
-    }*/
-
+    /**
+     * Elimina els jugadors de la Partida torneig quan aquest perden. Si el boolean de la casella (corresponent a cada jugador) és true, voldrà dir que està eliminat.
+     * @param e int que indica quin jugador a perdut.
+     */
     public void elimina(int e){
         eliminats[e] = true;
         int num = 0;

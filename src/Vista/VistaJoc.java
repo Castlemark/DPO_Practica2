@@ -11,10 +11,13 @@ import java.util.ArrayList;
 
 
 /**
- * Created by Propietario on 26/04/2017.
+ * Created by Grup 6 on 26/04/2017. VistaJoc.
+ * JFrame que conté les vistes del Client.
  */
 
 public class VistaJoc extends JPanel {
+
+   //Atributs
     private ControladorJoc cj;
     private Timer t;
     private Timer inici;
@@ -26,8 +29,7 @@ public class VistaJoc extends JPanel {
     private int total;
     private boolean abandona;
 
-
-
+    //Constructors
     public VistaJoc(){
         this.setSize(350, 350);
         t = new Timer(1000, null);
@@ -37,13 +39,16 @@ public class VistaJoc extends JPanel {
         abandona = false;
     }
 
+    /**
+     * Procediment que inicialitza
+     */
     public void iniciar(){
         cj.setContador(4);
         cont = true;
         t.setDelay(1000);
         fi = false;
         t.start();
-        System.out.println("comença el thread " + t.getActionCommand());
+        System.out.println("comença el thread " + t.getActionCommand()); //BORRAR
     }
 
     public void sortir(){
