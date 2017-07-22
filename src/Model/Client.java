@@ -38,6 +38,9 @@ public class Client {
      * Abandona la partida
      */
     public void abandonaPartida(){
+        for(int i = 0; i < eliminats.length; i++){
+            eliminats[i] = false;
+        }
         int s = partida.getSerps().size();
         this.partida = new Partida(s);
     }

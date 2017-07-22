@@ -87,7 +87,6 @@ public class ThreadRebre extends Thread {
                         vista.insereixRondes(model.getPartida().getRondes());
                         break;
                     case "ELIMINAT":
-                        int eliminat = (int) diStreamO.readObject();
                         /*int num=0;
                         for(int i = 0; i < eliminats.length; i++){
                             if(eliminats[i]){
@@ -95,7 +94,11 @@ public class ThreadRebre extends Thread {
                             }
                         }
                         System.out.println(" Hi han eliminats" + num);*/
-                        model.elimina(eliminat);
+                        int n = (int) diStreamO.readObject();
+                        for (int i= 0; i < n; i++){
+                            int eliminat = (int) diStreamO.readObject();
+                            model.elimina(eliminat);
+                        }
                         System.out.println("Estas eliminat");
                         break;
                     case "ABANDONAT":

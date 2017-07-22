@@ -103,18 +103,16 @@ public class Controlador implements ActionListener {
                     break;
 
                 case  "JOC4": //Al clicar el boto per fer una partida de 4 persones
-
+                    model.setPartida(new Partida(4));
                     network.avisaServer("JOC4");
                     vista.changePanel("JOC");
-                    model.setPartida(new Partida(4));
                     //Escolta la resposta del servidor per saber si ha de canviar a la finestra de joc
                     break;
 
                 case "CAMPEONAT": //Al clicar el boto per fer una partida de campionat
-
+                    model.setPartida(new Partida(4));
                     network.avisaServer("CAMPEONAT");
                     vista.changePanel("JOC");
-                    model.setPartida(new Partida(4));
                     //Escolta la resposta del servidor per saber si ha de canviar a la finestra de joc
                     break;
 
