@@ -15,10 +15,15 @@ import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.util.ArrayList;
 
+
+
 /**
- * Created by Propietario on 03/05/2017.
+ * Created by Grup 6 on 03/05/2017 ControladorJoc.
+ * Controlador del Joc
  */
 public class ControladorJoc implements ActionListener {
+
+    //Atributs
     private VistaJoc vistaJoc;
     private Client model;
     private char c;
@@ -27,6 +32,13 @@ public class ControladorJoc implements ActionListener {
     private int fi;
     private VistaClient vista;
 
+    /**
+     * Constructor
+     * @param vista Vista
+     * @param vistaJoc Vista del joc
+     * @param model Model
+     * @param network Network
+     */
     public ControladorJoc(VistaClient vista, VistaJoc vistaJoc, Client model, Network network){
         this.vistaJoc = vistaJoc;
         this.vista = vista;
@@ -43,7 +55,7 @@ public class ControladorJoc implements ActionListener {
         try {
 
             switch (e.getActionCommand()){
-                case "ABANDONA":
+                case "ABANDONA":    //Al clicar abandona
                     model.abandonaPartida();
                     fi = 5;
                     contador = 4;
@@ -51,11 +63,12 @@ public class ControladorJoc implements ActionListener {
                     vista.changePanel("RANQUING");
                     network.avisaServer("ABANDONA");
                     break;
+
                 case "TIMER":
 
                     if(vistaJoc.isCont()){
                         contador--;
-                        //      System.out.println(contador);
+                        //      System.out.println(contador);           //ESBORRAR!
 
                         if(contador <= 0){
                             vistaJoc.setCont(false);
@@ -78,7 +91,7 @@ public class ControladorJoc implements ActionListener {
                            }
                    }
 
-
+                    //ESBORRAR!
                      /*  for(int i = 0; i < model.getPartida().getSerps().size(); i++){
                            System.out.println("Serp " + i);
                            for(int z = 0; z < model.getPartida().getSerps().get(i).getPosicions().size(); z++){
@@ -123,9 +136,6 @@ public class ControladorJoc implements ActionListener {
         this.model = model;
     }
 
-/*    public Serp getSerp(){
-        return model.getPartida().getSerp();
-    }*/
 
     public int getContador() {
         return contador;
@@ -143,8 +153,11 @@ public class ControladorJoc implements ActionListener {
         this.contador = contador;
     }
 
+    /**Mètode que avisa al model per moure la serp i també avisa al servidor
+     * @param d int que indica la Direcció
+     */
     public void moureSerp(int d){
-        System.out.println("teclaaa");
+        System.out.println("teclaaa");                          //ESBORRAR!
 
         if(vistaJoc.isCont() == false && !vistaJoc.isFi()) {
             try{
@@ -152,7 +165,7 @@ public class ControladorJoc implements ActionListener {
                 network.avisaServer("MOVIMENT");
                 network.getDoStreamO().writeObject(d);
                 network.getDoStreamO().writeObject(model.getPartida().getSerps().get(model.getPartida().getSerp()).getUltim());
-                System.out.println("agafa serp");
+                System.out.println("agafa serp");           //ESBORRAR!
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
@@ -161,6 +174,9 @@ public class ControladorJoc implements ActionListener {
 
     }
 
+    /**
+     * Mètode implementat al abandonar la partida
+     */
     public void reinicia(){
         fi = 5;
         contador = 4;
