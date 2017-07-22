@@ -20,7 +20,7 @@ public class IniciarSessio extends JPanel {
     private JLabel jlID;
     private JPanel jpID;
     private JTextField jtID;
-    private JTextField jtPassword;
+    private JPasswordField jtPassword;
     private JLabel jlPassword;
     private JPanel jpPassword;
     private JButton jbIniciar;
@@ -38,7 +38,7 @@ public class IniciarSessio extends JPanel {
         jlID = new JLabel("ID         ");
         jtID = new JTextField();
         jlPassword = new JLabel("Password      ");
-        jtPassword = new JTextField(30);
+        jtPassword = new JPasswordField(30);
         jbIniciar = new JButton("Iniciar");
 
 
@@ -62,6 +62,8 @@ public class IniciarSessio extends JPanel {
     }
 
     public String getPassword(){
+
+        System.out.println(jtPassword.getText());
         return jtPassword.getText();
     }
 
