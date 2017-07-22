@@ -22,23 +22,33 @@ public class Controlador implements ActionListener {
     private Network network;
     private VistaClient vista;
 
+    /**
+     * Constructor del controlador
+     * @param vistaClient vista
+     * @param model Model
+     * @param network Network
+     */
     public Controlador(VistaClient vistaClient, Client model, Network network) {
         this.vista = vistaClient;
         this.model = model;
         this.network = network;
     }
 
+    /**Mètode que controla les accions a realitzar depenent les comandes enviades
+     * @param e ActionEvent
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
 
         try {
-
+            //Depenenent del ActionCommand
             switch (e.getActionCommand()) {
 
-                case "REGISTRE":
+                case "REGISTRE":    //Al clicar Registrar a la vista Registre es comproven les dades, es crea un usuari es passa al servidor
 
-                    Usuari usuariAux = new Usuari();
+                    Usuari usuariAux = new Usuari(); //Crea Usuari
 
+                    //Comprova les dades i li passa al servidor si és correcte, sinó mostra un missatge a l'usuari.
                     if (usuariAux.comprovaDades(vista.getRegistre().getLogin(), vista.getRegistre().getMail(),vista.getRegistre().getPassword(),vista.getRegistre().getConfirmacio())) {
                         model.setUsuari(usuariAux = new Usuari(vista.getRegistre().getLogin(), vista.getRegistre().getMail(),vista.getRegistre().getPassword()));
 
@@ -58,7 +68,7 @@ public class Controlador implements ActionListener {
                     }
                     break;
 
-                case "INICIAR":
+                case "INICIAR": //Primer cas que es realitza, es connecta al servidor amb el port i ip indicats
 
                     System.out.println("connectant");
 
@@ -69,7 +79,7 @@ public class Controlador implements ActionListener {
                     }
                     break;
 
-                case "INICIARSESSIO":
+                case "INICIARSESSIO":   //Al iniciar sessió passa les dades al servidori canvia a lafinesra ranquing
 
                     Inicia iniciaAux = new Inicia(vista.getIniciarSessio().getID(), vista.getIniciarSessio().getPassword());
 
@@ -85,14 +95,14 @@ public class Controlador implements ActionListener {
                     }
                     break;
 
-                case  "JOC2":
+                case  "JOC2": //Al clicar el boto per fer una partida de 2 persones
                     model.setPartida(new Partida(2));
                     network.avisaServer("JOC2");
                     vista.changePanel("JOC");
                     //Escolta la resposta del servidor per saber si ha de canviar a la finestra de joc
                     break;
 
-                case  "JOC4":
+                case  "JOC4": //Al clicar el boto per fer una partida de 4 persones
 
                     network.avisaServer("JOC4");
                     vista.changePanel("JOC");
@@ -100,7 +110,7 @@ public class Controlador implements ActionListener {
                     //Escolta la resposta del servidor per saber si ha de canviar a la finestra de joc
                     break;
 
-                case "CAMPEONAT":
+                case "CAMPEONAT": //Al clicar el boto per fer una partida de campionat
 
                     network.avisaServer("CAMPEONAT");
                     vista.changePanel("JOC");
@@ -108,8 +118,8 @@ public class Controlador implements ActionListener {
                     //Escolta la resposta del servidor per saber si ha de canviar a la finestra de joc
                     break;
 
-                case "GUARDAR":
-                    if (model.comprovaControls(vista.getControls())) {
+                case "GUARDAR": //Al guardar els controls
+                    if (model.comprovaControls(vista.getControls())) { //Comprova els controls
                         network.avisaServer("CONTROLS");
                         network.passaControls(vista.getControls());
                         vista.actualitzaTecles(vista.getControls());
