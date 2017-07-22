@@ -41,8 +41,14 @@ import java.awt.event.KeyEvent;
 import java.awt.event.*;
 import javax.swing.*;
 
+/**
+ * Created by Grup 6 on 20/04/17. Configuracio.
+ * Vista on apareixen els camps de IP i port, per tal de que un usuari es connecti un cop hagi clicat el botó Iniciar.
+ */
+
 public class Controls extends JPanel {
 
+    //Atributs
     private JPanel contentPane;
     private JLabel jlEspai;
     private JLabel jlControls;
@@ -65,12 +71,6 @@ public class Controls extends JPanel {
     private int teclaRight;
 
 
-
-
-
-    /**
-     * Create the frame.
-     */
     public Controls() {
 
 
@@ -203,6 +203,7 @@ public class Controls extends JPanel {
 
             public void keyReleased(KeyEvent e) {
             }
+
         });
 
         jtfRight.addKeyListener(new KeyListener() {
@@ -210,7 +211,6 @@ public class Controls extends JPanel {
             }
 
             public void keyPressed(KeyEvent e) {
-
 
                 teclaRight = e.getKeyCode();
                 jtfRight.setText("");
@@ -220,9 +220,11 @@ public class Controls extends JPanel {
 
             public void keyReleased(KeyEvent e) {
             }
+
         });
 
         jtfDown.addKeyListener(new KeyListener() {
+
             public void keyTyped(KeyEvent e) {
             }
 
@@ -237,6 +239,7 @@ public class Controls extends JPanel {
 
             public void keyReleased(KeyEvent e) {
             }
+
         });
 
         jtfUp.addKeyListener(new KeyListener() {
@@ -274,8 +277,6 @@ public class Controls extends JPanel {
         jlDown.setText( KeyEvent.getKeyText(teclaDown));
         jlLeft.setText( KeyEvent.getKeyText(teclaLeft));
         jlRight.setText( KeyEvent.getKeyText(teclaRight));
-
-
 
     }
 

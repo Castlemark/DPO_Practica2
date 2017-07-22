@@ -46,7 +46,7 @@ public class ThreadRebre extends Thread {
 
                 switch (opcio) {
                     case "COMENÇA":
-                        System.out.println("comença partida amb la serp " + model.getPartida().getSerp());
+                        System.out.println("Comença partida amb la serp " + model.getPartida().getSerp());
                         //començarPartida
                         vista.iniciaPartida();
 

@@ -74,4 +74,17 @@ public class Client {
     public boolean[] getEliminats() {
         return eliminats;
     }
+
+    public boolean comprovaControls (int[] controls) {
+        boolean ok = true;
+        for (int i = 0; i < controls.length && ok; i++){
+           for (int j = i + 1; j < controls.length && ok; j++){
+                if (controls[i] == controls [j]) {
+                    ok = false;
+               }
+           }
+
+        }
+        return ok;
+    }
 }

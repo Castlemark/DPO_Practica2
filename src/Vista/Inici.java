@@ -6,8 +6,10 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Created by sullivan on 04/05/2017.
+ * Created by Grup 6 on 04/05/2017. Identificacio.
+ * Vista que conté els formularis de Iniciar Sessio o Registre.
  */
+
 public class Inici extends JPanel {
     private JLabel jlEspai;
     private JLabel jlTitle;

@@ -5,9 +5,13 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 /**
- * Created by sullivan on 20/04/2017.
+ * Created by Grup 6 on 20/04/17. Configuracio.
+ * Vista on apareixen els camps de IP i port, per tal de que un usuari es connecti un cop hagi clicat el botó Iniciar.
  */
+
 public class Configuracio extends JPanel {
+
+    //Atributs
     private JPanel jpConfiguracio;
     private JPanel jpAtras;
     private JLabel jlTitle;
@@ -20,6 +24,7 @@ public class Configuracio extends JPanel {
     private JButton jbIniciar;
     private JPanel jpIniciar;
 
+    //Constructor
     public Configuracio () {
 
         this.setSize (350,350);
@@ -51,9 +56,16 @@ public class Configuracio extends JPanel {
         this.add(jpConfiguracio,BorderLayout.PAGE_START);
     }
 
-    public void registerController(ActionListener c){
-        jbIniciar.addActionListener(c);
+    //Metodes
 
+    /**
+     * Registra el controlador
+     * @return void
+     */
+
+    public void registerController(ActionListener c){
+
+        jbIniciar.addActionListener(c);
         jbIniciar.setActionCommand("INICIAR");
 
     }
