@@ -26,11 +26,10 @@ public class ControladorJoc implements ActionListener {
     //Atributs
     private VistaJoc vistaJoc;
     private Client model;
-    private char c;
-    private int contador;
     private Network network;
-    private int fi;
     private VistaClient vista;
+    private int contador;
+    private int fi;
 
     /**
      * Constructor

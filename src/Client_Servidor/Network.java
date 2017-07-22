@@ -47,8 +47,6 @@ public class Network extends Thread{
     }
 
     public boolean connect(int port, String IP){
-        port = 11111;
-
 
         try{
             sc = new Scanner(System.in);
@@ -148,8 +146,11 @@ public class Network extends Thread{
         return (String) diStreamO.readObject();
     }
 
-    public void tancarSessio(){
+    public void tancarSessio() throws IOException{
 
+        doStreamO.close();
+        diStreamO.close();
+        sServer.close();
     }
 
     public ThreadRebre getTreadRebre(){

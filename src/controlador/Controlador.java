@@ -132,9 +132,9 @@ public class Controlador implements ActionListener {
                     break;
 
                 case "TANCAR":
-                    network.tancarSessio();
                     network.avisaServer("TANCARSESSIO");
-                    vista.changePanel("IDENTIFICACIO");
+                    vista.changePanel("INICI");
+                    network.tancarSessio();
                     break;
 
             }

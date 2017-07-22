@@ -23,7 +23,7 @@ public class ThreadRebre extends Thread {
     private Partida partida;
     private Client model;
     private ControladorJoc cj;
-    String opcio = "";
+    private String opcio = "";
     private VistaClient vista;
     private Network network;
 
@@ -127,8 +127,6 @@ public class ThreadRebre extends Thread {
 
             }
         }catch(IOException e){
-                e.printStackTrace();
-                System.out.println(e.getMessage());
         }catch(ClassNotFoundException e){
                 e.printStackTrace();
         }

@@ -14,10 +14,7 @@ public class Usuari implements Serializable{
     private String login;
     private String mail;
     private String password;
-    private int up;
-    private int down;
-    private int left;
-    private int right;
+
 
     //Constructors
     public Usuari (){
@@ -29,10 +26,6 @@ public class Usuari implements Serializable{
         this.login = login;
         this.mail = mail;
         this.password = password;
-        this.up=87;
-        this.down=83;
-        this.left=65;
-        this.right=68;
     }
 
     public void setLogin(String login){
@@ -209,11 +202,5 @@ public class Usuari implements Serializable{
     public boolean tancarSessio(){
         return true;
     }
-
-    public void setControls (int up, int down, int left, int right) {
-        this.up = up;
-        this.down = down;
-        this.left = left;
-        this.right = right;
-    }
+    
 }
