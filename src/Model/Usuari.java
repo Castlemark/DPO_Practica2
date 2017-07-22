@@ -9,6 +9,8 @@ import java.util.Scanner;
  * Created by Grup 6 on 30/03/2017.
  */
 public class Usuari implements Serializable{
+
+    //Atributs
     private String login;
     private String mail;
     private String password;
@@ -17,9 +19,12 @@ public class Usuari implements Serializable{
     private int left;
     private int right;
 
+    //Constructors
     public Usuari (){
 
     }
+
+    //Metodes
     public Usuari(String login, String mail, String password){
         this.login = login;
         this.mail = mail;
@@ -191,7 +196,7 @@ public class Usuari implements Serializable{
      * Mètode iniciar sessio
      * @param nomUsuariCorreu
      * @param contrasenya
-     * @return
+     * @return boolean sempre true.
      */
     public boolean iniciarSessio(String nomUsuariCorreu, String contrasenya){
         return true;

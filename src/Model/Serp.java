@@ -13,11 +13,14 @@ import java.util.ArrayList;
  * Created by Grup 6 on 06/04/2017.
  */
 public class Serp implements Serializable{
+
+    //Atributs
     private ArrayList<Posicio> posicions;
     private Posicio cap;
     private int dir = 1;
     private boolean viu;
 
+    //Constructors
     public Serp(int i){
         viu = true;
         posicions = new ArrayList<>();
@@ -45,8 +48,16 @@ public class Serp implements Serializable{
         }
 
     }
+
+    //Metodes
+
     public void mouSerp(){cap.mouCap(dir);}
 
+    /**
+     * Canvia el valor de direcció
+     * @param d int que indica en quina direccio va la serp. Hi ha 4 diferents.
+     * @param c indica les coordenades de posició.
+     */
     public void canviaDireccio (int d, Posicio c){
         this.cap = c;
         if(d == 2 && dir != 3 && dir != 4){

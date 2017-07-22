@@ -85,6 +85,11 @@ public class Client {
         return eliminats;
     }
 
+    /**
+     * Aquest procediment s'encarrega de comprovar que l'usuari no hagi introduït controls repetits.
+     * @param controls array de ints associats a les tecles introduides per guardar.
+     * @return ok un boolean que indica si son correctes els controls introduits.
+     */
     public boolean comprovaControls (int[] controls) {
         boolean ok = true;
         for (int i = 0; i < controls.length && ok; i++){

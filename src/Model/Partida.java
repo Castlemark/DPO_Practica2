@@ -1,7 +1,5 @@
 package Model;
 
-import javafx.geometry.Pos;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -13,14 +11,18 @@ import java.util.ArrayList;
  * Created by Grup 6 on 06/04/2017.
  */
 public class Partida implements Serializable{
+
+    //Atributs
     private ArrayList<Serp> serps = new ArrayList<>();
     private int serp;
     private int[] rondes;
 
+    //Constructors
     public Partida(){
 
     }
 
+    //Metodes
     public Partida(int s){
         rondes = new int[s];
         for(int i = 0; i < s; i++){
@@ -30,7 +32,10 @@ public class Partida implements Serializable{
     }
 
 
-
+    /**
+     * Procediment que comprova tots els cassos possibles de col·lisions.
+     * @return boolean que indica si hi ha hagut xoc o no.
+     */
     public boolean comprovaCollisio(){
 
         Model.Posicio cap = serps.get(serp).getCap();
@@ -99,21 +104,6 @@ public class Partida implements Serializable{
      * Getter de serps
      * @return Objecte serp
      */
-  /*  public Serp getSerp() {
-        return serps.get(serp);
-    }/*
-
-
-
-    /**
-     * Comprova si hi ha colisions entre serps
-     * @return true si hi ha colisió
-     */
-    /*public boolean comprovaColisio (){
-        return true;
-    }*/
-
-
 
     public ArrayList<Serp> getSerps() {
         return serps;
@@ -132,6 +122,9 @@ public class Partida implements Serializable{
         serps.get(jug).canviaDireccio(dir, cap);
     }
 
+    /**
+     * Inicialitza les serps en el punt de partida.
+     */
     public void reinicia(){
         int s = serps.size();
         serps = new ArrayList<>();
