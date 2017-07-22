@@ -46,6 +46,9 @@ public class ThreadRebre extends Thread {
 
                 switch (opcio) {
                     case "COMENÇA":
+                        for(int i = 0; i < 4; i++){
+                            System.out.println(model.getEliminats()[i]);
+                        }
                         System.out.println("Comença partida amb la serp " + model.getPartida().getSerp());
                         //començarPartida
                         vista.iniciaPartida();
@@ -76,11 +79,11 @@ public class ThreadRebre extends Thread {
 
                     case "PUNTS":
                         System.out.println("Rep punts");
-                        vista.aturaPartida();
                         vista.setPos((String) diStreamO.readObject());
                         vista.setPunts((int) diStreamO.readObject());
                         vista.getJoc().setTotal((int) diStreamO.readObject());
                         int guanyador = (int) diStreamO.readObject();
+                        vista.aturaPartida();
                         if(guanyador > -1){
                             model.getPartida().setRondes(guanyador);
                         }
