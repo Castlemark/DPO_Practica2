@@ -16,7 +16,7 @@ public class Main {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-
+                //Inicialitzar
                 Client model = new Client();
                 VistaClient vista = new VistaClient();
                 Network network = new Network(model, vista);

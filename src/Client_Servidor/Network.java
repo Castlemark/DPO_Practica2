@@ -17,9 +17,12 @@ import java.sql.ClientInfoStatus;
 import java.util.Scanner;
 
 /**
- * Created by Propietario on 10/05/2017.
+ * Created by Grup 6 on 24/04/17. Client.
+ * Classe que hereda de Thread i s'encarrega de comunicar-se amb el servidor
  */
 public class Network extends Thread{
+
+    //Atributs
     private Client model;
 
     private Socket sServer;
@@ -37,8 +40,12 @@ public class Network extends Thread{
 
     private boolean running;
 
-    
 
+    /**
+     * Constructor
+     * @param model Model
+     * @param vista Vista
+     */
     public Network(Client model, VistaClient vista){
         this.model = model;
         this.vista = vista;
@@ -46,6 +53,12 @@ public class Network extends Thread{
 
     }
 
+    /**
+     * Classe que connecta el Socket amb els paràmetres establerts a la vista
+     * @param port
+     * @param IP
+     * @return si s'ha conectat
+     */
     public boolean connect(int port, String IP){
 
         try{
@@ -72,17 +85,35 @@ public class Network extends Thread{
         }
     }
 
+    /**
+     * Classe per enviar un usuari que s'acaba de registrar
+     * @param usuari
+     * @return si s'ha enviat bé o no
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     public boolean registraUsuari(Usuari usuari) throws IOException, ClassNotFoundException{
 
         doStreamO.writeObject(usuari);
         return  (Boolean) diStreamO.readObject();    }
 
+    /**
+     * Classe que envia els paràmetres d'un usuari per iniciar sessió
+     * @param inicia    login i password
+     * @return si s'ha pogut iniciar sessió
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     public boolean iniciaSessio(Inicia inicia) throws IOException, ClassNotFoundException{
 
         doStreamO.writeObject(inicia);
         return  (Boolean) diStreamO.readObject();
     }
 
+    /**
+     * Classe que envia els controls que s'hancanviat en el client
+     * @param controls Array d'ints que conté els codis dels controls
+     */
     public void passaControls(int[] controls){
 
         try {
@@ -112,6 +143,10 @@ public class Network extends Thread{
         return controls;
     }
 
+    /** Mètode que avisa al servidor amb un text
+     * @param which text que rebrà el servidor
+     * @throws IOException
+     */
     public void avisaServer(String which) throws IOException{
         System.out.println("avisa " + which);
         doStreamO.writeObject(which);
@@ -125,11 +160,17 @@ public class Network extends Thread{
         return diStreamO;
     }
 
+    /**
+     * Mètode que inicia un ThreadRebre
+     */
     public void iniciaRebre(){
         tr = new ThreadRebre(diStreamO, model, vista, this, cj);
         tr.start();
     }
 
+    /**
+     * Mètode que avisa que un jugador ha perdut la partida
+     */
     public void partidaPerduda(){
         try {
             doStreamO.writeObject("MORT");
@@ -146,6 +187,10 @@ public class Network extends Thread{
         return (String) diStreamO.readObject();
     }
 
+    /**
+     * Classe que tanca la comunicació al tancar sessió
+     * @throws IOException
+     */
     public void tancarSessio() throws IOException{
 
         doStreamO.close();

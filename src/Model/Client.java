@@ -4,7 +4,6 @@ package Model;
  * Created by Grup 6 on 24/04/17. Client.
  * Model del Client que realitza les accions de comprovacio i gestió de la partida.
  */
-
 public class Client {
 
     //Atributs

@@ -4,7 +4,8 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 
 /**
- * Created by Propietario on 05/07/2017.
+ * Created by Grup 6 on 03/05/2017 Move.
+ * Classe que hereda de AbstractAction i s'encarrega de moure la serp
  */
 public class Move extends AbstractAction{
     private ControladorJoc cj;
