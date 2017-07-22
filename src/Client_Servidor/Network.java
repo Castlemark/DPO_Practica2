@@ -126,6 +126,10 @@ public class Network extends Thread{
         }
     }
 
+    /**
+     * Mètode per rebre els controls enviats pel client
+     * @return
+     */
     public int[] rebreControls(){
 
         int[] controls = new int[4];

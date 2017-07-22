@@ -192,24 +192,29 @@ public class Controls extends JPanel {
         //Afegim els esdeveniments per reconeixer si es prem una tecla
         //Tecla left
         jtfLeft.addKeyListener(new KeyListener() {
+            @Override
             public void keyTyped(KeyEvent e) {
             }
 
+            @Override
             public void keyPressed(KeyEvent e) {
                 teclaLeft = e.getKeyCode(); //obtenim el codi de la tecla
                 jtfLeft.setText("");        //esborrem cada cop que s'escrigui una tecla
                 jlLeft.setText( e.getKeyText(e.getKeyCode()));  //Mostrem quina tecla s'ha apretat
             }
 
+            @Override
             public void keyReleased(KeyEvent e) {
             }
         });
 
         //JTextField Tecla left
         jtfRight.addKeyListener(new KeyListener() {
+            @Override
             public void keyTyped(KeyEvent e) {
             }
 
+            @Override
             public void keyPressed(KeyEvent e) {
                 teclaRight = e.getKeyCode();
                 jtfRight.setText("");
@@ -222,30 +227,36 @@ public class Controls extends JPanel {
 
         //JTextField Tecla Down
         jtfDown.addKeyListener(new KeyListener() {
+            @Override
             public void keyTyped(KeyEvent e) {
             }
 
+            @Override
             public void keyPressed(KeyEvent e) {
                 teclaDown = e.getKeyCode();
                 jtfDown.setText("");
                 jlDown.setText( e.getKeyText(e.getKeyCode()));
             }
 
+            @Override
             public void keyReleased(KeyEvent e) {
             }
         });
 
         //JTextField Tecla Up
         jtfUp.addKeyListener(new KeyListener() {
+            @Override
             public void keyTyped(KeyEvent e) {
             }
 
+            @Override
             public void keyPressed(KeyEvent e) {
                 teclaUp = e.getKeyCode();
                 jtfUp.setText("");
                 jlUp.setText( e.getKeyText(e.getKeyCode()));
             }
 
+            @Override
             public void keyReleased(KeyEvent e) {
             }
         });

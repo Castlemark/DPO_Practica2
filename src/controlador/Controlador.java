@@ -79,7 +79,7 @@ public class Controlador implements ActionListener {
                     }
                     break;
 
-                case "INICIARSESSIO":   //Al iniciar sessió passa les dades al servidori canvia a lafinesra ranquing
+                case "INICIARSESSIO":   //Al iniciar sessió passa les dades al servidor i canvia a la finestra ranquing
 
                     Inicia iniciaAux = new Inicia(vista.getIniciarSessio().getID(), vista.getIniciarSessio().getPassword());
 
