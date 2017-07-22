@@ -24,13 +24,11 @@ public class VistaClient extends JFrame {
 
     private Controls controls;
     private Configuracio configuracio;
-    private  FiPartida fiPartida;
     private Inici inici;
     private IniciarSessio iniciarSessio;
     private  Joc joc;
     private Ranquing ranquing;
     private Registre registre;
-    private TancarSessio tancarSessio;
     private VistaJoc vistaJoc;
     private Identificacio identificacio;
 
@@ -48,20 +46,17 @@ public class VistaClient extends JFrame {
         //inicialitzar panels
         //controls = new Controls();
         configuracio = new Configuracio();
-        fiPartida = new FiPartida(true);// de moment
         inici = new Inici();
         iniciarSessio = new IniciarSessio();
         joc = new Joc();
         ranquing = new Ranquing();
         registre = new Registre();
-        tancarSessio = new TancarSessio();
         identificacio = new Identificacio();
         controls = new Controls();
 
 
         this.getContentPane().add("INICI", configuracio);
         this.getContentPane().add("IDENTIFICACIO", identificacio);
-        this.getContentPane().add("FIPARTIDA" , fiPartida);
         this.getContentPane().add("RANQUING", ranquing);
         this.getContentPane().add("JOC", joc);
         this.getContentPane().add("CONTROLS",controls);

@@ -33,9 +33,7 @@ public class Controlador implements ActionListener {
 
         try {
 
-
             switch (e.getActionCommand()) {
-
 
                 case "REGISTRE":
 
@@ -111,14 +109,17 @@ public class Controlador implements ActionListener {
                     break;
 
                 case "GUARDAR":
-                    network.avisaServer("CONTROLS");
-                    network.passaControls(vista.getControls());
-                    vista.actualitzaTecles(vista.getControls());
-                    vista.changePanel("RANQUING");
+                    if (model.comprovaControls(vista.getControls())) {
+                        network.avisaServer("CONTROLS");
+                        network.passaControls(vista.getControls());
+                        vista.actualitzaTecles(vista.getControls());
+                        vista.changePanel("RANQUING");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Hi ha un control repetit!");
+                    }
                     break;
 
                 case "CONTROLS":
-
                     vista.changePanel("CONTROLS");
                     break;
 
