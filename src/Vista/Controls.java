@@ -42,10 +42,9 @@ import java.awt.event.*;
 import javax.swing.*;
 
 /**
- * Created by Grup 6 on 20/04/17. Configuracio.
- * Vista on apareixen els camps de IP i port, per tal de que un usuari es connecti un cop hagi clicat el botó Iniciar.
+ * Created by Grup 6  Control.
+ * Classe encarregada de mostrar la vista per canviar els controls del joc
  */
-
 public class Controls extends JPanel {
 
     //Atributs
@@ -71,6 +70,12 @@ public class Controls extends JPanel {
     private int teclaRight;
 
 
+
+
+
+    /**
+     * Create the frame.
+     */
     public Controls() {
 
 
@@ -91,8 +96,7 @@ public class Controls extends JPanel {
         jbGuardar = new JButton();
         jlEspai5 = new JLabel();
 
-        //======== this ========
-
+        //Fem unaGridBagLayout
 
         setLayout(new GridBagLayout());
         ((GridBagLayout) getLayout()).columnWidths = new int[]{0, 136, 0, 0, 214, 0, 131, 0, 0};
@@ -100,20 +104,20 @@ public class Controls extends JPanel {
         ((GridBagLayout) getLayout()).columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
         ((GridBagLayout) getLayout()).rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0E-4};
 
-        //---- label6 ----
+        //Afegim un JLabel buit
         jlEspai.setText(" ");
         add(jlEspai, new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 25, 25), 0, 0));
 
-        //---- label1 ----
+        //Afegim el JLabel de controls
         jlControls.setText("Controls");
         jlControls.setFont(new Font("Akrobat", Font.BOLD, 20));
         add(jlControls, new GridBagConstraints(3, 2, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 25, 25), 0, 0));
 
-        //---- label2 ----
+        //Afegim la imatge d'amunt
         jlUp.setIcon(new ImageIcon("imatges\\arriba.png"));
         add(jlUp, new GridBagConstraints(3, 3, 1, 3, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
@@ -122,13 +126,13 @@ public class Controls extends JPanel {
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 25, 25), 0, 0));
 
-        //---- label3 ----
+        //Afegim la imatge d'avall
         jlDown.setIcon(new ImageIcon("imatges\\abajo.png"));
         add(jlDown, new GridBagConstraints(3, 6, 1, 3, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 25, 25), 0, 0));
 
-        //---- jlEspai2 ----
+        //Afegim un espai
         jlEspai2.setText(" ");
         add(jlEspai2, new GridBagConstraints(4, 6, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
@@ -137,13 +141,13 @@ public class Controls extends JPanel {
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 25, 25), 0, 0));
 
-        //---- jlRight ----
+        //Afegim imatge de dreta
         jlRight.setIcon(new ImageIcon("imatges\\derecha.png"));
         add(jlRight, new GridBagConstraints(3, 9, 1, 4, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 25, 25), 0, 0));
 
-        //---- jlEspai3 ----
+        //Afegim un espai
         jlEspai3.setText(" ");
         add(jlEspai3, new GridBagConstraints(4, 10, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
@@ -152,13 +156,13 @@ public class Controls extends JPanel {
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 25, 25), 0, 0));
 
-        //---- jlLeft ----
+        //Afegim una imatge d'esquerra
         jlLeft.setIcon(new ImageIcon("imatges\\izq.png"));
         add(jlLeft, new GridBagConstraints(3, 13, 1, 4, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 25, 25), 0, 0));
 
-        //---- jlEspai4 ----
+        //Afegim un espai
         jlEspai4.setText(" ");
         add(jlEspai4, new GridBagConstraints(4, 14, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
@@ -167,13 +171,13 @@ public class Controls extends JPanel {
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 25, 25), 0, 0));
 
-        //---- jbGuardar ----
+        //Afegim el botó de guardar
         jbGuardar.setText("Guardar");
         add(jbGuardar, new GridBagConstraints(6, 16, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                 new Insets(0, 0, 25, 25), 0, 0));
 
-        //---- jlEspai5 ----
+        //Afegim un espai
         jlEspai5.setText(" ");
         add(jlEspai5, new GridBagConstraints(0, 17, 1, 1, 0.0, 0.0,
                 GridBagConstraints.CENTER, GridBagConstraints.BOTH,
@@ -185,75 +189,61 @@ public class Controls extends JPanel {
         contentPane.setLayout(null);
         contentPane.setFocusable(true);
 
-        //Events
-
+        //Afegim els esdeveniments per reconeixer si es prem una tecla
+        //Tecla left
         jtfLeft.addKeyListener(new KeyListener() {
             public void keyTyped(KeyEvent e) {
             }
 
             public void keyPressed(KeyEvent e) {
-
-
-
-                teclaLeft = e.getKeyCode();
-                jtfLeft.setText("");
-                jlLeft.setText( e.getKeyText(e.getKeyCode()));
-
+                teclaLeft = e.getKeyCode(); //obtenim el codi de la tecla
+                jtfLeft.setText("");        //esborrem cada cop que s'escrigui una tecla
+                jlLeft.setText( e.getKeyText(e.getKeyCode()));  //Mostrem quina tecla s'ha apretat
             }
 
             public void keyReleased(KeyEvent e) {
             }
-
         });
 
+        //JTextField Tecla left
         jtfRight.addKeyListener(new KeyListener() {
             public void keyTyped(KeyEvent e) {
             }
 
             public void keyPressed(KeyEvent e) {
-
                 teclaRight = e.getKeyCode();
                 jtfRight.setText("");
                 jlRight.setText( e.getKeyText(e.getKeyCode()));
-
             }
 
             public void keyReleased(KeyEvent e) {
             }
-
         });
 
+        //JTextField Tecla Down
         jtfDown.addKeyListener(new KeyListener() {
-
             public void keyTyped(KeyEvent e) {
             }
 
             public void keyPressed(KeyEvent e) {
-
-
                 teclaDown = e.getKeyCode();
                 jtfDown.setText("");
                 jlDown.setText( e.getKeyText(e.getKeyCode()));
-
             }
 
             public void keyReleased(KeyEvent e) {
             }
-
         });
 
+        //JTextField Tecla Up
         jtfUp.addKeyListener(new KeyListener() {
             public void keyTyped(KeyEvent e) {
             }
 
             public void keyPressed(KeyEvent e) {
-
-
-
                 teclaUp = e.getKeyCode();
                 jtfUp.setText("");
                 jlUp.setText( e.getKeyText(e.getKeyCode()));
-
             }
 
             public void keyReleased(KeyEvent e) {
@@ -262,12 +252,19 @@ public class Controls extends JPanel {
 
     }
 
+    /**
+     * Registra el controlador del botó
+     * @param c Controlador
+     */
     public void registerController( Controlador c){
         jbGuardar.setActionCommand("GUARDAR");
         jbGuardar.addActionListener(c);
 
     }
 
+    /**Mètode que actualiza els jLabels quan s'obre la vista
+     * @param control
+     */
     public void actualitzaControls(int[] control){
         teclaUp = control[0];
         teclaDown = control[1];
@@ -278,8 +275,13 @@ public class Controls extends JPanel {
         jlLeft.setText( KeyEvent.getKeyText(teclaLeft));
         jlRight.setText( KeyEvent.getKeyText(teclaRight));
 
+
+
     }
 
+    /**Mètode que retorna els controls assignats
+     * @return array d'ints que conté els controls de les 4 tecles
+     */
     public int[] getControls(){
 
         int[] controls = new int[4];
