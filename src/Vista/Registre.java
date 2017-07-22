@@ -9,8 +9,11 @@ import java.awt.event.ActionListener;
 import java.util.*;
 import java.util.List;
 
+
+
 /**
- * Created by sullivan on 20/04/2017.
+ * Created by Grup 6 on 20/04/17. Registre.
+ * Vista on apareixen els camps per registrar-se que s'inclou al panell d'identificació
  */
 public class Registre extends JPanel {
     private JPanel jpRegistre;
@@ -32,6 +35,9 @@ public class Registre extends JPanel {
     private JButton jbEnviar;
 
 
+    /**
+     * Constructor de la classe
+     */
     public Registre () {
 
         this.setSize (350, 350);
@@ -79,6 +85,7 @@ public class Registre extends JPanel {
         this.add(jpRegistre, BorderLayout.PAGE_START);
     }
 
+    //Getters
     public java.lang.String getLogin(){
         return jtLogin.getText();
     }
@@ -92,6 +99,12 @@ public class Registre extends JPanel {
         return java.lang.String.valueOf(jConfirmacio.getPassword());
     }
 
+
+    /**
+     * Registra el controlador
+     * @param c Controlador
+     * @return void
+     */
     public void registercontroller(Controlador c){
         jbEnviar.setActionCommand("REGISTRE");
         jbEnviar.addActionListener(c);

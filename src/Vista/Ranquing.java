@@ -27,13 +27,7 @@ public class Ranquing extends  JPanel {
      */
     public Ranquing (){
 
-        initComponents();
-    }
-
-    /**
-     * Mètode que inicialitza els elements
-     */
-    private void initComponents() {
+        //Inicialitzem components
         jbConfig = new JButton("Ajustes");
         jbTancar = new JButton("Tancar Sessió");
         jlRanquing = new JLabel("                                                                                           Ranquing TOP 10");
@@ -71,11 +65,14 @@ public class Ranquing extends  JPanel {
         jpJocs.add(jb4X);
         jpJocs.add(jbCamp);
         this.add(jpJocs, BorderLayout.SOUTH);
-
     }
 
 
-
+    /**
+     * Registra el controlador
+     * @param c Controlador
+     * @return void
+     */
     public void registerController(ActionListener c){
         jb2X.addActionListener(c);
         jb4X.addActionListener(c);
@@ -90,6 +87,11 @@ public class Ranquing extends  JPanel {
         jbCamp.setActionCommand("CAMPEONAT");
     }
 
+
+    /**
+     * Afegeix el rànquing en el JTextField
+     * @param ranquing
+     */
     public void setRanquing(String ranquing){
         jtRanquing.setText("");
         jtRanquing.setText(ranquing);
