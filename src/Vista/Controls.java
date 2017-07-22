@@ -74,7 +74,7 @@ public class Controls extends JPanel {
 
 
     /**
-     * Create the frame.
+     *Constructor
      */
     public Controls() {
 
@@ -251,6 +251,8 @@ public class Controls extends JPanel {
         });
 
     }
+
+    //Mètodes
 
     /**
      * Registra el controlador del botó
