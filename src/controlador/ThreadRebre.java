@@ -51,6 +51,7 @@ public class ThreadRebre extends Thread {
                         vista.iniciaPartida();
 
                         break;
+
                     case "MOU":
                         //rebreSerp
                         int jug = (int)diStreamO.readObject();
