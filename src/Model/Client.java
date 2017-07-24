@@ -44,18 +44,6 @@ public class Client {
         this.partida = new Partida(s);
     }
 
-    public void setPunts(int punts) {
-        this.punts = punts;
-    }
-
-    public int getPunts() {
-        return punts;
-    }
-
-    public void sumaPunts(int p){
-        punts =+ p;
-    }
-
     /**
      * Elimina els jugadors de la Partida torneig quan aquest perden. Si el boolean de la casella (corresponent a cada jugador) és true, voldrà dir que està eliminat.
      * @param e int que indica quin jugador a perdut.
@@ -68,16 +56,6 @@ public class Client {
                 num++;
             }
         }
-        if(num == 3){
-            for(int i = 0; i < eliminats.length; i++){
-                eliminats[i] = false;
-            }
-        }
-    }
-
-    public void setEliminats(boolean[] eliminats) {
-
-        this.eliminats = eliminats;
     }
 
     public boolean[] getEliminats() {
@@ -100,5 +78,20 @@ public class Client {
 
         }
         return ok;
+    }
+
+    public void reinciaEliminats(){
+        int num = 0;
+        for(int i = 0; i < eliminats.length; i++){
+            if(eliminats[i]){
+                num++;
+            }
+        }
+        if(num == 3){
+
+            for(int i = 0; i < eliminats.length; i++){
+                eliminats[i] = false;
+            }
+        }
     }
 }

@@ -22,7 +22,6 @@ public class Configuracio extends JPanel {
     private JLabel jlIP;
     private JPanel jpIP;
     private JButton jbIniciar;
-    private JPanel jpIniciar;
 
     //Constructor
     public Configuracio () {

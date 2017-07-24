@@ -2,7 +2,6 @@ package controlador;
 
 import Model.Inicia;
 import Model.Partida;
-import Vista.Configuracio;
 import Client_Servidor.Network;
 import Vista.VistaClient;
 import Model.Client;
@@ -62,7 +61,6 @@ public class Controlador implements ActionListener {
                             network.iniciaRebre();
                         }
 
-                        System.out.println("OK");
                     } else {
                         JOptionPane.showMessageDialog(null, "No s'ha pogut completar el registre\nHi ha un error en les dades");
                     }
@@ -70,7 +68,6 @@ public class Controlador implements ActionListener {
 
                 case "INICIAR": //Primer cas que es realitza, es connecta al servidor amb el port i ip indicats
 
-                    System.out.println("connectant");
 
                     if (network.connect(vista.getPort(), vista.getIp())){
                         vista.changePanel("IDENTIFICACIO");

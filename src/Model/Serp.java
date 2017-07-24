@@ -1,8 +1,5 @@
 package Model;
 
-import javafx.geometry.Pos;
-
-import java.awt.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -20,7 +17,10 @@ public class Serp implements Serializable{
     private int dir = 1;
     private boolean viu;
 
-    //Constructors
+    /**
+     * Constructor que crea la serp en funció de quin número tingui
+     * @param i
+     */
     public Serp(int i){
         viu = true;
         posicions = new ArrayList<>();
@@ -51,6 +51,9 @@ public class Serp implements Serializable{
 
     //Metodes
 
+    /**
+     * Canvia la direcció de la serp
+     */
     public void mouSerp(){cap.mouCap(dir);}
 
     /**
@@ -83,18 +86,6 @@ public class Serp implements Serializable{
      */
     public ArrayList<Posicio> getPosicions() {
         return posicions;
-    }
-
-    /**
-     * Setter de posicions
-     * @param posicions
-     */
-    public void setPosicions(ArrayList posicions) {
-        this.posicions = posicions;
-    }
-
-    public void setCap(Posicio cap) {
-        this.cap = cap;
     }
 
     public Posicio getCap() {

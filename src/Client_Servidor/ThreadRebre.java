@@ -1,19 +1,14 @@
-package controlador;
+package Client_Servidor;
 
-import Client_Servidor.Network;
 import Model.*;
 import Model.Partida;
-import Model.Serp;
 import Vista.VistaClient;
+import controlador.ControladorJoc;
 
 
-import java.io.DataInputStream;
-import java.io.EOFException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.net.ServerSocket;
-import java.net.UnknownHostException;
-import java.util.ArrayList;
+
 
 /**
  * Created by Grup 6 on 03/05/2017 ThreadRebre.
@@ -21,7 +16,6 @@ import java.util.ArrayList;
  */
 public class ThreadRebre extends Thread {
     private ObjectInputStream diStreamO;
-    private Partida partida;
     private Client model;
     private ControladorJoc cj;
     private String opcio = "";
@@ -58,10 +52,10 @@ public class ThreadRebre extends Thread {
 
                 switch (opcio) {
                     case "COMENÇA":
-                        for(int i = 0; i < 4; i++){
-                            System.out.println(model.getEliminats()[i]);
-                        }
-                        System.out.println("Comença partida amb la serp " + model.getPartida().getSerp());
+
+                        //inicialitzem el conte enrere
+                        cj.setContador(4);
+
                         //començarPartida
                         vista.iniciaPartida();
 
@@ -73,14 +67,12 @@ public class ThreadRebre extends Thread {
                         int dir = (int) diStreamO.readObject();
                         Posicio cap = (Posicio)diStreamO.readObject();
                         model.getPartida().mouSerp(dir, cap, jug);
-                        System.out.println("serp rebuda");
                         break;
 
                     case "JUGADOR":     //afegir jugador
                         String[] j = (String[])diStreamO.readObject();
                         vista.insereixJugador(j);
                         int k = (int)diStreamO.readObject();
-                        System.out.println(k);
                         model.getPartida().setSerp(k);
                         vista.insereixRondes(model.getPartida().getRondes());
                         break;
@@ -90,7 +82,6 @@ public class ThreadRebre extends Thread {
                         break;
 
                     case "PUNTS":       //rebre punts
-                        System.out.println("Rep punts");
                         vista.setPos((String) diStreamO.readObject());
                         vista.setPunts((int) diStreamO.readObject());
                         vista.getJoc().setTotal((int) diStreamO.readObject());
@@ -103,29 +94,24 @@ public class ThreadRebre extends Thread {
                         vista.insereixRondes(model.getPartida().getRondes());
                         break;
                     case "ELIMINAT":
-                        /*int num=0;                        //BORRAR!
-                        for(int i = 0; i < eliminats.length; i++){
-                            if(eliminats[i]){
-                                num++;
-                            }
-                        }
-                        System.out.println(" Hi han eliminats" + num);*/
+
                         int n = (int) diStreamO.readObject();
                         for (int i= 0; i < n; i++){
                             int eliminat = (int) diStreamO.readObject();
                             model.elimina(eliminat);
                         }
-                        System.out.println("Estas eliminat");
+                        model.reinciaEliminats();
                         break;
                     case "ABANDONAT": //En prèmer el botó abandona
                         cj.reinicia();
                         model.abandonaPartida();
+                        vista.getJoc().setContador(cj.getContador());
+                        vista.getJoc().setSerps(cj.getSerps());
                         vista.reinicia();
                         break;
 
                     case "RANQUING":        //Mostrar el rànquing rebut del servidor
                         vista.getRanquing().setRanquing((String) diStreamO.readObject());
-                        System.out.println("ranquing rebut");
                         break;
 
                     case "ENVIACONTROLS":       //Establir els controls rebuts del servidor
@@ -134,7 +120,6 @@ public class ThreadRebre extends Thread {
                         controls[1] = (int) diStreamO.readObject();
                         controls[2] = (int) diStreamO.readObject();
                         controls[3] = (int) diStreamO.readObject();
-                        System.out.println(controls[0]);
                         vista.actualitzaControls(controls);
                         vista.actualitzaTecles(controls);
                         break;

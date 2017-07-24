@@ -2,10 +2,8 @@
 package Vista;
 
 import java.awt.*;
-import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.border.*;
-//import com.jgoodies.forms.factories.*;
 import controlador.ControladorJoc;
 import controlador.Move;
 
@@ -32,6 +30,10 @@ public class Joc extends JPanel {
     private int teclaRight;
 
     //Constructors
+
+    /**
+     * Constructor
+     */
     public Joc() {
         label1 = new JLabel();
         rondes1 = new JLabel();
@@ -106,6 +108,10 @@ public class Joc extends JPanel {
         panel1.iniciar();
     }
 
+    /**
+     * Mètode que col·loca els noms dels jugadors a les vistes del joc
+     * @param logins
+     */
     public void insereixJugador(String[] logins){
         switch (logins.length){
             case 2:

@@ -5,7 +5,6 @@ import Vista.*;
 import Model.Client;
 
 import javax.swing.*;
-import java.awt.*;
 
 /**
  * Main del controlador del Client del Troner
@@ -23,7 +22,7 @@ public class Main {
 
                 Controlador  controlador= new Controlador(vista,model,network);
 
-                ControladorJoc cj = new ControladorJoc(vista, vista.getJoc(), model, network);
+                ControladorJoc cj = new ControladorJoc(vista, model, network);
                 vista.registerController(controlador, cj);
                 network.setControlador(cj);
 

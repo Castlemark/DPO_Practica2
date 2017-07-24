@@ -14,8 +14,6 @@ public class IniciarSessio extends JPanel {
 
     //Atributs
     private JPanel jpIniciar;
-    private JPanel jpAtras;
-    private JButton jbAtras;
     private JLabel jlTitle;
     private JLabel jlID;
     private JPanel jpID;
@@ -30,7 +28,6 @@ public class IniciarSessio extends JPanel {
 
         this.setSize (350,350);
         jpIniciar = new JPanel();
-        jpAtras = new JPanel(new BorderLayout());
         jpID = new JPanel(new BorderLayout());
         jpPassword = new JPanel(new BorderLayout());
 

@@ -25,6 +25,10 @@ public class Identificacio extends JPanel {
     private JLabel jlEspai2;
 
     //Constructors
+
+    /**
+     * Constructor sense paràmetres
+     */
     public Identificacio(){
 
         jlEspai = new JLabel();

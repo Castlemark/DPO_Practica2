@@ -1,7 +1,6 @@
 package Vista;
 
 import Model.Serp;
-import controlador.Controlador;
 import controlador.ControladorJoc;
 import Model.Posicio;
 
@@ -18,24 +17,24 @@ import java.util.ArrayList;
 public class VistaJoc extends JPanel {
 
    //Atributs
-    private ControladorJoc cj;
     private Timer t;
-    private Timer inici;
     private boolean cont;
-    private int temps;
     private boolean fi;
     private int punts;
     private String posicio;
     private int total;
     private boolean abandona;
+    private int contador;
+    private ArrayList<Serp> serps;
 
-    //Constructors
+    /**
+     * Constructor
+     */
     public VistaJoc(){
         this.setSize(350, 350);
         t = new Timer(1000, null);
         cont = true;
         fi = false;
-        temps = 3;
         abandona = false;
     }
 
@@ -43,14 +42,15 @@ public class VistaJoc extends JPanel {
      * Procediment que inicialitza
      */
     public void iniciar(){
-        cj.setContador(4);
         cont = true;
         t.setDelay(1000);
         fi = false;
         t.start();
-        System.out.println("comença el thread " + t.getActionCommand()); //BORRAR
     }
 
+    /**
+     * Mètode utilitzat per abandonar una partida
+     */
     public void sortir(){
         t.stop();
         t.setActionCommand("TIMER");
@@ -58,8 +58,10 @@ public class VistaJoc extends JPanel {
         fi = false;
     }
 
+    /**
+     * Mètode utilitzat per aturar la partida quan s'acaba
+     */
     public void aturar(){
-        System.out.println("aturar");
         fi = true;
         t.setActionCommand("FI");
         t.setDelay(1000);
@@ -70,9 +72,12 @@ public class VistaJoc extends JPanel {
         requestFocus();
     }
 
+    /**
+     * Mètode dela clase Graphics que pinta la pantalla de joc quan es crida repaint()
+     * @param g
+     */
     public void paintComponent(Graphics g) {
 
-        ArrayList<Serp> serps = cj.getSerps();
         ArrayList<ArrayList<Posicio>> posicions = new ArrayList<>();
         ArrayList<Posicio> caps = new ArrayList<>();
         for(int i = 0; i < serps.size(); i++){
@@ -83,10 +88,10 @@ public class VistaJoc extends JPanel {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
         if (cont){
-            if(cj.getContador() == 4){
+            if(contador == 4){
                 g2d.drawString("Esperant als altres jugadors...", 70, 150);
             }else {
-                g2d.drawString(cj.getContador()+"", 150, 150);
+                g2d.drawString(contador + "", 150, 150);
             }
         }else{
             for (int j = 0; j < serps.size(); j++) {
@@ -124,11 +129,13 @@ public class VistaJoc extends JPanel {
         }
     }
 
+    /**
+     * Registra el controlador al Timer
+     * @param cj
+     */
     public void registraControlador (ControladorJoc cj){
-        this.cj = cj;
         t.addActionListener(cj);
         t.setActionCommand("TIMER");
-      //  addKeyListener(cj);
     }
 
     public void setCont(boolean cont) {
@@ -152,6 +159,9 @@ public class VistaJoc extends JPanel {
         this.posicio = posicio;
     }
 
+    /**
+     * Mètode que reincia els paràmetres de la partida quan es vol iniciar una de nova
+     */
     public void reinicia(){
         t.setActionCommand("TIMER");
         cont = true;
@@ -172,5 +182,13 @@ public class VistaJoc extends JPanel {
 
     public boolean isAbandona() {
         return abandona;
+    }
+
+    public void setSerps(ArrayList<Serp> serps) {
+        this.serps = serps;
+    }
+
+    public void setContador(int contador) {
+        this.contador = contador;
     }
 }

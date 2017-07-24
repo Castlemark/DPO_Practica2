@@ -6,40 +6,8 @@ import controlador.Controlador;
 import javax.swing.*;
 
 import java.awt.*;
-import java.io.IOException;
-import java.util.Scanner;
 import java.awt.event.KeyEvent;
-
-
-
-
-/**
- * Created by sullivan on 10/05/2017.
- */
-/*public class Controls extends JPanel {
-    public KeyEvent key;
-
-    public Controls() throws IOException {
-        int numero = 0;
-        System.out.println("tecla:");
-        Scanner SC = new Scanner(System.in);
-        char code;
-        code = SC.next(".").charAt(0);
-        char c = (char) System.in.read();
-        key = new KeyEvent();
-
-        numero = key.getKeyCode();
-        System.out.println(numero);
-
-
-    }
-
-
-
-}*/
-
 import java.awt.event.*;
-import javax.swing.*;
 
 /**
  * Created by Grup 6  Control.
@@ -69,16 +37,10 @@ public class Controls extends JPanel {
     private int teclaLeft;
     private int teclaRight;
 
-
-
-
-
     /**
      *Constructor
      */
     public Controls() {
-
-
 
         jlEspai = new JLabel();
         jlControls = new JLabel();

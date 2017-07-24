@@ -16,11 +16,8 @@ public class VistaClient extends JFrame {
     private  CardLayout layout;
     private Controls controls;
     private Configuracio configuracio;
-    private IniciarSessio iniciarSessio;
     private  Joc joc;
     private Ranquing ranquing;
-    private Registre registre;
-    private VistaJoc vistaJoc;
     private Identificacio identificacio;
 
     //Constructors
@@ -38,10 +35,8 @@ public class VistaClient extends JFrame {
 
         //Inicialització dels panells
         configuracio = new Configuracio();
-        iniciarSessio = new IniciarSessio();
         joc = new Joc();
         ranquing = new Ranquing();
-        registre = new Registre();
         identificacio = new Identificacio();
         controls = new Controls();
 

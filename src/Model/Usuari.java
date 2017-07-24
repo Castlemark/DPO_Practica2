@@ -64,11 +64,9 @@ public class Usuari implements Serializable{
 
     public boolean comprovaDades(String nomUsuari, String correu, String contrasenya, String confirmacioContra){
         if(nomUsuari.isEmpty()){
-            System.out.println("Escriu un nom d'usuari");
             return false;
         }
         if(correu.isEmpty()){
-            System.out.println("Format del correu electrònic incorrecte");
             return false;
 
         }else{
@@ -82,11 +80,9 @@ public class Usuari implements Serializable{
             for (int i = 0; i < correu.length(); i++){
                 switch(correu.charAt(i)){
                     case ' ':
-                        System.out.println("Format del correu electrònic incorrecte");
                         return false;
                     case '@':
                         if(i == 0 || arrova != 0 || i > correu.length() - 1) {
-                            System.out.println("Format del correu electrònic incorrecte");
                             return false;}
                         arrova = i;
                         break;
@@ -94,14 +90,12 @@ public class Usuari implements Serializable{
                         if(arrova != 0){
                             hiHaPunt = true;
                             if(arrova == i - 1 || i + 1 == correu.length()){
-                                System.out.println("Format del correu electrònic incorrecte");
                                 return false;}
                         }
                         break;
                 }
             }
             if (arrova == 0 || !hiHaPunt){
-                System.out.println("Format del correu electrònic incorrecte");
                 return false;
             }
         }
@@ -110,7 +104,6 @@ public class Usuari implements Serializable{
             - ha de tenir mínim 6 lletres
          */
         if(contrasenya.isEmpty()){
-            System.out.println("Format de la contrasenya incorrecte");
             return false;
         }else {
             boolean hiHaMaj = false;
@@ -130,12 +123,10 @@ public class Usuari implements Serializable{
             }
             //Mirem si s'han complert les condicions de la contrasenya
             if(!(hiHaMaj && hiHaMin && hiHaNum && contrasenya.length() >= 6)){
-                System.out.println("Format de la contrasenya incorrecte");
                 return false;
             }
         }
         if(confirmacioContra.isEmpty()) {
-            System.out.println("Format de la contrasenya incorrecte");
             return false;
         }
         if(contrasenya.equals(confirmacioContra)) {return true;}
@@ -143,64 +134,5 @@ public class Usuari implements Serializable{
         return false;
     }
 
-    /**
-     * Aquesta funció s'ocupa de registar un nou usuari
-     * @return cert si s'ha executat amb èxit
-     */
-    public boolean registreUsuari(){
-
-        Scanner sc = new Scanner(System.in);
-        String loginaux;
-        String correuaux;
-        String passwordaux;
-        String passwordaux2;
-
-
-        System.out.println("Nom Usuari?");
-        loginaux = sc.nextLine();
-        System.out.println("Mail?");
-        correuaux = sc.nextLine();
-        System.out.println("contrasenya?");
-        passwordaux = sc.nextLine();
-        System.out.println("confirmacio contrasenya?");
-        passwordaux2 = sc.nextLine();
-
-        while (!comprovaDades( loginaux, correuaux, passwordaux, passwordaux2)){
-
-
-            System.out.println("Nom Usuari?");
-            loginaux = sc.nextLine();
-            System.out.println("Mail?");
-            correuaux = sc.nextLine();
-            System.out.println("contrasenya?");
-            passwordaux = sc.nextLine();
-            System.out.println("confirmacio contrasenya?");
-            passwordaux2 = sc.nextLine();
-        }
-
-        login = loginaux;
-        mail = correuaux;
-        password = passwordaux;
-
-        return true;
-    }
-
-    /**
-     * Mètode iniciar sessio
-     * @param nomUsuariCorreu
-     * @param contrasenya
-     * @return boolean sempre true.
-     */
-    public boolean iniciarSessio(String nomUsuariCorreu, String contrasenya){
-        return true;
-    }
-
-    /**
-     * Mètode per tancar la sessió
-     * @return
-     */
-    public boolean tancarSessio(){
-        return true;
-    }
     
 }

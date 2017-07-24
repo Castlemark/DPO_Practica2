@@ -8,22 +8,22 @@ import java.io.Serializable;
  * Created by Grup 6 on 06/04/2017.
  */
 public class Posicio implements Serializable {
-
-    //Atributs
     private int x;
     private int y;
 
-    //Constructors
+    /**
+     * Constructor
+     * @param x
+     * @param y
+     */
     public Posicio(int x, int y){
         this.x = x;
         this.y = y;
     }
 
-    //Metodes
-
     /**
-     * Segons la direcció que rep, segons ha indicat l'usuari, es canvien les coordenades x i y.
-     * @param dir indica la direcció que ha clicat el jugador.
+     * Mètode que mou el cap segons la direcció de laserp
+     * @param dir
      */
     public void mouCap(int dir){
         switch (dir) {

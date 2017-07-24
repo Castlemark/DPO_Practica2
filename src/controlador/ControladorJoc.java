@@ -4,14 +4,10 @@ import Client_Servidor.Network;
 import Model.Client;
 import Model.Partida;
 import Vista.VistaClient;
-import Vista.VistaJoc;
 import Model.Serp;
 
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -24,7 +20,6 @@ import java.util.ArrayList;
 public class ControladorJoc implements ActionListener {
 
     //Atributs
-    private VistaJoc vistaJoc;
     private Client model;
     private Network network;
     private VistaClient vista;
@@ -34,17 +29,17 @@ public class ControladorJoc implements ActionListener {
     /**
      * Constructor
      * @param vista Vista
-     * @param vistaJoc Vista del joc
      * @param model Model
      * @param network Network
      */
-    public ControladorJoc(VistaClient vista, VistaJoc vistaJoc, Client model, Network network){
-        this.vistaJoc = vistaJoc;
+    public ControladorJoc(VistaClient vista, Client model, Network network){
         this.vista = vista;
         this.model = model;
         contador = 4;
         this.network = network;
         fi = 5;
+        vista.getJoc().setContador(contador);
+        vista.getJoc().setSerps(getSerps());
     }
 
 
@@ -65,12 +60,11 @@ public class ControladorJoc implements ActionListener {
 
                 case "TIMER":
 
-                    if(vistaJoc.isCont()){
+                    if(vista.getJoc().isCont()){
                         contador--;
-                        //      System.out.println(contador);           //ESBORRAR!
 
                         if(contador <= 0){
-                            vistaJoc.setCont(false);
+                            vista.getJoc().setCont(false);
                         }
                     }else{
 
@@ -81,7 +75,6 @@ public class ControladorJoc implements ActionListener {
                    }
                    if(model.getPartida().getSerps().get(model.getPartida().getSerp()).isViu() && !model.getEliminats()[model.getPartida().getSerp()]){
                        if(model.getPartida().comprovaCollisio()){
-                           System.out.println("Has perdut!");
                            model.getPartida().getSerps().get(model.getPartida().getSerp()).setViu(false);
                            try{
                                network.avisaServer("MORT");
@@ -90,34 +83,29 @@ public class ControladorJoc implements ActionListener {
                            }
                    }
 
-                    //ESBORRAR!
-                     /*  for(int i = 0; i < model.getPartida().getSerps().size(); i++){
-                           System.out.println("Serp " + i);
-                           for(int z = 0; z < model.getPartida().getSerps().get(i).getPosicions().size(); z++){
-                               System.out.println("(" + model.getPartida().getSerps().get(i).getPosicions().get(z).getX() + ", " + model.getPartida().getSerps().get(i).getPosicions().get(z).getY() + ")");
-                           }
-                       }*/
                         }
                     }
-                    vistaJoc.repaint();
+                    vista.getJoc().setContador(contador);
+                    vista.getJoc().setSerps(getSerps());
+                    vista.getJoc().repaint();
                     break;
                 case "FI":
                     if(fi <= 0){
-                        vistaJoc.reinicia();
+                        vista.getJoc().reinicia();
                         model.getPartida().reinicia();
                         fi = 5;
                     }else{
                         fi--;
                     }
-                    if(vistaJoc.isAbandona()){
-                        vistaJoc.reinicia();
-                        vistaJoc.sortir();
-                        vistaJoc.setAbandona(false);
-                        System.out.println("Joc reiniciat");
+                    if(vista.getJoc().isAbandona()){
+                        vista.getJoc().reinicia();
+                        vista.getJoc().sortir();
+                        vista.getJoc().setAbandona(false);
                     }
                     contador = 4;
-                    vistaJoc.repaint();
-                    System.out.println("Repaint amb cont " + vistaJoc.isCont());
+                    vista.getJoc().setContador(contador);
+                    vista.getJoc().setSerps(getSerps());
+                    vista.getJoc().repaint();
                     break;
             }
 
@@ -144,10 +132,6 @@ public class ControladorJoc implements ActionListener {
         return model.getPartida().getSerps();
     }
 
-    public void iniciaPartida (Partida partida){
-        //avisem a la vista que comencem la partida
-    }
-
     public void setContador(int contador) {
         this.contador = contador;
     }
@@ -156,15 +140,13 @@ public class ControladorJoc implements ActionListener {
      * @param d int que indica la Direcció
      */
     public void moureSerp(int d){
-        System.out.println("teclaaa");                          //ESBORRAR!
 
-        if(vistaJoc.isCont() == false && !vistaJoc.isFi()) {
+        if(vista.getJoc().isCont() == false && !vista.getJoc().isFi()) {
             try{
                 model.getPartida().getSerps().get(model.getPartida().getSerp()).canviaDireccio(d, model.getPartida().getSerps().get(model.getPartida().getSerp()).getCap());
                 network.avisaServer("MOVIMENT");
                 network.getDoStreamO().writeObject(d);
                 network.getDoStreamO().writeObject(model.getPartida().getSerps().get(model.getPartida().getSerp()).getUltim());
-                System.out.println("agafa serp");           //ESBORRAR!
             } catch (IOException ex) {
                 ex.printStackTrace();
             }

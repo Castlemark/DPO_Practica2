@@ -1,14 +1,9 @@
 package Vista;
 
-import com.sun.org.apache.xpath.internal.operations.String;
 import controlador.Controlador;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
-import java.util.*;
-import java.util.List;
-
 
 
 /**
