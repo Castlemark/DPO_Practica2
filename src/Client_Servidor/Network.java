@@ -128,6 +128,7 @@ public class Network{
         doStreamO.writeObject(which);
     }
 
+
     public ObjectOutputStream getDoStreamO() {
         return doStreamO;
     }
