@@ -1,4 +1,4 @@
-# DPO_Practica2_Client
+# Troner client
 
 Proyecto de creación de una versión online del juego Troner, inspirado por la pelicula Tron.
 
